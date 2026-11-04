@@ -87,7 +87,7 @@ export const ChallengeTour: React.FC = () => {
   return (
     <div>
       <div className="sec__head mx-auto text-center mb-10">
-        <h2>Những bài toán bạn có thể giải quyết.</h2>
+        <h2>Những sản phẩm nào có thể được xây dựng?</h2>
         <p className="lead max-w-2xl mx-auto">
           5 nhóm bài toán thực tiễn gợi ý từ doanh nghiệp. Bạn có thể chọn hướng đi phù hợp với thế mạnh của đội mình.
         </p>

@@ -35,9 +35,9 @@ h1, h2, h3 {
   min-width: 0;
   text-wrap: balance;
 }
-h1 { max-width: 20ch; font-size: var(--text-display); }
-h2 { max-width: 30ch; font-size: var(--text-section); }
-h3 { max-width: 40ch; font-size: var(--text-title); line-height: 1.25; }
+h1 { font-size: var(--text-display); }
+h2 { font-size: var(--text-section); }
+h3 { font-size: var(--text-title); line-height: 1.25; }
 .lead { font-size: var(--text-lead); line-height: 1.5; max-width: 52ch; color: var(--color-muted); }
 p { margin: 0; text-wrap: pretty; }
 p:not([class]) { max-width: 65ch; }

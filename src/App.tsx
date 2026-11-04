@@ -9,7 +9,7 @@ import LaserFlow from './components/LaserFlow';
 import FoldText from './components/FoldText';
 import SprintTimeline from './components/SprintTimeline';
 import OrganizersPartnersSection from './components/OrganizersPartnersSection';
-import { ChevronDown, Mail, Cpu, Zap, Sparkles, CheckCircle2 } from 'lucide-react';
+import { ChevronDown, Mail, Code2, Palette, TrendingUp, Sparkles } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -18,50 +18,50 @@ export const App: React.FC = () => {
   const steps = [
     {
       num: '01',
-      title: 'Nhận bài toán thực tế',
-      desc: 'Doanh nghiệp đối tác chia sẻ các bài toán nghiệp vụ thật họ đang cần giải quyết, kèm dữ liệu mẫu và kỳ vọng đầu ra.',
+      title: 'Làm việc theo nhóm',
+      desc: 'Rủ bạn bè cùng tham gia, kết hợp thế mạnh của mỗi thành viên.',
     },
     {
       num: '02',
-      title: 'Bootcamp & Định hình giải pháp',
-      desc: 'Tham gia AI Product Bootcamp, học cách tận dụng API có sẵn và trao đổi trực tiếp với Mentor để chốt phạm vi MVP.',
+      title: 'Tiếp cận bài toán thực tế',
+      desc: 'Tìm hiểu vấn đề từ doanh nghiệp và đề xuất cách giải quyết.',
     },
     {
       num: '03',
-      title: 'Làm việc nhóm & Xây dựng MVP',
-      desc: 'Cùng đồng đội lập trình, thiết kế giao diện và hoàn thiện sản phẩm ứng dụng AI chạy được trong vòng 03 tuần.',
+      title: 'Tự tay xây dựng sản phẩm',
+      desc: 'Sử dụng AI và kiến thức đã học để phát triển ứng dụng.',
     },
     {
       num: '04',
-      title: 'Demo sản phẩm trước hội đồng',
-      desc: 'Trình diễn sản phẩm trực tiếp trước ban giám khảo, doanh nghiệp đặt hàng và nhận phản biện giá trị tại Demo Day.',
+      title: 'Trình diễn sản phẩm',
+      desc: 'Giới thiệu sản phẩm và bảo vệ ý tưởng trước hội đồng.',
     },
   ];
 
   const noExpertPoints = [
     {
-      icon: Cpu,
-      title: 'Không cần tự train model',
-      desc: 'Bạn không phải huấn luyện mô hình từ con số 0 hay cần máy chủ cấu hình mạnh. Mọi mô hình thông minh đã được các hãng lớn xây dựng sẵn.',
-      tag: '0đ Huấn luyện',
+      icon: Code2,
+      title: 'Biết lập trình?',
+      desc: 'Hãy phát triển ứng dụng.',
+      tag: 'Phát triển ứng dụng',
     },
     {
-      icon: Zap,
-      title: 'Gọi mô hình qua API có sẵn',
-      desc: 'Chỉ cần vài dòng code để kết nối Google Gemini, OpenAI GPT, Claude hoặc các mô hình mã nguồn mở như Llama qua API.',
-      tag: 'REST API & SDK',
+      icon: Palette,
+      title: 'Có mắt thẩm mỹ?',
+      desc: 'Hãy thiết kế giao diện.',
+      tag: 'Thiết kế giao diện',
+    },
+    {
+      icon: TrendingUp,
+      title: 'Thích kinh doanh?',
+      desc: 'Hãy tìm hiểu nhu cầu người dùng.',
+      tag: 'Nhu cầu người dùng',
     },
     {
       icon: Sparkles,
-      title: 'Tự do dùng AI hỗ trợ lập trình',
-      desc: 'Khuyến khích sử dụng GitHub Copilot, Cursor, ChatGPT, v0... để tăng tốc viết mã nguồn và thiết kế giao diện.',
-      tag: 'Copilot & Cursor',
-    },
-    {
-      icon: CheckCircle2,
-      title: 'Không bắt buộc RAG hay Agent',
-      desc: 'Không cần cố nhồi nhét kỹ thuật phức tạp. Trọng tâm đánh giá là sản phẩm có giao diện thân thiện, chạy ổn định và giải quyết đúng bài toán.',
-      tag: 'Ưu tiên sản phẩm MVP',
+      title: 'Yêu thích AI?',
+      desc: 'Hãy khám phá cách ứng dụng AI vào sản phẩm.',
+      tag: 'Ứng dụng vào sản phẩm',
     },
   ];
 
@@ -186,7 +186,7 @@ export const App: React.FC = () => {
             <div className="sec__head mx-auto text-center">
               <h2>
                 <FoldText
-                  text="Bạn sẽ làm gì trong cuộc thi?"
+                  text="Cuộc thi này có gì?"
                   foldStyle="paper"
                   splitBy="word"
                   hinge="top"
@@ -234,7 +234,7 @@ export const App: React.FC = () => {
             <div className="sec__head mx-auto text-center">
               <h2>Bạn có cần giỏi AI để tham gia không?</h2>
               <p className="lead max-w-2xl mx-auto">
-                Câu trả lời là KHÔNG. Cuộc thi không dành riêng cho chuyên gia nghiên cứu hay kỹ sư Machine Learning. Bạn chỉ cần biết ứng dụng AI để tạo ra sản phẩm hữu ích.
+                Hoàn toàn được! Bạn không cần biết huấn luyện mô hình AI hay có kiến thức chuyên sâu về Machine Learning. Bạn có thể sử dụng ChatGPT, Gemini, các API AI và những công cụ có sẵn để phát triển sản phẩm. Điều quan trọng là biết cách vận dụng công nghệ để giải quyết vấn đề.
               </p>
             </div>
           </AnimatedContent>
@@ -592,7 +592,7 @@ export const App: React.FC = () => {
                 </nav>
 
                 <p className="footer__legal text-xs text-muted m-0">
-                  &copy; 2026 AI Buildathon. Mọi quyền được bảo lưu. Thiết kế theo chuẩn Ribbon Theme (Hallmark).
+                  &copy; 2026 AI Buildathon. Mọi quyền được bảo lưu.
                 </p>
               </div>
             </div>
