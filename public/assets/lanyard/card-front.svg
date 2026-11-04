@@ -1,0 +1,91 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1440" width="1024" height="1440">
+  <defs>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0c0b16"/>
+      <stop offset="50%" stop-color="#121024"/>
+      <stop offset="100%" stop-color="#080710"/>
+    </linearGradient>
+
+    <linearGradient id="accentGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c5dfa"/>
+      <stop offset="100%" stop-color="#4378ff"/>
+    </linearGradient>
+
+    <radialGradient id="topAura" cx="50%" cy="20%" r="55%">
+      <stop offset="0%" stop-color="#7c5dfa" stop-opacity="0.32"/>
+      <stop offset="100%" stop-color="#7c5dfa" stop-opacity="0"/>
+    </radialGradient>
+
+    <radialGradient id="botAura" cx="50%" cy="80%" r="55%">
+      <stop offset="0%" stop-color="#4378ff" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#4378ff" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="borderGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c5dfa" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#2e2752" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#4378ff" stop-opacity="0.85"/>
+    </linearGradient>
+
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="10" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="1024" height="1440" fill="url(#bgGrad)"/>
+  <rect width="1024" height="1440" fill="url(#topAura)"/>
+  <rect width="1024" height="1440" fill="url(#botAura)"/>
+
+  <!-- Minimal Hairline Frame -->
+  <rect x="36" y="36" width="952" height="1368" rx="40" fill="none" stroke="url(#borderGrad)" stroke-width="2.5"/>
+  <rect x="48" y="48" width="928" height="1344" rx="32" fill="none" stroke="#7c5dfa" stroke-width="1" stroke-opacity="0.2"/>
+
+  <!-- Punch Slot Simulation at Top Center -->
+  <g transform="translate(512, 110)">
+    <rect x="-90" y="-12" width="180" height="24" rx="12" fill="#06050b" stroke="#37315b" stroke-width="2"/>
+    <circle cx="0" cy="0" r="4" fill="#7c5dfa"/>
+  </g>
+
+  <!-- Element 1: AI BUILDATHON 2026 -->
+  <g transform="translate(512, 330)">
+    <text text-anchor="middle" font-family="'Instrument Sans', system-ui, -apple-system, sans-serif" font-size="52" font-weight="900" fill="#ffffff" letter-spacing="8">
+      AI BUILDATHON
+    </text>
+    <text text-anchor="middle" y="60" font-family="'Instrument Sans', system-ui, -apple-system, sans-serif" font-size="38" font-weight="800" fill="url(#accentGrad)" letter-spacing="14">
+      2026
+    </text>
+  </g>
+
+  <!-- Accent Divider Line -->
+  <line x1="360" y1="460" x2="664" y2="460" stroke="url(#accentGrad)" stroke-width="2" stroke-opacity="0.6"/>
+
+  <!-- Element 2: PARTICIPANT PASS (Main Hero Display) -->
+  <g transform="translate(512, 690)">
+    <text text-anchor="middle" font-family="'Instrument Sans', system-ui, -apple-system, sans-serif" font-size="64" font-weight="900" fill="#ffffff" letter-spacing="5" filter="url(#glow)">
+      PARTICIPANT
+    </text>
+    <text text-anchor="middle" y="80" font-family="'Instrument Sans', system-ui, -apple-system, sans-serif" font-size="64" font-weight="900" fill="#ffffff" letter-spacing="5" filter="url(#glow)">
+      PASS
+    </text>
+  </g>
+
+  <!-- Element 3: 03 WEEKS -->
+  <g transform="translate(512, 970)">
+    <rect x="-180" y="-36" width="360" height="72" rx="36" fill="#141128" stroke="url(#borderGrad)" stroke-width="2"/>
+    <text text-anchor="middle" y="12" font-family="'JetBrains Mono', monospace" font-size="28" font-weight="800" fill="#38bdf8" letter-spacing="6">
+      03 WEEKS
+    </text>
+  </g>
+
+  <!-- Element 4: BUILD WITH AI -->
+  <g transform="translate(512, 1200)">
+    <text text-anchor="middle" font-family="'Instrument Sans', system-ui, -apple-system, sans-serif" font-size="44" font-weight="900" fill="url(#accentGrad)" letter-spacing="8">
+      BUILD WITH AI
+    </text>
+  </g>
+</svg>

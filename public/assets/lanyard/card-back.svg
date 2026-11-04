@@ -1,0 +1,75 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1440" width="1024" height="1440">
+  <defs>
+    <linearGradient id="bgGradBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#080712"/>
+      <stop offset="50%" stop-color="#100e20"/>
+      <stop offset="100%" stop-color="#05040a"/>
+    </linearGradient>
+
+    <linearGradient id="accentGradBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#7c5dfa"/>
+      <stop offset="100%" stop-color="#4378ff"/>
+    </linearGradient>
+
+    <radialGradient id="centerAura" cx="50%" cy="50%" r="55%">
+      <stop offset="0%" stop-color="#7c5dfa" stop-opacity="0.25"/>
+      <stop offset="100%" stop-color="#7c5dfa" stop-opacity="0"/>
+    </radialGradient>
+
+    <linearGradient id="borderGradBack" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#4378ff" stop-opacity="0.85"/>
+      <stop offset="50%" stop-color="#241e46" stop-opacity="0.3"/>
+      <stop offset="100%" stop-color="#7c5dfa" stop-opacity="0.85"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Background Layer -->
+  <rect width="1024" height="1440" fill="url(#bgGradBack)"/>
+  <rect width="1024" height="1440" fill="url(#centerAura)"/>
+
+  <!-- Minimal Hairline Frame -->
+  <rect x="36" y="36" width="952" height="1368" rx="40" fill="none" stroke="url(#borderGradBack)" stroke-width="2.5"/>
+  <rect x="48" y="48" width="928" height="1344" rx="32" fill="none" stroke="#4378ff" stroke-width="1" stroke-opacity="0.2"/>
+
+  <!-- Punch Slot Simulation -->
+  <g transform="translate(512, 110)">
+    <rect x="-90" y="-12" width="180" height="24" rx="12" fill="#06050b" stroke="#37315b" stroke-width="2"/>
+    <circle cx="0" cy="0" r="4" fill="#4378ff"/>
+  </g>
+
+  <!-- Geometric Minimal Emblem -->
+  <g transform="translate(512, 380)">
+    <circle cx="0" cy="0" r="90" fill="none" stroke="#7c5dfa" stroke-width="2" stroke-opacity="0.4"/>
+    <polygon points="0,-50 43,-25 43,25 0,50 -43,25 -43,-25" fill="#131026" stroke="url(#accentGradBack)" stroke-width="3"/>
+    <circle cx="0" cy="0" r="10" fill="url(#accentGradBack)"/>
+  </g>
+
+  <!-- Element 1: AI BUILDATHON 2026 -->
+  <g transform="translate(512, 590)">
+    <text text-anchor="middle" font-family="'Instrument Sans', system-ui, -apple-system, sans-serif" font-size="46" font-weight="900" fill="#ffffff" letter-spacing="6">
+      AI BUILDATHON 2026
+    </text>
+  </g>
+
+  <!-- Element 2: PARTICIPANT PASS -->
+  <g transform="translate(512, 730)">
+    <text text-anchor="middle" font-family="'Instrument Sans', system-ui, -apple-system, sans-serif" font-size="52" font-weight="900" fill="#ffffff" letter-spacing="5">
+      PARTICIPANT PASS
+    </text>
+  </g>
+
+  <!-- Element 3: 03 WEEKS -->
+  <g transform="translate(512, 890)">
+    <rect x="-160" y="-32" width="320" height="64" rx="32" fill="#141128" stroke="url(#borderGradBack)" stroke-width="2"/>
+    <text text-anchor="middle" y="10" font-family="'JetBrains Mono', monospace" font-size="24" font-weight="800" fill="#38bdf8" letter-spacing="5">
+      03 WEEKS
+    </text>
+  </g>
+
+  <!-- Element 4: BUILD WITH AI -->
+  <g transform="translate(512, 1100)">
+    <text text-anchor="middle" font-family="'Instrument Sans', system-ui, -apple-system, sans-serif" font-size="40" font-weight="900" fill="url(#accentGradBack)" letter-spacing="8">
+      BUILD WITH AI
+    </text>
+  </g>
+</svg>

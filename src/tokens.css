@@ -1,0 +1,108 @@
+:root {
+  color-scheme: dark;
+  --space-3xs: 2px; --space-2xs: 4px; --space-xs: 8px; --space-sm: 12px; --space-md: 16px; --space-lg: 24px; --space-xl: 40px; --space-2xl: 64px; --space-3xl: 96px; --space-4xl: 144px;
+  --text-xs: 0.8125rem; --text-sm: 0.875rem; --text-md: 1rem; --text-lg: 1.25rem; --text-xl: 1.5625rem; --text-2xl: 1.953rem; --text-3xl: 2.441rem;
+  --text-display-s: clamp(2.25rem, 4vw + 0.5rem, 3.75rem); --text-display: clamp(2.75rem, 5vw + 1rem, 5.25rem);
+  --text-section: clamp(2rem, 2.5vw + 1rem, 3.5rem); --text-title: clamp(1.25rem, 0.75vw + 0.875rem, 1.625rem); --text-lead: clamp(1.125rem, 0.35vw + 1rem, 1.375rem);
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1); --ease-in: cubic-bezier(0.7, 0, 0.84, 0); --ease-in-out: cubic-bezier(0.65, 0, 0.35, 1);
+  --ease-settle: cubic-bezier(0.22, 1, 0.36, 1);
+  --dur-micro: 120ms; --dur-short: 220ms; --dur-long: 420ms; --dur-scene: 900ms;
+  --color-error: oklch(70% 0.15 27); --color-success: oklch(76% 0.11 150);
+  --container: 1440px; --gutter: 64px; --gap-columns: 32px; --section-gap-s: 120px; --section-gap: 144px; --section-gap-l: 176px;
+  --z-base: 1; --z-raised: 10; --z-dropdown: 100; --z-sticky: 200; --z-sticky-nav: 300; --z-modal: 400; --z-toast: 500; --z-tooltip: 600;
+
+  /* User Specified Palette: Obsidian #0d0d1a, Card #12111d, Violet-to-Blue Gradient */
+  --color-paper: #0d0d1a;
+  --color-paper-2: #16162a;
+  --color-paper-3: #1f1f3a;
+  --color-paper-card: #12111d;
+  --color-card-border: rgba(130, 97, 246, 0.22);
+  --color-ink: #f5f4fd;
+  --color-ink-2: #e2e1f0;
+  --color-muted: #a3a0bd;
+  --color-rule: #242442;
+  --color-rule-2: rgba(130, 97, 246, 0.22);
+
+  /* Accents and Gradients (Matching user images: Violet #6e48f6 to Blue #3a6ef5) */
+  --color-accent-violet: #6e48f6;
+  --color-accent-blue: #3a6ef5;
+  --gradient-accent: linear-gradient(90deg, #6e48f6 0%, #3a6ef5 100%);
+  --gradient-text: linear-gradient(90deg, #7c5dfa 0%, #4378ff 100%);
+  --gradient-icon: linear-gradient(135deg, #6e48f6 0%, #3a6ef5 100%);
+  --color-accent: #6e48f6;
+  --color-accent-soft: rgba(110, 72, 246, 0.16);
+  --color-accent-ink: #f5f4fd;
+  --color-focus: #6e48f6;
+
+  /* Card Tags (Image 3 spec: Deep violet pill #1f1a38 with #b3a4fc text) */
+  --color-tag-bg: #1f1a38;
+  --color-tag-border: rgba(130, 97, 246, 0.32);
+  --color-tag-text: #b3a4fc;
+
+  /* Status Tokens */
+  --color-status-amber: #fca974;
+  --color-status-amber-bg: #251b24;
+  --color-status-amber-border: rgba(255, 140, 60, 0.3);
+  --color-model-active-bg: #1a1733;
+  --shadow-model-active: 0 0 16px rgba(124, 93, 250, 0.35);
+
+  /* Lifted Shadows for Hallmark Compliance */
+  --shadow-accent-btn: 0 4px 22px -2px rgba(124, 93, 250, 0.45), 0 0 14px rgba(67, 120, 255, 0.25);
+  --shadow-accent-hover: 0 6px 26px -2px rgba(124, 93, 250, 0.65), 0 0 20px rgba(67, 120, 255, 0.4);
+  --shadow-icon-box: 0 4px 14px rgba(124, 93, 250, 0.35);
+  --shadow-pill-on: 0 0 10px rgba(124, 93, 250, 0.25);
+
+  --color-band: #090912;
+  --color-band-ink: #f5f4fd;
+  --color-slot: #16162a;
+  --color-sky-top: #0a0a14;
+  --color-sky-low: #121224;
+
+  /* Machined parts */
+  --metal-hi: #2e2e4a;
+  --metal-lo: #1b1b30;
+  --edge-light: inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  --shadow-part: 0 4px 14px -3px rgba(0, 0, 0, 0.5);
+  --shadow-panel: 0 1px 0 rgba(0, 0, 0, 0.4), 0 20px 40px -12px rgba(0, 0, 0, 0.75);
+
+  --font-display: "Inter", "Plus Jakarta Sans", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-body: "Inter", ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-outlier: "JetBrains Mono", ui-monospace, monospace;
+  --radius-card: 24px;
+  --radius-part: 10px;
+  --radius-pill: 999px;
+  --rule-hair: 1px;
+  --shadow-card: 0 12px 32px -8px rgba(0, 0, 0, 0.6);
+  --tracking-display: -0.025em;
+
+  /* Supporting steps */
+  --night-31-c02h258: #242442;
+  --night-23-c022h258: #1b1b32;
+  --night-18_5-c022h258: #141426;
+  --night-40-c02h258: #36365c;
+  --night-26-c022h258: rgba(130, 97, 246, 0.22);
+  --night-18_6-c022h258: #16162a;
+  --night-15_4-c022h258: #131324;
+  --night-14-c024h258: #10101f;
+  --night-12_5-c024h254: #0e0e1c;
+  --night-10-c018h258: #0b0b16;
+  --night-21-a9-c04h248: rgba(130, 97, 246, 0.12);
+  --night-24-a55-c04h246: rgba(72, 124, 246, 0.15);
+  --night-80-a16-c03h245: rgba(130, 97, 246, 0.2);
+  --night-8-a6-c02h258: rgba(0, 0, 0, 0.6);
+  --night-11_5-c02h258: #0d0d1a;
+  --night-13-c02h258: #101020;
+  --white-a5: rgba(255, 255, 255, 0.5);
+  --white-a035: rgba(255, 255, 255, 0.035);
+  --white-a04: rgba(255, 255, 255, 0.04);
+  --white-a05: rgba(255, 255, 255, 0.05);
+  --black-a5: rgba(0, 0, 0, 0.5);
+  --black-a65: rgba(0, 0, 0, 0.65);
+  --black-a35: rgba(0, 0, 0, 0.35);
+  --amber-68-c1h62: #7350f5;
+  --amber-74-c1h64: #8564f7;
+  --amber-55-a35-c1h55: rgba(59, 110, 245, 0.35);
+  --amber-78-a4-c12h62: rgba(115, 80, 245, 0.45);
+  --amber-82-a12-c095h68: rgba(115, 80, 245, 0.2);
+  --amber-82-a7-c095h68: rgba(115, 80, 245, 0.8);
+}

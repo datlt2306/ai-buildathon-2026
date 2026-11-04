@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="bgGradEnt" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#141220"/>
+      <stop offset="50%" stop-color="#1e1832"/>
+      <stop offset="100%" stop-color="#0a0814"/>
+    </linearGradient>
+    <radialGradient id="auraEnt" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.35"/>
+      <stop offset="100%" stop-color="#fbbf24" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glowEnt" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#fbbf24" stop-opacity="0.6"/>
+      <stop offset="100%" stop-color="#7c5dfa" stop-opacity="0"/>
+    </linearGradient>
+    <linearGradient id="gold" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#fef08a"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="500" fill="url(#bgGradEnt)"/>
+  <circle cx="200" cy="200" r="145" fill="url(#auraEnt)"/>
+
+  <!-- Enterprise Architecture Blueprint Lines -->
+  <g opacity="0.25" stroke="#fbbf24" stroke-width="1.5" fill="none">
+    <polygon points="200,60 320,130 320,270 200,340 80,270 80,130"/>
+    <circle cx="200" cy="200" r="90" stroke-dasharray="6 6"/>
+    <line x1="200" y1="60" x2="200" y2="340"/>
+  </g>
+
+  <!-- High-Tech Enterprise Badge Emblem -->
+  <g transform="translate(200, 210)">
+    <!-- Shield Container -->
+    <path d="M-60,-70 L60,-70 C60,-70 70,30 0,90 C-70,30 -60,-70 -60,-70 Z" fill="#1e1836" stroke="url(#gold)" stroke-width="3"/>
+    
+    <!-- Stylized Building / Network Node -->
+    <path d="M-28,45 L-28,-20 L-10,-40 L-10,45 Z" fill="#302854"/>
+    <path d="M-10,45 L-10,-45 L10,-45 L10,45 Z" fill="#463a78"/>
+    <path d="M10,45 L10,-30 L28,-15 L28,45 Z" fill="#302854"/>
+
+    <!-- Glowing AI Star Peak -->
+    <polygon points="0,-60 4,-50 14,-50 6,-42 9,-32 0,-38 -9,-32 -6,-42 -14,-50 -4,-50" fill="url(#gold)"/>
+  </g>
+
+  <!-- Open Slot / Partner Ribbon -->
+  <g transform="translate(200, 320)">
+    <rect x="-120" y="-18" width="240" height="36" rx="18" fill="#1e1836" stroke="#fbbf24" stroke-width="1.5" stroke-opacity="0.8"/>
+    <text text-anchor="middle" y="6" font-family="'JetBrains Mono', monospace" font-size="13" font-weight="700" fill="#fbbf24" letter-spacing="3">
+      OPEN PARTNER SLOT
+    </text>
+  </g>
+
+  <rect y="360" width="400" height="140" fill="url(#glowEnt)"/>
+</svg>

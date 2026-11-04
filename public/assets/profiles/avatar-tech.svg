@@ -1,0 +1,55 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <linearGradient id="bgGradTech" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#0a1228"/>
+      <stop offset="50%" stop-color="#101c3e"/>
+      <stop offset="100%" stop-color="#060b18"/>
+    </linearGradient>
+    <radialGradient id="auraTech" cx="50%" cy="38%" r="52%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.45"/>
+      <stop offset="100%" stop-color="#38bdf8" stop-opacity="0"/>
+    </radialGradient>
+    <linearGradient id="glowTech" x1="0%" y1="100%" x2="0%" y2="0%">
+      <stop offset="0%" stop-color="#38bdf8" stop-opacity="0.7"/>
+      <stop offset="100%" stop-color="#818cf8" stop-opacity="0"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="400" height="500" fill="url(#bgGradTech)"/>
+  <circle cx="200" cy="190" r="140" fill="url(#auraTech)"/>
+
+  <!-- Neural Net Motif -->
+  <g opacity="0.3" stroke="#38bdf8" stroke-width="1.2">
+    <line x1="80" y1="120" x2="150" y2="170"/>
+    <line x1="150" y1="170" x2="250" y2="150"/>
+    <line x1="250" y1="150" x2="320" y2="100"/>
+    <line x1="150" y1="170" x2="200" y2="240"/>
+    <line x1="250" y1="150" x2="200" y2="240"/>
+    <circle cx="80" cy="120" r="4" fill="#38bdf8"/>
+    <circle cx="150" cy="170" r="5" fill="#38bdf8"/>
+    <circle cx="250" cy="150" r="5" fill="#38bdf8"/>
+    <circle cx="320" cy="100" r="4" fill="#38bdf8"/>
+    <circle cx="200" cy="240" r="6" fill="#818cf8"/>
+  </g>
+
+  <!-- Stylized Tech Figure Silhouette -->
+  <g transform="translate(200, 230)">
+    <!-- Shoulders -->
+    <path d="M-115,190 C-105,115 -65,85 -25,75 L-25,45 C-25,45 -35,35 -35,15 C-35,-15 -25,-45 0,-45 C25,-45 35,-15 35,15 C35,35 25,45 25,45 L25,75 C65,85 105,115 115,190 Z" fill="#132448"/>
+    
+    <!-- Tech Hoodie lines -->
+    <path d="M-25,75 L0,110 L25,75 L10,190 L-10,190 Z" fill="#0c1730"/>
+    <circle cx="0" cy="100" r="3" fill="#38bdf8"/>
+
+    <!-- Head & Hair Silhouette -->
+    <ellipse cx="0" cy="0" rx="35" ry="42" fill="#1d3362"/>
+    <path d="M-35,-10 C-35,-42 -10,-55 10,-50 C30,-45 38,-30 35,-10 C28,-28 10,-38 -5,-35 C-20,-32 -30,-22 -35,-10 Z" fill="#2d4d8e"/>
+
+    <!-- Cyber Earphone / Headset indicator -->
+    <path d="M-36,5 C-38,-15 -25,-35 0,-38 C25,-35 38,-15 36,5" fill="none" stroke="#38bdf8" stroke-width="2.5" opacity="0.8"/>
+    <circle cx="-36" cy="5" r="5" fill="#38bdf8"/>
+    <circle cx="36" cy="5" r="5" fill="#38bdf8"/>
+  </g>
+
+  <rect y="320" width="400" height="180" fill="url(#glowTech)"/>
+</svg>

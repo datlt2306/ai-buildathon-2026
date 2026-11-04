@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 192" width="1024" height="192">
+  <defs>
+    <linearGradient id="strapBg" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#0e0d1c"/>
+      <stop offset="50%" stop-color="#141228"/>
+      <stop offset="100%" stop-color="#0e0d1c"/>
+    </linearGradient>
+
+    <linearGradient id="stripeTop" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#7c5dfa"/>
+      <stop offset="50%" stop-color="#4378ff"/>
+      <stop offset="100%" stop-color="#7c5dfa"/>
+    </linearGradient>
+
+    <linearGradient id="stripeBottom" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#4378ff"/>
+      <stop offset="50%" stop-color="#7c5dfa"/>
+      <stop offset="100%" stop-color="#4378ff"/>
+    </linearGradient>
+
+    <linearGradient id="textGradStrap" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="50%" stop-color="#e0dbff"/>
+      <stop offset="100%" stop-color="#ffffff"/>
+    </linearGradient>
+  </defs>
+
+  <!-- Strap Fabric Background -->
+  <rect width="1024" height="192" fill="url(#strapBg)"/>
+
+  <!-- Top and Bottom Edge Neon Rails -->
+  <rect x="0" y="0" width="1024" height="10" fill="url(#stripeTop)"/>
+  <rect x="0" y="10" width="1024" height="4" fill="#7c5dfa" opacity="0.4"/>
+  <rect x="0" y="182" width="1024" height="10" fill="url(#stripeBottom)"/>
+  <rect x="0" y="178" width="1024" height="4" fill="#4378ff" opacity="0.4"/>
+
+  <!-- Repeating Motif 1 (Left Half) -->
+  <g transform="translate(40, 106)">
+    <polygon points="0,-16 5,-5 16,-5 8,3 11,14 0,7 -11,14 -8,3 -16,-5 -5,-5" fill="#7c5dfa"/>
+    <text x="32" y="8" font-family="'Instrument Sans', system-ui, sans-serif" font-size="28" font-weight="900" fill="#ffffff" letter-spacing="4">
+      AI BUILDATHON 2026
+    </text>
+    <circle cx="430" cy="0" r="5" fill="#4378ff"/>
+    <text x="456" y="7" font-family="'JetBrains Mono', monospace" font-size="20" font-weight="800" fill="#a493fc" letter-spacing="3">
+      BUILD WITH AI
+    </text>
+  </g>
+
+  <!-- Repeating Motif 2 (Right Half) -->
+  <g transform="translate(680, 106)">
+    <polygon points="0,-16 5,-5 16,-5 8,3 11,14 0,7 -11,14 -8,3 -16,-5 -5,-5" fill="#4378ff"/>
+    <text x="32" y="8" font-family="'Instrument Sans', system-ui, sans-serif" font-size="28" font-weight="900" fill="#ffffff" letter-spacing="4">
+      PARTICIPANT PASS
+    </text>
+  </g>
+</svg>
