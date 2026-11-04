@@ -62,11 +62,14 @@ export const StudentRegistrationSection: React.FC = () => {
     <div className="panel p-6 sm:p-10 max-w-3xl mx-auto">
       {/* Header section */}
       <div className="mb-8 text-center max-w-2xl mx-auto">
+        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold mb-3">
+          <span>DÀNH CHO SINH VIÊN FPT POLYTECHNIC HÀ NỘI</span>
+        </div>
         <h2 className="text-3xl font-display font-bold text-ink">
-          Thông tin và cách thức đăng ký.
+          Đăng ký thử sức cùng AI Buildathon 2026
         </h2>
-        <p className="mt-2 text-sm text-muted">
-          AI Buildathon 2026 mở đăng ký dành cho sinh viên FPT Polytechnic. Tham gia theo nhóm khoảng 3 bạn hoặc đăng ký cá nhân để Ban tổ chức hỗ trợ ghép đội.
+        <p className="mt-2 text-sm text-muted leading-relaxed">
+          Biết code cơ bản, hay dùng ChatGPT, có 2-3 bạn cùng nhóm? Đăng ký ngay để cùng nhau tạo ra sản phẩm thật! Nếu chưa có nhóm, hãy chọn <strong>"Cá nhân ghép đội"</strong> để BTC kết nối bạn với đồng đội cùng khóa.
         </p>
 
         {/* 3 Quick Facts Grid */}
@@ -81,15 +84,15 @@ export const StudentRegistrationSection: React.FC = () => {
           <div className="p-3 rounded-xl bg-paper border border-rule-2 flex items-center gap-3">
             <Calendar className="w-4 h-4 text-accent flex-shrink-0" />
             <div>
-              <span className="text-muted block">Thời gian nhận đơn</span>
-              <span className="font-medium text-accent">[BTC CẦN BỔ SUNG]</span>
+              <span className="text-muted block">Đối tượng sinh viên</span>
+              <span className="font-medium text-accent">Kỳ 3 đến Kỳ 6 Poly HN</span>
             </div>
           </div>
           <div className="p-3 rounded-xl bg-paper border border-rule-2 flex items-center gap-3">
             <Trophy className="w-4 h-4 text-accent flex-shrink-0" />
             <div>
               <span className="text-muted block">Lệ phí tham gia</span>
-              <span className="font-medium text-accent">100% Miễn phí</span>
+              <span className="font-medium text-accent">100% Miễn phí & Hỗ trợ API</span>
             </div>
           </div>
         </div>
@@ -188,7 +191,7 @@ export const StudentRegistrationSection: React.FC = () => {
                 <input
                   id="studentId"
                   type="text"
-                  placeholder="PK01234 / PS12345 / PC12345"
+                  placeholder="Ví dụ: PH12345 (hoặc mã sinh viên FPT Poly của bạn)"
                   value={studentId}
                   onChange={(e) => setStudentId(e.target.value)}
                   className={`w-full h-11 px-3.5 rounded-xl bg-paper border text-sm text-ink placeholder:text-muted/40 outline-none transition-colors ${
@@ -208,7 +211,7 @@ export const StudentRegistrationSection: React.FC = () => {
                 <input
                   id="email"
                   type="email"
-                  placeholder="annvpk01234@fpt.edu.vn"
+                  placeholder="annvph12345@fpt.edu.vn"
                   value={email}
                   onChange={(e) => setEmail(e.target.value)}
                   className={`w-full h-11 px-3.5 rounded-xl bg-paper border text-sm text-ink placeholder:text-muted/40 outline-none transition-colors ${
@@ -239,12 +242,12 @@ export const StudentRegistrationSection: React.FC = () => {
             {/* Row 3: Class & Major (FPT Polytechnic) */}
             <div>
               <label htmlFor="majorClass" className="block text-xs font-medium text-muted mb-1.5">
-                Lớp / Chuyên ngành (FPT Polytechnic) *
+                Lớp / Chuyên ngành & Kỳ học (FPT Polytechnic Hà Nội) *
               </label>
               <input
                 id="majorClass"
                 type="text"
-                placeholder="Ví dụ: WD18301 - Lập trình Web / CNTT"
+                placeholder="Ví dụ: WD18301 - Lập trình Web (Kỳ 4) hoặc SD18402 - Ứng dụng phần mềm (Kỳ 3)"
                 value={majorClass}
                 onChange={(e) => setMajorClass(e.target.value)}
                 className={`w-full h-11 px-3.5 rounded-xl bg-paper border text-sm text-ink placeholder:text-muted/40 outline-none transition-colors ${
@@ -293,7 +296,7 @@ export const StudentRegistrationSection: React.FC = () => {
             {/* Domain Interest */}
             <div>
               <label htmlFor="domainInterest" className="block text-xs font-medium text-muted mb-1.5">
-                Nhóm bài toán doanh nghiệp quan tâm nhất *
+                Nhóm bài toán quan tâm thử sức nhất *
               </label>
               <select
                 id="domainInterest"
@@ -301,13 +304,21 @@ export const StudentRegistrationSection: React.FC = () => {
                 onChange={(e) => setDomainInterest(e.target.value as ChallengeCategory)}
                 className="w-full h-11 px-3.5 rounded-xl bg-paper border border-rule text-sm text-ink outline-none focus:border-accent"
               >
-                <option value="customer-support">01. AI hỗ trợ chăm sóc khách hàng và bán hàng</option>
-                <option value="marketing-assistant">02. AI hỗ trợ Marketing và kinh doanh</option>
-                <option value="document-processing">03. AI xử lý tài liệu và khai thác tri thức</option>
-                <option value="workflow-automation">04. AI tự động hóa quy trình nghiệp vụ</option>
-                <option value="data-analytics">05. AI phân tích dữ liệu và hỗ trợ ra quyết định</option>
-                <option value="other">06. Đề xuất ý tưởng ứng dụng AI khác</option>
+                <option value="customer-support">01. Trợ lý CSKH & Chốt đơn Shop / Fanpage</option>
+                <option value="marketing-assistant">02. Trợ lý sáng tạo kịch bản TikTok & Content Marketing</option>
+                <option value="document-processing">03. Số hóa hóa đơn & Bóc tách chứng từ tự động</option>
+                <option value="workflow-automation">04. Trợ lý học tập & Ôn thi trắc nghiệm FPT Poly</option>
+                <option value="data-analytics">05. Tìm trọ & Quán ngon quanh trường theo ngân sách</option>
+                <option value="other">06. Đề tài mở / Nâng cấp đồ án môn học với AI</option>
               </select>
+            </div>
+
+            {/* Friendly Motivation Note */}
+            <div className="p-3.5 rounded-xl bg-paper-2 border border-rule-2 flex items-start gap-2.5 text-xs text-muted">
+              <span className="text-base flex-shrink-0" aria-hidden="true">💡</span>
+              <p className="leading-relaxed">
+                <strong className="text-white">Chưa từng kết nối API AI?</strong> Đừng lo! BTC sẽ tổ chức buổi Workshop hướng dẫn từ con số 0 và Mentor sẽ ngồi cùng nhóm bạn sửa code, gỡ lỗi suốt 3 tuần thi.
+              </p>
             </div>
 
             {/* Submit */}

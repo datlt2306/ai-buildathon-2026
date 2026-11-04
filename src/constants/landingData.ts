@@ -227,8 +227,8 @@ export const evaluationCriteria = [
 
 export const studentFaqs = [
   {
-    q: 'Không giỏi Machine Learning có tham gia được không?',
-    a: 'Hoàn toàn được! Cuộc thi tập trung vào việc ứng dụng mô hình AI có sẵn (qua API) để làm ra sản phẩm có ích. Bạn chỉ cần biết lập trình cơ bản hoặc thiết kế UI/UX là đã có thể cùng đồng đội tạo nên sản phẩm tuyệt vời.',
+    q: 'Chỉ biết lập trình cơ bản và hay dùng ChatGPT có tham gia được không?',
+    a: 'Hoàn toàn được! Cuộc thi tập trung vào việc ứng dụng mô hình AI có sẵn (qua API như Gemini, ChatGPT) để làm ra sản phẩm có ích. Bạn chỉ cần biết lập trình cơ bản, biết prompt hoặc thiết kế UI/UX là đã có thể cùng đồng đội tạo nên sản phẩm tuyệt vời.',
   },
   {
     q: 'Có bắt buộc đăng ký theo nhóm không?',

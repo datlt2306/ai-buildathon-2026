@@ -18,77 +18,77 @@ export const App: React.FC = () => {
   const steps = [
     {
       num: '01',
-      title: 'Làm việc theo nhóm',
-      desc: 'Rủ bạn bè cùng tham gia, kết hợp thế mạnh của mỗi thành viên.',
+      title: 'Làm việc cùng đồng đội',
+      desc: 'Rủ bạn bè cùng lớp lập đội hoặc đăng ký cá nhân để được hỗ trợ ghép nhóm. Mỗi thành viên cùng đóng góp thế mạnh và kiến thức của mình.',
     },
     {
       num: '02',
-      title: 'Tiếp cận bài toán thực tế',
-      desc: 'Tìm hiểu vấn đề từ doanh nghiệp và đề xuất cách giải quyết.',
+      title: 'Giải quyết bài toán thực tế',
+      desc: 'Tiếp cận những vấn đề thực tế từ doanh nghiệp, tìm hiểu nhu cầu và đề xuất giải pháp bằng sản phẩm ứng dụng AI.',
     },
     {
       num: '03',
-      title: 'Tự tay xây dựng sản phẩm',
-      desc: 'Sử dụng AI và kiến thức đã học để phát triển ứng dụng.',
+      title: 'Xây dựng sản phẩm ứng dụng AI',
+      desc: 'Vận dụng kiến thức đã học, kết hợp các công cụ AI để phát triển ứng dụng, hoàn thiện những chức năng cốt lõi và kiểm thử sản phẩm.',
     },
     {
       num: '04',
-      title: 'Trình diễn sản phẩm',
-      desc: 'Giới thiệu sản phẩm và bảo vệ ý tưởng trước hội đồng.',
+      title: 'Demo và giới thiệu sản phẩm',
+      desc: 'Trình diễn thành quả trước hội đồng, chia sẻ cách bạn xây dựng sản phẩm và có thêm một dự án thực tế cho portfolio cá nhân.',
     },
   ];
 
   const noExpertPoints = [
     {
       icon: Code2,
-      title: 'Biết lập trình?',
-      desc: 'Hãy phát triển ứng dụng.',
-      tag: 'Phát triển ứng dụng',
-    },
-    {
-      icon: Palette,
-      title: 'Có mắt thẩm mỹ?',
-      desc: 'Hãy thiết kế giao diện.',
-      tag: 'Thiết kế giao diện',
-    },
-    {
-      icon: TrendingUp,
-      title: 'Thích kinh doanh?',
-      desc: 'Hãy tìm hiểu nhu cầu người dùng.',
-      tag: 'Nhu cầu người dùng',
+      title: 'Biết code cơ bản về lập trình?',
+      desc: 'Có kiến thức HTML, CSS, JavaScript, PHP, Java hoặc lập trình Mobile? Bạn có thể xây dựng giao diện, xử lý chức năng và tích hợp AI vào sản phẩm.',
+      tag: 'Lập trình ứng dụng',
     },
     {
       icon: Sparkles,
-      title: 'Yêu thích AI?',
-      desc: 'Hãy khám phá cách ứng dụng AI vào sản phẩm.',
-      tag: 'Ứng dụng vào sản phẩm',
+      title: 'Thường xuyên sử dụng AI?',
+      desc: 'Biết sử dụng ChatGPT, Gemini hay các công cụ AI khác? Bạn có thể tận dụng chúng để tìm ý tưởng, phân tích vấn đề, hỗ trợ lập trình và xây dựng các tính năng thông minh.',
+      tag: 'Khai thác công cụ AI',
+    },
+    {
+      icon: Palette,
+      title: 'Có gu thẩm mỹ?',
+      desc: 'Yêu thích thiết kế giao diện, Figma, làm hình ảnh hay trình bày nội dung? Bạn có thể giúp sản phẩm dễ sử dụng, trực quan và hấp dẫn hơn.',
+      tag: 'Thiết kế trải nghiệm người dùng',
+    },
+    {
+      icon: TrendingUp,
+      title: 'Thích lên ý tưởng và làm việc nhóm?',
+      desc: 'Bạn giỏi tìm hiểu nhu cầu, sắp xếp công việc, lên kế hoạch hoặc thuyết trình? Bạn có thể giúp đội xác định hướng đi và đưa sản phẩm đến gần hơn với người dùng.',
+      tag: 'Phát triển ý tưởng sản phẩm',
     },
   ];
 
   const faqs = [
     {
-      q: 'Chưa biết nhiều về AI có tham gia được không?',
-      a: 'Hoàn toàn được! Cuộc thi không yêu cầu bạn phải hiểu sâu về thuật toán hay toán học của AI. Bạn chỉ cần biết gọi API mô hình có sẵn (như Gemini, GPT) để đưa vào ứng dụng thực tế. Ban tổ chức cũng có buổi Bootcamp hướng dẫn tích hợp AI từ đầu.',
+      q: 'Em mới học kỳ 3, mới biết code cơ bản (HTML/CSS/JS hoặc Java), có theo nổi không?',
+      a: 'Hoàn toàn theo được! Kỳ 3 đến kỳ 6 là thời điểm vàng để bạn bắt tay làm sản phẩm thật. Bạn không cần làm thuật toán phức tạp — chỉ cần dựng giao diện đơn giản và kết nối API AI có sẵn. Phần thông minh đã có ChatGPT/Gemini lo, và còn có Mentor hỗ trợ kỹ thuật sát sao.',
     },
     {
-      q: 'Có cần biết lập trình không?',
-      a: 'Trong một đội thi cần có ít nhất một thành viên phụ trách lập trình giao diện hoặc kết nối API. Tuy nhiên, các vị trí khác như thiết kế UI/UX, phân tích nghiệp vụ, viết kịch bản sử dụng (BA/Product) đều đóng vai trò rất quan trọng.',
+      q: 'Cuộc thi này có bắt buộc phải biết chuyên sâu AI, làm chatbot phức tạp hay triển khai RAG không?',
+      a: 'Tuyệt đối KHÔNG! Cuộc thi không chấm điểm việc bạn tự train mô hình hay thuật toán cao siêu. Tiêu chí quan trọng nhất là: Sản phẩm của nhóm có chạy được không, có giải quyết được bài toán thực tế không và người dùng dùng có tiện lợi không.',
     },
     {
-      q: 'Có bắt buộc thành lập đội trước khi đăng ký không?',
-      a: 'Không bắt buộc. Bạn có thể đăng ký cá nhân, Ban tổ chức sẽ tổ chức buổi kết nối (Orientation) để giúp bạn ghép đội với những bạn có kỹ năng bổ trợ phù hợp.',
+      q: 'Em chưa bao giờ gọi API của AI thì làm sao kết nối vào ứng dụng?',
+      a: 'Rất dễ dàng! Gọi API AI cũng chỉ giống như gửi một yêu cầu lấy dữ liệu (fetch API) bạn học ở môn Web. Ban tổ chức sẽ cung cấp code mẫu (React, Next.js, Node.js, Python) và tổ chức buổi Workshop hướng dẫn từ con số 0 để bạn chạy thử được ngay sau 30 phút.',
     },
     {
-      q: 'Đội thi có được tự do chọn công nghệ không?',
-      a: 'Hoàn toàn tự do. Bạn có thể dùng bất kỳ ngôn ngữ, framework nào mà đội thành thạo: React, Next.js, Vue, Flutter, Python, Node.js,...',
+      q: 'Em chưa có nhóm bạn cùng thi thì có đăng ký tham gia được không?',
+      a: 'Được chứ! Bạn chỉ cần chọn hình thức "Cá nhân ghép đội" khi đăng ký. Ban tổ chức sẽ tổ chức buổi kết nối (Orientation) để ghép bạn với các bạn sinh viên Poly khác có kỹ năng bổ trợ (code, thiết kế, ý tưởng).',
     },
     {
-      q: 'Có phải tự huấn luyện mô hình AI không?',
-      a: 'Không. Bạn được khuyến khích sử dụng 100% các mô hình AI có sẵn qua API để tập trung vào việc làm ra sản phẩm có giá trị sử dụng thực tế.',
+      q: 'Chi phí sử dụng API của ChatGPT, Gemini có tốn tiền không?',
+      a: '100% Miễn phí! Ban tổ chức sẽ hướng dẫn các nhóm tận dụng các gói miễn phí (Free Tier) của Google Gemini API, Groq, Cohere, Vercel, Supabase... đủ dung lượng để phát triển và demo sản phẩm mà không tốn một đồng nào.',
     },
     {
-      q: 'Chi phí sử dụng API do ai chi trả?',
-      a: 'Ban tổ chức ưu tiên và hướng dẫn các đội tận dụng gói miễn phí (Free Tier) của Google AI Studio, Groq, Cohere, Supabase, Vercel... để tối ưu chi phí. Đội thi tự chủ động quản lý việc sử dụng tài nguyên của mình.',
+      q: 'Nhóm em có thể lấy ý tưởng từ bài tập assignment hoặc đồ án môn học để dự thi không?',
+      a: 'Rất khuyến khích! Nếu bạn đã có sẵn bài tập lớn hoặc đồ án (như web bán hàng, app quản lý sinh viên, tool học tập...), bạn hoàn toàn có thể mang vào cuộc thi và gắn thêm tính năng AI để nâng cấp thành sản phẩm xịn sò.',
     },
   ];
 
@@ -102,22 +102,25 @@ export const App: React.FC = () => {
       {/* Navigation (Ribbon edge-aligned) */}
       <header className="nav">
         <div className="container nav__bar">
-          <a className="wordmark" href="#top" aria-label="AI Buildathon 2026, về đầu trang">
+          <a className="wordmark flex items-center gap-2.5" href="#top" aria-label="AI Buildathon 2026, về đầu trang">
             <span className="wordmark__ring" aria-hidden="true" />
-            <span>AI Buildathon 2026</span>
+            <div className="flex flex-col text-left">
+              <span className="font-bold text-ink leading-tight text-sm">AI Buildathon 2026</span>
+              <span className="text-[10px] text-accent font-semibold leading-none tracking-tight">FPT Polytechnic Hà Nội</span>
+            </div>
           </a>
           <nav aria-label="Điều hướng chính">
             <ul className="nav__links" role="list">
               <li><a href="#what">Bạn sẽ làm gì</a></li>
               <li><a href="#no-expert">Cần giỏi AI không?</a></li>
-              <li><a href="#challenges">Đề bài gợi ý</a></li>
+              <li><a href="#challenges">Ý tưởng thử sức</a></li>
               <li><a href="#timeline">Lộ trình 21 ngày</a></li>
-              <li><a href="#partners">Cố vấn & Đối tác</a></li>
+              <li><a href="#partners">Cố vấn đồng hành</a></li>
               <li><a href="#faq">Hỏi đáp</a></li>
             </ul>
           </nav>
           <a className="btn btn--small btn--primary" href="#register">
-            Đăng ký tham gia
+            Đăng ký thử sức
           </a>
         </div>
       </header>
@@ -154,24 +157,30 @@ export const App: React.FC = () => {
 
           <div className="container hero__grid">
             <AnimatedContent className="hero__text" distance={35} duration={0.8} stagger={0.08} trigger="mount">
-              <p className="text-gradient font-display text-base font-medium tracking-wide uppercase mb-3">
-                AI Buildathon 2026
-              </p>
-              <h1 id="hero-head"> Có AI, có ý tưởng. Ngại gì mà không làm sản phẩm thật!</h1>
+              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold mb-3">
+                <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
+                <span>DÀNH RIÊNG CHO SINH VIÊN FPT POLYTECHNIC HÀ NỘI</span>
+              </div>
+
+              <h1 id="hero-head" className="tracking-tight text-white">
+                Biết code cơ bản
+                <span className="block text-gradient mt-1">Thử làm sản phẩm AI!</span>
+              </h1>
+
               <p className="lead">
-                Cùng bạn bè tạo ra một sản phẩm AI từ bài toán thực tế trong 3 tuần.
+                Vận dụng kiến thức đã học, kết hợp sức mạnh của AI để cùng đồng đội lên ý tưởng và xây dựng một sản phẩm thực tế trong 3 tuần.
               </p>
 
               <div className="actions">
                 <a href="#register" className="btn btn--primary">
-                  Đăng ký tham gia ngay
+                  Đăng ký tham gia
                 </a>
-                <a href="#what" className="btn btn--secondary">
+                <a href="#no-expert" className="btn btn--secondary">
                   Tìm hiểu cuộc thi
                 </a>
               </div>
 
-              <p className="hero__fine">Miễn phí tham gia · Đội khoảng 3 thành viên</p>
+              <p className="hero__fine">Miễn phí tham gia · Làm việc theo nhóm · 3 tuần</p>
             </AnimatedContent>
 
             <HeroLanyardPass />
@@ -206,7 +215,7 @@ export const App: React.FC = () => {
                 />
               </h2>
               <p className="lead max-w-2xl mx-auto">
-                Không thi lý thuyết, không thi thuật toán. Đây là hành trình 03 tuần thực chiến cùng đồng đội để biến bài toán thực tế thành sản phẩm chạy được.
+                Không chỉ là một cuộc thi. Đây là cơ hội để bạn làm sản phẩm thật. Trong 3 tuần, bạn sẽ cùng đồng đội trải qua hành trình từ tìm ý tưởng, giải quyết vấn đề đến xây dựng và trình diễn một sản phẩm ứng dụng AI.
               </p>
             </div>
           </AnimatedContent>
@@ -232,9 +241,9 @@ export const App: React.FC = () => {
         <section className="sec container" id="no-expert">
           <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
             <div className="sec__head mx-auto text-center">
-              <h2>Bạn có cần giỏi AI để tham gia không?</h2>
+              <h2>Bạn có thế mạnh gì? Đều có thể đóng góp!</h2>
               <p className="lead max-w-2xl mx-auto">
-                Hoàn toàn được! Bạn không cần biết huấn luyện mô hình AI hay có kiến thức chuyên sâu về Machine Learning. Bạn có thể sử dụng ChatGPT, Gemini, các API AI và những công cụ có sẵn để phát triển sản phẩm. Điều quan trọng là biết cách vận dụng công nghệ để giải quyết vấn đề.
+                Không cần một đội toàn những người giỏi lập trình hay chuyên sâu về AI. Một sản phẩm tốt cần nhiều kỹ năng khác nhau. Hãy xem bạn có thể đóng góp gì cho đội của mình!
               </p>
             </div>
           </AnimatedContent>
@@ -271,9 +280,6 @@ export const App: React.FC = () => {
                 );
               })}
             </div>
-          </AnimatedContent>
-
-          <AnimatedContent distance={25} duration={0.6} threshold={0.15}>
           </AnimatedContent>
         </section>
 
@@ -314,7 +320,7 @@ export const App: React.FC = () => {
                 />
               </h2>
               <p className="lead max-w-2xl mx-auto">
-                21 ngày thực chiến liên tục với các mốc đánh giá cụ thể cùng Mentor trước khi bước vào ngày Demo Day.
+                21 ngày thực chiến được thiết kế vừa sức cho sinh viên Poly. Có Workshop hướng dẫn từ đầu và Mentor là Senior Dev đồng hành gỡ rối kỹ thuật.
               </p>
             </div>
           </AnimatedContent>
@@ -326,12 +332,12 @@ export const App: React.FC = () => {
           <AnimatedContent distance={35} duration={0.7} stagger={0.08} threshold={0.1}>
             <dl className="tally">
               <div>
-                <dt>Thời gian phát triển</dt>
+                <dt>Thời gian thực chiến</dt>
                 <dd className="num">03 <span className="c">tuần</span></dd>
               </div>
               <div>
-                <dt>Quy mô tuyển chọn</dt>
-                <dd className="num">20 đến 25 <span className="c">đội</span></dd>
+                <dt>Đối tượng sinh viên</dt>
+                <dd className="num">Kỳ 3 – 6 <span className="c">Poly HN</span></dd>
               </div>
               <div>
                 <dt>Mỗi đội thi</dt>
@@ -339,7 +345,7 @@ export const App: React.FC = () => {
               </div>
               <div>
                 <dt>Lệ phí tham gia</dt>
-                <dd className="num">0đ <span className="c">Free</span></dd>
+                <dd className="num">0đ <span className="c">Free 100%</span></dd>
               </div>
             </dl>
           </AnimatedContent>
@@ -353,7 +359,7 @@ export const App: React.FC = () => {
             <div className="sec__head mx-auto text-center">
               <h2>Ai nên tham gia và bạn nhận được gì?</h2>
               <p className="lead max-w-2xl mx-auto">
-                Không yêu cầu tất cả thành viên phải biết lập trình. Một đội thi hiệu quả luôn cần sự kết hợp giữa kỹ thuật, thiết kế và tư duy sản phẩm.
+               Không cần cả đội đều giỏi lập trình hay AI. Hãy kết hợp những thế mạnh khác nhau để cùng tạo nên một sản phẩm thực tế.
               </p>
             </div>
           </AnimatedContent>
@@ -375,20 +381,20 @@ export const App: React.FC = () => {
                     <div className="flex items-center justify-between pb-4 border-b border-rule-2 mb-5">
                       <span className="font-semibold text-white flex items-center gap-2.5 text-base">
                         <span className="wordmark__ring" style={{ width: 10, height: 10, borderWidth: 2 }} />
-                        Đội ngũ đa dạng
+                        Một đội thi cần những ai?
                       </span>
                       <span className="pill">Khoảng 3 bạn/đội</span>
                     </div>
                     <div className="space-y-3 text-sm text-muted leading-relaxed">
-                      <p><strong className="text-white">Lập trình viên:</strong> Xây dựng giao diện web/app và kết nối API mô hình.</p>
-                      <p><strong className="text-white">Thiết kế UI/UX:</strong> Thiết kế màn hình trực quan, thân thiện cho người dùng.</p>
-                      <p><strong className="text-white">Phân tích nghiệp vụ:</strong> Nắm chắc yêu cầu bài toán và định hình luồng sử dụng.</p>
-                      <p><strong className="text-white">Ứng dụng AI:</strong> Tinh chỉnh prompt, lựa chọn công cụ và tối ưu kết quả đầu ra.</p>
+                      <p><strong className="text-white">Lập trình viên:</strong> Có kiến thức về Web, Java, PHP hoặc Mobile? Bạn có thể xây dựng giao diện, chức năng và tích hợp AI vào ứng dụng.</p>
+                      <p><strong className="text-white">Thiết kế & Trải nghiệm: </strong> Yêu thích Figma, thiết kế giao diện hoặc làm nội dung? Bạn có thể giúp sản phẩm trực quan và dễ sử dụng hơn.</p>
+                      <p><strong className="text-white">AI & Công nghệ:</strong> Thường xuyên sử dụng ChatGPT, Gemini và các công cụ AI? Bạn có thể khai thác AI để tìm ý tưởng, hỗ trợ lập trình và phát triển tính năng.</p>
+                      <p><strong className="text-white">Ý tưởng & Tổ chức:</strong> Có khả năng tìm hiểu nhu cầu, lên kế hoạch và thuyết trình? Bạn có thể giúp đội xác định hướng đi và giới thiệu sản phẩm.</p>
                     </div>
                   </div>
                   <figcaption className="mt-6 pt-4 border-t border-rule-2">
-                    <span className="well__title text-white font-bold">Đa dạng chuyên môn</span>
-                    Không yêu cầu mọi thành viên đều phải biết lập trình hoặc giỏi AI.
+                    <span className="well__title text-white font-bold">Ai cũng có vai trò quan trọng</span>
+                    Chưa có đội? Đăng ký cá nhân để BTC hỗ trợ kết nối với các bạn khác.
                   </figcaption>
                 </figure>
               </BorderGlow>
@@ -406,18 +412,19 @@ export const App: React.FC = () => {
                 <figure className="well p-7 sm:p-8 m-0 flex flex-col justify-between h-full bg-paper-card rounded-[24px]">
                   <div>
                     <div className="flex items-center justify-between pb-4 border-b border-rule-2 mb-5">
-                      <span className="font-semibold text-white text-base">Quyền lợi sinh viên</span>
-                      <span className="pill">Thực chiến</span>
+                      <span className="font-semibold text-white text-base">Bạn nhận được gì?</span>
+                      <span className="pill">Thiết thực</span>
                     </div>
                     <div className="space-y-3 text-sm text-muted leading-relaxed">
-                      <p><strong className="text-white">Dự án thật vào Portfolio & CV:</strong> Sở hữu sản phẩm MVP chạy thực tế chứng minh năng lực trước nhà tuyển dụng.</p>
-                      <p><strong className="text-white">Mentor đồng hành 1-1:</strong> Được chuyên gia công nghệ cố vấn giải pháp kỹ thuật và phản biện hàng tuần.</p>
-                      <p><strong className="text-white">Cơ hội việc làm:</strong> Kết nối trực tiếp với các doanh nghiệp đang tìm kiếm nhân lực ứng dụng AI.</p>
+                      <p><strong className="text-white">Một sản phẩm thực tế cho Portfolio:</strong> Tự tay xây dựng sản phẩm cùng đồng đội, có thêm dự án để giới thiệu năng lực của mình.</p>
+                      <p><strong className="text-white">Được hướng dẫn và góp ý:</strong> Tham gia các buổi chia sẻ, trao đổi với Mentor để nhận góp ý và tháo gỡ khó khăn trong quá trình phát triển sản phẩm..</p>
+                      <p><strong className="text-white">Cơ hội khám phá công cụ AI:</strong> Tự chọn công cụ phù hợp với dự án và được BTC hướng dẫn cách tận dụng các gói Free Tier để phát triển sản phẩm.</p>
+                      <p><strong className="text-white">Cơ hội trình diễn và tranh tài:</strong> Giới thiệu sản phẩm trước hội đồng, cạnh tranh các giải thưởng và nhận chứng nhận dành cho những đội vào vòng cuối hoặc đạt giải.</p>
                     </div>
                   </div>
                   <figcaption className="mt-6 pt-4 border-t border-rule-2">
-                    <span className="well__title text-white font-bold">Giá trị thiết thực cho sự nghiệp</span>
-                    Học kỹ năng phát triển sản phẩm công nghệ thật, không dừng lại ở đồ án lý thuyết.
+                    <span className="well__title text-white font-bold">Hành trang cho chặng đường tiếp theo</span>
+                    Kiến thức, kinh nghiệm làm việc nhóm và sản phẩm bạn xây dựng có thể trở thành tư liệu hữu ích khi hoàn thiện Portfolio và tìm kiếm cơ hội thực tập, việc làm.
                   </figcaption>
                 </figure>
               </BorderGlow>
@@ -471,7 +478,7 @@ export const App: React.FC = () => {
                 />
               </h2>
               <p className="lead">
-                Giải đáp chi tiết các băn khoăn của sinh viên trước khi gửi đơn đăng ký.
+                Giải đáp chi tiết mọi băn khoăn của sinh viên FPT Polytechnic trước khi gửi đơn đăng ký.
               </p>
             </div>
           </AnimatedContent>
@@ -538,25 +545,25 @@ export const App: React.FC = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
-                  <span className="ml-2 font-mono text-[11px] text-muted">AI Buildathon 2026 // Hub</span>
+                  <span className="ml-2 font-mono text-[11px] text-muted">AI Buildathon 2026 // FPT Polytechnic Hà Nội</span>
                 </div>
-                <span className="pill text-[11px]">Official Console</span>
+                <span className="pill text-[11px]">Cơ sở Hà Nội</span>
               </div>
 
               {/* Main Content: 2-column balanced layout */}
               <div className="p-7 sm:p-9 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                 {/* Left: Branding & Manifesto */}
                 <div className="lg:col-span-7 space-y-4">
-                  <div className="wordmark">
+                  <div className="wordmark flex items-center gap-2">
                     <span className="wordmark__ring" aria-hidden="true" />
-                    <span>AI Buildathon 2026</span>
+                    <span className="font-bold text-ink">AI Buildathon 2026</span>
                   </div>
                   <p className="text-sm text-muted leading-relaxed max-w-lg">
-                    Không cần tự xây dựng mô hình AI. Hãy dùng AI để tạo ra sản phẩm giải quyết vấn đề thực tế. Cuộc thi 03 tuần thực chiến dành cho sinh viên.
+                    Không cần tự xây dựng mô hình AI. Hãy dùng AI có sẵn để tạo ra sản phẩm giải quyết vấn đề thực tế. Cuộc thi 03 tuần thực chiến dành cho sinh viên FPT Polytechnic Hà Nội (Kỳ 3 - Kỳ 6).
                   </p>
                   <div className="pt-2 flex items-center gap-2 text-xs text-muted">
                     <span className="wordmark__ring" style={{ width: 8, height: 8, borderWidth: 1.5 }} />
-                    <span>Build With AI · From Ideas to Real Products</span>
+                    <span>Build With AI · Từ ý tưởng đến sản phẩm chạy thật</span>
                   </div>
                 </div>
 
@@ -567,7 +574,7 @@ export const App: React.FC = () => {
                     <p className="text-sm text-ink font-semibold">Ban Tổ Chức AI Buildathon 2026</p>
                   </div>
                   <p className="text-xs text-muted leading-relaxed">
-                    Dành cho sinh viên, doanh nghiệp đối tác hoặc trường đại học cần hỗ trợ giải đáp thông tin:
+                    Dành cho sinh viên FPT Polytechnic, doanh nghiệp đối tác hoặc giảng viên cần hỗ trợ thông tin:
                   </p>
                   <div className="pt-2 flex flex-col sm:flex-row flex-wrap gap-x-4 gap-y-2 text-xs text-ink">
                     <span className="flex items-center gap-1.5 text-accent font-medium">
@@ -580,19 +587,19 @@ export const App: React.FC = () => {
               </div>
 
               {/* Bottom Row: Navigation Links & Copyright */}
-              <div className="px-7 sm:px-9 py-5 border-t border-rule-2 bg-paper-2/40 flex flex-col md:flex-col items-start md:items-center justify-between gap-4">
+              <div className="px-7 sm:p-9 py-5 border-t border-rule-2 bg-paper-2/40 flex flex-col md:flex-col items-start md:items-center justify-between gap-4">
                 <nav className="footer__links flex flex-wrap gap-x-6 gap-y-2" aria-label="Chân trang">
                   <a href="#top">Đầu trang</a>
                   <a href="#what">Bạn sẽ làm gì</a>
                   <a href="#no-expert">Cần giỏi AI không?</a>
-                  <a href="#challenges">Đề bài</a>
+                  <a href="#challenges">Ý tưởng thử sức</a>
                   <a href="#timeline">Lộ trình</a>
                   <a href="#partners">Cố vấn & Đối tác</a>
                   <a href="#register">Đăng ký</a>
                 </nav>
 
                 <p className="footer__legal text-xs text-muted m-0">
-                  &copy; 2026 AI Buildathon. Mọi quyền được bảo lưu.
+                  &copy; 2026 AI Buildathon · FPT Polytechnic Hà Nội. Mọi quyền được bảo lưu.
                 </p>
               </div>
             </div>

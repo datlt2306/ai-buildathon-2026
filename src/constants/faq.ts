@@ -9,9 +9,9 @@ export const faqContent: FaqData = {
     {
       id: 'faq-stu-1',
       category: 'student',
-      question: 'Sinh viên chưa có nhiều kinh nghiệm chuyên sâu về Machine Learning có tham gia được không?',
+      question: 'Sinh viên mới biết code cơ bản, chưa hiểu sâu về AI có tham gia được không?',
       answer:
-        'Hoàn toàn có thể! Cuộc thi tập trung vào kỹ năng ứng dụng AI (sử dụng API LLM, kỹ thuật RAG, thiết kế Agent và lập trình giao diện sản phẩm), không yêu cầu nghiên cứu thuật toán từ đầu. Tinh thần học hỏi nhanh, kỹ năng giải quyết vấn đề và sự phối hợp đồng đội là yếu tố quyết định nhất.',
+        'Hoàn toàn có thể! Cuộc thi tập trung vào kỹ năng ứng dụng AI vào thực tế (sử dụng API có sẵn của ChatGPT, Gemini kết hợp giao diện web/app quen thuộc), không yêu cầu nghiên cứu thuật toán từ đầu hay kỹ thuật RAG phức tạp. Chỉ cần bạn biết lập trình cơ bản và có tinh thần đồng đội, bạn đã hoàn toàn đủ sức tạo nên một sản phẩm chạy thật ấn tượng.',
     },
     {
       id: 'faq-stu-2',

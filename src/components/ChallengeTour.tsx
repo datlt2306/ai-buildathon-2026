@@ -20,58 +20,58 @@ export const ChallengeTour: React.FC = () => {
   const items: ChallengeItem[] = [
     {
       id: 'cskh',
-      name: '01. CSKH & Bán hàng',
-      desc: 'Tư vấn sản phẩm 24/7 và hỗ trợ chốt đơn tự động qua chat.',
-      title: 'Trợ lý CSKH & Bán hàng đa kênh',
-      problem: 'Cửa hàng hoặc doanh nghiệp nhận hàng trăm tin nhắn ngoài giờ; nhân viên không kịp trả lời dẫn đến mất khách hàng.',
-      solution: 'Xây dựng bot AI hiểu ngữ cảnh tiếng Việt, tự động tra cứu kho hàng và hướng dẫn khách hoàn tất đặt hàng.',
-      tech: ['Google Gemini API', 'FastAPI / Next.js', 'Webhook'],
-      sampleInput: 'Khách hỏi: "Shop còn áo khoác gió size L màu đen ở kho Hà Nội không?"',
-      sampleOutput: 'AI phản hồi: "Dạ còn 2 chiếc tại kho Cầu Giấy ạ! Shop có thể giao hỏa tốc trong 2 giờ. Bạn cho shop xin số điện thoại nhé!"',
+      name: '01. Trợ lý bán hàng cho Shop',
+      desc: 'Tư vấn sản phẩm 24/7 và hỗ trợ khách đặt hàng tự động qua chat.',
+      title: 'Trợ lý bán hàng & Tư vấn tự động cho Shop / Fanpage',
+      problem: 'Shop thời trang / đồ ăn của sinh viên hoặc người quen nhận nhiều tin nhắn ngoài giờ; nhân viên không kịp rep dẫn đến mất khách.',
+      solution: 'Dựng web bán hàng đơn giản, kết nối Gemini API để bot đọc thông tin bảng giá, tự động tư vấn và lưu thông tin giao hàng.',
+      tech: ['Google Gemini API (Free)', 'React / Next.js', 'Tailwind CSS'],
+      sampleInput: 'Khách hỏi: "Shop còn áo hoodie oversize màu xám size L ở kho Hà Nội không?"',
+      sampleOutput: 'AI phản hồi: "Dạ shop còn đúng 2 chiếc size L màu xám tại kho Cầu Giấy ạ! Shop có thể gửi ship hỏa tốc ngay trong ngày. Bạn cho shop xin địa chỉ và SĐT nhận hàng nhé!"',
     },
     {
-      id: 'marketing',
-      name: '02. Marketing & Kinh doanh',
-      desc: 'Tạo nội dung quảng cáo, viết bài truyền thông và gợi ý chiến dịch.',
-      title: 'Trợ lý sáng tạo nội dung & Chiến dịch Marketing',
-      problem: 'Doanh nghiệp nhỏ thiếu nhân sự marketing, mất nhiều thời gian viết bài quảng cáo, email chào hàng và kịch bản video.',
-      solution: 'Ứng dụng AI giúp tạo bài viết chuẩn SEO, gợi ý tiêu đề quảng cáo và cá nhân hóa email tiếp cận từng nhóm khách hàng.',
-      tech: ['OpenAI / Gemini API', 'Tailwind CSS', 'React'],
-      sampleInput: 'Yêu cầu: "Tạo 3 mẫu tiêu đề quảng cáo Facebook cho khóa học lập trình web sinh viên, phong cách trẻ trung."',
-      sampleOutput: '1. Không chỉ học lý thuyết: Tự tay làm dự án web đầu tiên sau 4 tuần!\n2. Lập trình từ con số 0: Cẩm nang thực chiến dành riêng cho tân sinh viên.\n3. Portfolio trống trơn? Xây dựng 3 dự án thật cùng chuyên gia ngay hôm nay.',
+      id: 'study',
+      name: '02. Trợ lý học tập Poly',
+      desc: 'Giải thích bài tập, giải thích đáp án trắc nghiệm và gợi ý ví dụ dễ hiểu.',
+      title: 'Trợ lý học tập & Luyện thi trắc nghiệm FPT Poly',
+      problem: 'Sinh viên ôn thi các môn cơ sở ngành (Web, Java, C#, Database...) gặp câu hỏi khó nhưng không hiểu bản chất, chỉ học vẹt đáp án.',
+      solution: 'Ứng dụng cho phép dán câu hỏi trắc nghiệm, AI phân tích từng phương án đúng/sai, giải thích bản chất và gợi ý bài tập tương tự.',
+      tech: ['ChatGPT / Gemini API', 'Node.js / Express', 'React'],
+      sampleInput: 'Câu hỏi: "Trong Java, điểm khác biệt cơ bản giữa ArrayList và LinkedList là gì?"',
+      sampleOutput: 'AI giải thích: "• ArrayList dùng mảng động: tìm kiếm theo vị trí index cực nhanh O(1), nhưng chèn/xóa ở giữa chậm.\n• LinkedList dùng danh sách liên kết: chèn/xóa nhanh O(1), nhưng tìm kiếm phải duyệt từ đầu O(n).\nMẹo ôn thi: Cần đọc/tra cứu dữ liệu nhiều chọn ArrayList; cần thêm/xóa liên tục chọn LinkedList!"',
+    },
+    {
+      id: 'local',
+      name: '03. Tìm trọ quanh trường',
+      desc: 'Hỏi đáp tự nhiên để lọc phòng trọ hoặc quán ăn ngon theo ngân sách sinh viên.',
+      title: 'Trợ lý tìm phòng trọ & Quán ngon quanh Trịnh Văn Bô',
+      problem: 'Sinh viên Poly mất nhiều ngày đi tìm phòng trọ quanh khu Nam Từ Liêm, dễ gặp phòng không đúng nhu cầu hoặc bị "hớ" giá.',
+      solution: 'Chatbot hỗ trợ tìm trọ: sinh viên nhập ngân sách, tiện ích mong muốn (điều hòa, không chung chủ), AI tự động gợi ý danh sách phòng phù hợp.',
+      tech: ['LLM Prompting', 'Supabase (Free Tier)', 'React / Vite'],
+      sampleInput: 'Sinh viên hỏi: "Tìm cho mình phòng trọ quanh Trịnh Văn Bô dưới 2.5 triệu, có điều hòa và giờ giấc tự do."',
+      sampleOutput: 'AI gợi ý: "Tìm thấy 3 phòng phù hợp gần trường:\n1. Phòng khép kín 22m² - Ngõ 80 Xuân Phương (Cách trường 600m) - 2.3 tr/tháng (Có ĐH, nóng lạnh, vân tay tự do).\n2. Studio gác xép - Phố Hòe Thị - 2.5 tr/tháng (Full đồ, thoáng mát).\nBạn muốn mình gửi số liên hệ chủ trọ nào?"',
     },
     {
       id: 'doc',
-      name: '03. Xử lý tài liệu & Tri thức',
-      desc: 'Bóc tách hóa đơn, hợp đồng tự động và tra cứu tài liệu nội bộ.',
-      title: 'Số hóa tài liệu & Hỏi đáp tri thức nội bộ',
-      problem: 'Nhân viên tốn nhiều giờ nhập liệu thủ công từ hóa đơn PDF hoặc mất thời gian tìm kiếm quy định trong hàng trăm trang tài liệu.',
-      solution: 'Kết hợp nhận diện văn bản (OCR) và mô hình AI để trích xuất thông tin hóa đơn thành bảng tính hoặc hỏi đáp tài liệu tức thì.',
-      tech: ['Document AI / OCR', 'Structured JSON Output', 'Python'],
-      sampleInput: 'Tệp tải lên: "Hoa_don_GTGT_112026.pdf" (Hóa đơn mua máy chủ)',
-      sampleOutput: '{\n  "ma_so_thue": "0108923411",\n  "so_hoa_don": "HD-00492",\n  "tong_tien_chua_thue": 14500000,\n  "thue_vat": 1160000,\n  "tong_thanh_toan": 15660000\n}',
+      name: '04. Đọc và xử lý hóa đơn',
+      desc: 'Chụp ảnh hóa đơn hoặc hồ sơ, AI tự đọc chữ và xuất vào bảng tính Excel.',
+      title: 'Số hóa hóa đơn & Nhập liệu sổ sách tự động',
+      problem: 'Cửa hàng buôn bán nhỏ hoặc câu lạc bộ sinh viên tốn nhiều giờ gõ tay từng hóa đơn giấy vào file Excel để tính thu chi.',
+      solution: 'Tải ảnh chụp hóa đơn lên, mô hình AI thị giác (Gemini Vision) tự động nhận diện ngày mua, danh sách món và tổng tiền rồi lưu vào bảng tính.',
+      tech: ['Gemini Vision API', 'Structured JSON Output', 'Python / Next.js'],
+      sampleInput: 'Tệp ảnh: "Hoa_don_mua_vat_tu_CLB.jpg" (Hóa đơn 10 món văn phòng phẩm)',
+      sampleOutput: '{\n  "cua_hang": "Văn phòng phẩm Poly",\n  "ngay_mua": "2026-11-04",\n  "tong_tien": 485000,\n  "danh_sach_mon": ["Bút dạ quang (5)", "Bìa màu A4 (2)", "Băng dính 2 mặt (3)"]\n}\n-> Đã tự động xuất ra file Excel thành công!',
     },
     {
-      id: 'workflow',
-      name: '04. Tự động hóa quy trình',
-      desc: 'Phân loại email công việc, tóm tắt cuộc họp và tự giao việc.',
-      title: 'Trợ lý điều phối luồng công việc tự động',
-      problem: 'Nhiều yêu cầu công việc bị bỏ sót trong các nhóm chat hoặc chuỗi email trao đổi dài.',
-      solution: 'AI đọc nội dung trao đổi, tự động tạo danh sách việc cần làm (to-do list), gắn người phụ trách và nhắc hạn chót.',
-      tech: ['Function Calling', 'Slack / Telegram API', 'Node.js'],
-      sampleInput: 'Nội dung email: "An chuẩn bị slide báo cáo tài chính trước 17:00 thứ Sáu để họp với khách hàng nhé."',
-      sampleOutput: '• Nhiệm vụ: Chuẩn bị slide báo cáo tài chính\n• Người phụ trách: @Nguyễn Văn An\n• Hạn chót: 17:00 ngày 15/11 (Đã tự động thêm vào lịch làm việc)',
-    },
-    {
-      id: 'data',
-      name: '05. Phân tích dữ liệu & Báo cáo',
-      desc: 'Hỏi bằng tiếng Việt tự nhiên để hệ thống xuất số liệu và vẽ biểu đồ.',
-      title: 'Trợ lý truy vấn & Trực quan hóa dữ liệu kinh doanh',
-      problem: 'Người quản lý muốn nắm nhanh doanh thu và xu hướng bán hàng nhưng không thành thạo viết câu lệnh truy vấn dữ liệu phức tạp.',
-      solution: 'Chuyển đổi câu hỏi tiếng Việt thành truy vấn dữ liệu tự động và hiển thị biểu đồ trực quan.',
-      tech: ['Text-to-SQL API', 'Chart.js', 'FastAPI'],
-      sampleInput: 'Câu hỏi: "Doanh thu chi nhánh Đà Nẵng tháng này tăng hay giảm so với tháng trước?"',
-      sampleOutput: 'Doanh thu đạt 420 triệu VNĐ (tăng +18.4% so với tháng trước). Nhóm sản phẩm tăng trưởng tốt nhất: Phụ kiện (+32%). Đã tạo biểu đồ xu hướng.',
+      id: 'marketing',
+      name: '05. Trợ lý sáng tạo nội dung',
+      desc: 'Gợi ý ý tưởng, viết kịch bản video và hỗ trợ sáng tạo nội dung TikTok.',
+      title: 'Trợ lý sáng tạo kịch bản TikTok & Bài viết Fanpage',
+      problem: 'Sinh viên làm dự án Digital Marketing hoặc bán hàng online thường bí ý tưởng viết bài, mất nhiều thời gian nghĩ kịch bản video.',
+      solution: 'Nhập tên sản phẩm hoặc chủ đề, AI tạo ngay 3 góc kịch bản video TikTok 30s kèm lời thoại, góc quay và danh sách hashtag thịnh hành.',
+      tech: ['OpenAI / Gemini API', 'Tailwind CSS', 'React'],
+      sampleInput: 'Yêu cầu: "Tạo kịch bản TikTok 30s giới thiệu bình giữ nhiệt sinh viên, phong cách hài hước."',
+      sampleOutput: '• Giây 0-3 (Hook): "Đừng mua chiếc bình này nếu bạn không muốn đá từ 7h sáng đến chiều vẫn chưa tan!"\n• Giây 4-15: Cảnh đổ nước đá lúc đi học ở Poly, chiều về mở ra đá vẫn kêu leng keng.\n• Giây 16-25: Thử nghiệm để bình nghiêng trong balo cùng laptop - hoàn toàn không rò một giọt.\n• Giây 26-30 (CTA): "Link giá sinh viên săn deal ngay hôm nay nhé!"',
     },
   ];
 
@@ -81,15 +81,15 @@ export const ChallengeTour: React.FC = () => {
     id: item.id,
     title: item.name,
     description: item.desc,
-    meta: `Đề tài 0${idx + 1}`,
+    meta: `Ý tưởng 0${idx + 1}`,
   }));
 
   return (
     <div>
       <div className="sec__head mx-auto text-center mb-10">
-        <h2>Những sản phẩm nào có thể được xây dựng?</h2>
+        <h2>Những sản phẩm bạn và nhóm có thể thử sức!</h2>
         <p className="lead max-w-2xl mx-auto">
-          5 nhóm bài toán thực tiễn gợi ý từ doanh nghiệp. Bạn có thể chọn hướng đi phù hợp với thế mạnh của đội mình.
+          Không cần ý tưởng quá phức tạp. Hãy bắt đầu từ những vấn đề quen thuộc và thử giải quyết chúng bằng AI.
         </p>
       </div>
 
@@ -112,9 +112,15 @@ export const ChallengeTour: React.FC = () => {
             />
           </div>
 
-          <p className="text-xs text-muted pt-3 border-t border-rule mt-6 italic">
-            <strong>Lưu ý:</strong> Đây là các nhóm bài toán tham khảo. Đề bài chi tiết do doanh nghiệp đối tác đặt hàng sẽ được Ban tổ chức công bố tại buổi Orientation.
-          </p>
+          <div className="p-3.5 rounded-xl bg-paper border border-rule-2 mt-6 space-y-1.5 text-xs text-muted">
+            <p className="text-white font-medium flex items-center gap-1.5">
+              <span>💡</span>
+              <span>Bạn có ý tưởng riêng từ Đồ án môn học?</span>
+            </p>
+            <p className="leading-relaxed">
+              Hoàn toàn có thể mang bài tập lớn, assignment hoặc đồ án (Java, Web, Mobile) vào cuộc thi và gắn thêm tính năng AI để nâng cấp thành sản phẩm dự thi!
+            </p>
+          </div>
         </div>
 
       {/* Right: Machined Panel Stage */}
@@ -147,19 +153,6 @@ export const ChallengeTour: React.FC = () => {
                 <pre className="text-xs text-accent font-mono whitespace-pre-wrap leading-relaxed">
                   {current.sampleOutput}
                 </pre>
-              </div>
-
-              <div className="pt-2 flex flex-wrap items-center justify-between gap-3 text-xs">
-                <div className="flex flex-wrap gap-2">
-                  {current.tech.map((t, idx) => (
-                    <span key={idx} className="text-xs px-2.5 py-1 rounded-full bg-paper border border-rule text-ink-2 font-medium">
-                      {t}
-                    </span>
-                  ))}
-                </div>
-                <a href="#register" className="text-accent hover:underline font-medium">
-                  Chọn bài toán này
-                </a>
               </div>
             </div>
           </div>
