@@ -453,7 +453,7 @@ export const App: React.FC = () => {
         {/* ========================================================================= */}
         {/* SECTION 9: CÂU HỎI THƯỜNG GẶP (FAQ)                                      */}
         {/* ========================================================================= */}
-        <section className="sec container max-w-4xl" id="faq">
+        {/* <section className="sec container max-w-4xl" id="faq">
           <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
             <div className="sec__head mx-auto text-center">
               <h2>
@@ -511,7 +511,7 @@ export const App: React.FC = () => {
               })}
             </div>
           </AnimatedContent>
-        </section>
+        </section> */}
       </main>
 
       {/* ========================================================================= */}
