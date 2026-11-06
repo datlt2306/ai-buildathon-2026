@@ -75,7 +75,7 @@ export const finalCtaContent: FinalCtaData = {
     'Dù bạn là sinh viên khao khát khẳng định năng lực, doanh nghiệp tìm kiếm lời giải đột phá, hay nhà trường hướng tới kết nối thực tiễn — luôn có vị trí dành riêng cho bạn trong liên minh đổi mới sáng tạo này.',
   studentCta: {
     label: 'Đăng ký tham gia ngay (Sinh viên)',
-    subtitle: 'Lập đội hoặc đăng ký cá nhân để ghép đội',
+    subtitle: 'Trưởng nhóm đăng ký thông tin đội thi (~3 thành viên)',
   },
   businessCta: {
     label: 'Đồng hành cùng chương trình (Doanh nghiệp)',

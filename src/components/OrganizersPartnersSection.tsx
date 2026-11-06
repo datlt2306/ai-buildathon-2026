@@ -21,7 +21,7 @@ const PROFILES: ProfileItem[] = [
     title: 'Điều phối chương trình và tổ chức cuộc thi',
     roleLabel: 'Điều phối chương trình',
     roleBadge: 'Ban Tổ Chức',
-    status: 'FPT Polytechnic Hà Nội',
+    status: 'Chủ nhiệm bộ môn CNTT',
     statusColor: '#8261f6',
     avatarUrl: '/assets/profiles/avatar-academic.svg',
     iconUrl: '/assets/profiles/holo-pattern.svg',
@@ -31,7 +31,7 @@ const PROFILES: ProfileItem[] = [
     title: 'Phụ trách chuyên môn và kỹ thuật',
     roleLabel: 'Chuyên môn & Kỹ thuật',
     roleBadge: 'Ban Tổ Chức',
-    status: 'FPT Polytechnic Hà Nội',
+    status: 'Bộ môn CNTT',
     statusColor: '#38bdf8',
     avatarUrl: '/assets/profiles/avatar-tech.svg',
     iconUrl: '/assets/profiles/holo-pattern.svg',
@@ -41,7 +41,7 @@ const PROFILES: ProfileItem[] = [
     title: 'Hỗ trợ đội thi và kết nối hoạt động',
     roleLabel: 'Hỗ trợ đội thi',
     roleBadge: 'Ban Tổ Chức',
-    status: 'FPT Polytechnic Hà Nội',
+    status: 'Bộ môn CNTT',
     statusColor: '#22c55e',
     avatarUrl: '/assets/profiles/avatar-product.svg',
     iconUrl: '/assets/profiles/holo-pattern.svg',
@@ -161,7 +161,7 @@ export const OrganizersPartnersSection: React.FC = () => {
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
-                      <span><strong>Kết nối & bảo trợ:</strong> Đồng hành giải đáp thắc mắc, ghép đội sinh viên và bảo trợ chuyên môn cho các sản phẩm.</span>
+                      <span><strong>Hỗ trợ & bảo trợ:</strong> Đồng hành giải đáp thắc mắc đội thi, hướng dẫn chuyên môn và hỗ trợ hoàn thiện các sản phẩm.</span>
                     </li>
                   </ul>
                 </div>

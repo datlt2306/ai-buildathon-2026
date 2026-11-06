@@ -22,8 +22,8 @@ export const MILESTONES: MilestoneItem[] = [
     shortTitle: 'Phát động & Đăng ký',
     fullTitle: 'Phát động cuộc thi và mở cổng đăng ký',
     roundBadge: 'GIAI ĐOẠN KHỞI ĐỘNG',
-    desc: 'Mở cổng tiếp nhận hồ sơ đăng ký tham gia dành cho sinh viên FPT Polytechnic cơ sở Hà Nội. Sinh viên có thể đăng ký theo nhóm (khoảng 3 bạn) hoặc đăng ký cá nhân để BTC hỗ trợ kết nối đồng đội.',
-    keyAction: 'Lập nhóm khoảng 3 bạn hoặc đăng ký cá nhân trên landing page trước khi đóng cổng.',
+    desc: 'Mở cổng tiếp nhận hồ sơ đăng ký tham gia dành cho sinh viên FPT Polytechnic cơ sở Hà Nội. Trưởng nhóm đại diện đăng ký thông tin đội thi (3 hoặc 4 sinh viên/đội) trực tiếp trên landing page.',
+    keyAction: 'Trưởng nhóm hoàn tất đăng ký thông tin đội thi (3–4 bạn) trên landing page trước khi đóng cổng.',
   },
   {
     id: 2,

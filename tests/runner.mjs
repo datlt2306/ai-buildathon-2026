@@ -25,6 +25,7 @@ const testArgs = [
   '--test',
   'tests/unit/data-integrity.test.ts',
   'tests/unit/validation.test.ts',
+  'tests/unit/google-sheets.test.ts',
   'tests/e2e/tier1-features.test.ts',
   'tests/e2e/tier2-boundaries.test.ts',
   'tests/e2e/tier3-combinations.test.ts',

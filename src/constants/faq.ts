@@ -23,9 +23,9 @@ export const faqContent: FaqData = {
     {
       id: 'faq-stu-3',
       category: 'student',
-      question: 'Tôi chưa có nhóm thì có đăng ký cá nhân được không?',
+      question: 'Quy định về việc đăng ký và quy mô đội thi như thế nào?',
       answer:
-        'Được. Bạn chỉ cần chọn hình thức "Cá nhân ghép đội" trong biểu mẫu đăng ký. Ban Tổ chức sẽ kết nối bạn với những bạn sinh viên FPT Polytechnic khác để lập thành nhóm khoảng 3 người cùng chí hướng.',
+        'Cuộc thi yêu cầu đăng ký theo đội (khuyến khích khoảng 3 sinh viên/đội). Trưởng nhóm sẽ đại diện đăng ký thông tin đội và điền danh sách các thành viên tham gia trên biểu mẫu đăng ký của website.',
     },
     {
       id: 'faq-stu-4',

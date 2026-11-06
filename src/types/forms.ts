@@ -15,6 +15,14 @@ export type BusinessPartnershipType =
 
 export type FormStatus = 'idle' | 'submitting' | 'success' | 'error';
 
+export interface TeamMemberInfo {
+  fullName: string;
+  studentId: string;
+  email?: string;
+  phone?: string;
+  majorClass?: string;
+}
+
 /**
  * Form 1: Student Registration Form Values
  * Supports both `phone` and `phoneNumber` for maximum compatibility
@@ -29,6 +37,7 @@ export interface StudentRegistrationFormValues {
   teamName: string;
   teamSize: '1' | '2' | '3' | '4' | '5';
   domainInterest: ChallengeCategory;
+  members?: TeamMemberInfo[];
 }
 
 /**

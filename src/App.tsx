@@ -1,4 +1,4 @@
-import React, { useState, useRef } from 'react';
+import React, { useRef } from 'react';
 import { HeroLanyardPass } from './components/HeroLanyardPass';
 import { ChallengeTour } from './components/ChallengeTour';
 import { StudentRegistrationSection } from './components/StudentRegistrationSection';
@@ -9,17 +9,16 @@ import LaserFlow from './components/LaserFlow';
 import FoldText from './components/FoldText';
 import SprintTimeline from './components/SprintTimeline';
 import OrganizersPartnersSection from './components/OrganizersPartnersSection';
-import { ChevronDown, Mail, Code2, Palette, TrendingUp, Sparkles, Bot, Cpu, CheckCircle2, Trophy, Medal, Award, Lightbulb } from 'lucide-react';
+import { Mail, Code2, Palette, TrendingUp, Sparkles, Bot, Cpu, CheckCircle2, Trophy, Medal, Award, Lightbulb } from 'lucide-react';
 
 export const App: React.FC = () => {
-  const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
   const footerContactRef = useRef<HTMLDivElement>(null);
 
   const steps = [
     {
       num: '01',
       title: 'Làm việc cùng đồng đội',
-      desc: 'Rủ bạn bè cùng lớp lập nhóm khoảng 3 người hoặc đăng ký cá nhân để BTC hỗ trợ kết nối đồng đội cùng khóa.',
+      desc: 'Rủ bạn bè cùng lớp lập nhóm 3 hoặc 4 thành viên để đăng ký tham gia và cùng nhau phát triển sản phẩm.',
     },
     {
       num: '02',
@@ -65,41 +64,6 @@ export const App: React.FC = () => {
     },
   ];
 
-  const faqs = [
-    {
-      q: '1. AI Buildathon 2026 là cuộc thi gì và bản chất như thế nào?',
-      a: 'AI Buildathon là cuộc thi phát triển sản phẩm công nghệ dựa trên bài toán và nhu cầu thực tế trong quản lý hành chính nhân sự (HR Administrative Management), dành riêng cho sinh viên FPT Polytechnic cơ sở Hà Nội. Sinh viên được khuyến khích vận dụng AI, AI Coding Agents và phương pháp Vibe Coding để hỗ trợ xây dựng một sản phẩm MVP hoạt động được trong 3 tuần.',
-    },
-    {
-      q: '2. Sinh viên có bắt buộc phải xây dựng hệ thống HRM hoàn chỉnh không?',
-      a: 'Tuyệt đối không! Cuộc thi áp dụng mô hình "Một lĩnh vực nghiệp vụ – Một số Pain Point thực tế – Nhiều hướng giải quyết". Bạn không cần làm hệ thống HRM đồ sộ hay xử lý toàn bộ vòng đời nhân sự. Mỗi đội chỉ chọn 1 Pain Point cụ thể (như tra cứu quy định, bóc tách CV/CCCD, nhắc hạn hợp đồng, phân loại đơn từ...) để phát triển một ứng dụng hoặc công cụ nhỏ chạy thử nghiệm trong 3 tuần. Một sản phẩm nhỏ giải quyết tốt một vấn đề thực tế có giá trị hơn một hệ thống lớn nhưng chỉ có giao diện minh họa.',
-    },
-    {
-      q: '3. Sinh viên sẽ sử dụng AI như thế nào trong cuộc thi?',
-      a: 'AI xuất hiện ở 2 khía cạnh: (A) AI trong quá trình phát triển sản phẩm: sinh viên dùng các AI Coding Agents (Google Antigravity, Cursor, Claude Code, Gemini CLI...) để hỗ trợ phân tích yêu cầu, thiết kế CSDL/UI, sinh code, kiểm thử và sửa lỗi; (B) AI trong chính sản phẩm: nếu phù hợp với bài toán, đội thi có thể tích hợp AI vào tính năng sản phẩm (tra cứu chính sách, bóc tách hồ sơ, phân loại đơn từ, hỏi đáp dữ liệu nội bộ...). Cuộc thi KHÔNG bắt buộc mọi sản phẩm phải tích hợp AI và KHÔNG bắt buộc huấn luyện mô hình từ đầu.',
-    },
-    {
-      q: '4. Vibe Coding trong cuộc thi được hiểu như thế nào?',
-      a: 'Vibe Coding là cách tiếp cận phát triển phần mềm bằng cách sử dụng AI để hỗ trợ chuyển yêu cầu và ý tưởng thành sản phẩm. Người phát triển vẫn cần hiểu nghiệp vụ, kiểm tra kết quả, kiểm soát code và chịu trách nhiệm về phần mềm. Cuộc thi không quảng bá Vibe Coding như việc tạo ra sản phẩm hoàn chỉnh chỉ bằng một vài câu lệnh mà không hiểu bản chất.',
-    },
-    {
-      q: '5. Tôi chỉ biết code cơ bản hoặc chưa có đội thi thì có tham gia được không?',
-      a: 'Hoàn toàn được! Cuộc thi phù hợp với sinh viên đang học tập muốn thử sức phát triển sản phẩm. Bạn không cần là cao thủ lập trình hay chuyên gia AI. Nếu chưa có nhóm, bạn chỉ cần chọn "Cá nhân ghép đội" trên form đăng ký, BTC sẽ hỗ trợ kết nối bạn với những bạn sinh viên Poly khác để lập thành nhóm khoảng 3 người có kỹ năng bổ trợ nhau.',
-    },
-    {
-      q: '6. Các đội thi được Mentor hỗ trợ như thế nào trong 3 tuần?',
-      a: 'Mentor sẽ hỗ trợ nhiều đội theo các buổi chung (Workshop kỹ thuật, Group Mentoring, Office Hours) để giải thích nghiệp vụ, làm rõ Pain Point, hỗ trợ thu hẹp phạm vi MVP, góp ý hướng giải pháp, trao đổi về kỹ thuật và kiến trúc. Cuộc thi không áp dụng hình thức mentor kèm 1-1.',
-    },
-    {
-      q: '7. Đội thi được sử dụng những công cụ, ngôn ngữ và nền tảng nào?',
-      a: 'Sinh viên hoàn toàn tự do lựa chọn ngôn ngữ lập trình, framework, công cụ phát triển và AI Coding Agents phù hợp với sở trường của nhóm (như React, Next.js, Node.js, Python, Antigravity, Cursor, Gemini API...). Cuộc thi không áp đặt hay giới hạn công nghệ.',
-    },
-    {
-      q: '8. Yêu cầu sản phẩm cuối cùng và điều kiện cấp chứng nhận như thế nào?',
-      a: 'Cuộc thi hướng tới sản phẩm MVP (Minimum Viable Product) có thể chạy thử và trình diễn được luồng hoạt động chính trước hội đồng tại Demo Day, không yêu cầu sản phẩm thương mại hoàn chỉnh. Về chứng nhận, theo quy định cuộc thi, chỉ các đội lọt vào vòng chung kết hoặc đạt giải mới được cấp chứng nhận chính thức từ Ban tổ chức.',
-    },
-  ];
-
   return (
     <div className="min-h-screen bg-paper text-ink font-body selection:bg-accent-soft selection:text-ink">
       {/* Skip link */}
@@ -114,7 +78,7 @@ export const App: React.FC = () => {
             <span className="wordmark__ring" aria-hidden="true" />
             <div className="flex flex-col text-left">
               <span className="font-bold text-ink leading-tight text-sm">AI Buildathon 2026</span>
-              <span className="text-[10px] text-accent font-semibold leading-none tracking-tight">FPT Polytechnic Hà Nội</span>
+              <span className="text-[10px] text-accent font-semibold leading-none tracking-tight">Bộ môn CNTT - FPT Polytechnic Hà Nội</span>
             </div>
           </a>
           <nav aria-label="Điều hướng chính">
@@ -126,7 +90,6 @@ export const App: React.FC = () => {
               <li><a href="#challenges">Bạn sẽ xây gì?</a></li>
               <li><a href="#timeline">Lịch trình</a></li>
               <li><a href="#partners">Cố vấn & Đối tác</a></li>
-              <li><a href="#faq">Hỏi đáp</a></li>
             </ul>
           </nav>
           <a className="btn btn--small btn--primary" href="#register">
@@ -168,7 +131,7 @@ export const App: React.FC = () => {
             <AnimatedContent className="hero__text" distance={35} duration={0.8} stagger={0.08} trigger="mount">
               <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold mb-3">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span>AI BUILDATHON 2026 · FPT POLYTECHNIC HÀ NỘI</span>
+                <span>AI BUILDATHON 2026 · Bộ môn CNTT - FPT POLYTECHNIC HÀ NỘI</span>
               </div>
 
               <h1 id="hero-head" className="tracking-tight text-white">
@@ -188,7 +151,7 @@ export const App: React.FC = () => {
                 </a>
               </div>
 
-              <p className="hero__fine">3 tuần thực chiến · Khoảng 3 bạn/đội · Doanh nghiệp đồng hành · Tự do chọn công nghệ</p>
+              <p className="hero__fine">3 tuần thực chiến · 3–4 bạn/đội · Doanh nghiệp đồng hành · Tự do chọn công nghệ</p>
             </AnimatedContent>
 
             <HeroLanyardPass />
@@ -198,55 +161,84 @@ export const App: React.FC = () => {
         {/* ========================================================================= */}
         {/* SECTION 2: CUỘC THI NÀY CÓ GÌ? (4 Trải nghiệm cốt lõi)                   */}
         {/* ========================================================================= */}
-        <section className="sec container" id="what">
-          <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
-            <div className="sec__head mx-auto text-center">
-              <h2>
-                <FoldText
-                  text="Cuộc thi này có gì?"
-                  foldStyle="paper"
-                  splitBy="word"
-                  hinge="top"
-                  trigger="scroll"
-                  foldAngle={90}
-                  duration={0.65}
-                  stagger={0.05}
-                  ease="power3.out"
-                  hoverRefold={true}
-                  refoldRadius={120}
-                  refoldAngle={35}
-                  perspective={700}
-                  creaseShading={0.4}
-                  fontSize="inherit"
-                  fontWeight={700}
-                  color="inherit"
-                />
-              </h2>
-              <p className="lead max-w-2xl mx-auto">
-                4 trải nghiệm thực tế bạn sẽ cùng đồng đội trải qua trong hành trình 3 tuần:
-              </p>
-            </div>
-          </AnimatedContent>
+        <section className="sec container relative overflow-hidden" id="what">
+          {/* Plus Crosshair Mesh Overlay */}
+          <div
+            className="pointer-events-none absolute inset-0 z-0 opacity-20 [mask-image:radial-gradient(ellipse_65%_55%_at_50%_50%,#000_65%,transparent_100%)]"
+            style={{
+              backgroundImage: `url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 13v6m-3-3h6' stroke='%238261f6' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E")`,
+              backgroundSize: '32px 32px',
+            }}
+            aria-hidden="true"
+          />
+          <div className="relative z-10">
+            <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
+              <div className="sec__head mx-auto text-center">
+                <h2>
+                  <FoldText
+                    text="Cuộc thi này có gì?"
+                    foldStyle="paper"
+                    splitBy="word"
+                    hinge="top"
+                    trigger="scroll"
+                    foldAngle={90}
+                    duration={0.65}
+                    stagger={0.05}
+                    ease="power3.out"
+                    hoverRefold={true}
+                    refoldRadius={120}
+                    refoldAngle={35}
+                    perspective={700}
+                    creaseShading={0.4}
+                    fontSize="inherit"
+                    fontWeight={700}
+                    color="inherit"
+                  />
+                </h2>
+                <p className="lead max-w-2xl mx-auto">
+                  4 trải nghiệm thực tế bạn sẽ cùng đồng đội trải qua trong hành trình 3 tuần:
+                </p>
+              </div>
+            </AnimatedContent>
 
-          <AnimatedContent distance={40} duration={0.8} stagger={0.1} threshold={0.1}>
-            <ul className="step-list" role="list">
-              {steps.map((st) => (
-                <li key={st.num} className="step-row">
-                  <span className="step-num">{st.num}</span>
-                  <div className="step-body">
-                    <h3>{st.title}</h3>
-                    <p>{st.desc}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
-          </AnimatedContent>
+            <AnimatedContent distance={40} duration={0.8} stagger={0.1} threshold={0.1}>
+              <ul className="step-list" role="list">
+                {steps.map((st) => (
+                  <li key={st.num} className="step-row">
+                    <span className="step-num">{st.num}</span>
+                    <div className="step-body">
+                      <h3>{st.title}</h3>
+                      <p>{st.desc}</p>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </AnimatedContent>
+          </div>
         </section>
 
         {/* ========================================================================= */}
         {/* SECTION 3: CƠ CẤU GIẢI THƯỞNG (Awards)                                    */}
         {/* ========================================================================= */}
-        <section className="sec container" id="awards">
+        <section className="sec container relative overflow-hidden" id="awards">
+          {/* Ambient Spotlight Top Glow */}
+          <div
+            className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[720px] h-[340px] bg-gradient-to-b from-amber-500/15 via-accent/10 to-transparent rounded-full blur-[120px] z-0"
+            aria-hidden="true"
+          />
+          {/* Subtle Precision Grid Overlay */}
+          <div
+            className="pointer-events-none absolute inset-0 z-0 opacity-15 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_35%,#000_50%,transparent_100%)]"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(245, 158, 11, 0.12) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(130, 97, 246, 0.12) 1px, transparent 1px)
+              `,
+              backgroundSize: '40px 40px',
+            }}
+            aria-hidden="true"
+          />
+          <div className="relative z-10">
           <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
             <div className="sec__head mx-auto text-center">
               <span className="pill pill--on mb-3 inline-block">Cơ cấu giải thưởng</span>
@@ -496,6 +488,7 @@ export const App: React.FC = () => {
             </div>
 
           </AnimatedContent>
+          </div>
         </section>
 
         {/* ========================================================================= */}
@@ -549,7 +542,20 @@ export const App: React.FC = () => {
         {/* ========================================================================= */}
         {/* SECTION 4: PHƯƠNG PHÁP & CÔNG CỤ PHÁT TRIỂN (AI Coding & Vibe Coding)    */}
         {/* ========================================================================= */}
-        <section className="sec container" id="vibe-coding">
+        <section className="sec container relative overflow-hidden" id="vibe-coding">
+          {/* Precision Tech Grid Overlay */}
+          <div
+            className="pointer-events-none absolute inset-0 z-0 opacity-15 [mask-image:radial-gradient(ellipse_80%_60%_at_50%_50%,#000_50%,transparent_100%)]"
+            style={{
+              backgroundImage: `
+                linear-gradient(to right, rgba(130, 97, 246, 0.15) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(67, 120, 255, 0.15) 1px, transparent 1px)
+              `,
+              backgroundSize: '40px 40px',
+            }}
+            aria-hidden="true"
+          />
+          <div className="relative z-10">
           <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
             <div className="sec__head mx-auto text-center">
               <span className="pill pill--on mb-3 inline-block">Phương pháp phát triển</span>
@@ -703,6 +709,7 @@ export const App: React.FC = () => {
               </BorderGlow>
             </div>
           </AnimatedContent>
+          </div>
         </section>
 
         {/* ========================================================================= */}
@@ -717,7 +724,20 @@ export const App: React.FC = () => {
         {/* ========================================================================= */}
         {/* SECTION 6: LỊCH TRÌNH AI BUILDATHON 2026 (Timeline Strip & Tallies)       */}
         {/* ========================================================================= */}
-        <section className="sec container" id="timeline">
+        <section className="sec container relative overflow-hidden" id="timeline">
+          {/* Diamond Mesh Overlay */}
+          <div
+            className="pointer-events-none absolute inset-0 z-0 opacity-15 [mask-image:radial-gradient(ellipse_75%_55%_at_50%_50%,#000_50%,transparent_100%)]"
+            style={{
+              backgroundImage: `
+                linear-gradient(45deg, rgba(130, 97, 246, 0.12) 1px, transparent 1px),
+                linear-gradient(-45deg, rgba(130, 97, 246, 0.12) 1px, transparent 1px)
+              `,
+              backgroundSize: '36px 36px',
+            }}
+            aria-hidden="true"
+          />
+          <div className="relative z-10">
           <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
             <div className="sec__head mx-auto text-center">
               <h2>
@@ -763,7 +783,7 @@ export const App: React.FC = () => {
               </div>
               <div>
                 <dt>Mỗi đội thi</dt>
-                <dd className="num is-open">Khoảng 3 <span className="c">bạn</span></dd>
+                <dd className="num is-open">3 – 4 <span className="c">bạn</span></dd>
               </div>
               <div>
                 <dt>Vòng chung kết</dt>
@@ -771,6 +791,7 @@ export const App: React.FC = () => {
               </div>
             </dl>
           </AnimatedContent>
+          </div>
         </section>
 
         {/* ========================================================================= */}
@@ -783,8 +804,17 @@ export const App: React.FC = () => {
         {/* ========================================================================= */}
         {/* SECTION 9: FORM ĐĂNG KÝ TRONG CLOSE BAND                                   */}
         {/* ========================================================================= */}
-        <section className="close" id="register" aria-labelledby="reg-head">
-          <div className="container pb-16">
+        <section className="close relative overflow-hidden" id="register" aria-labelledby="reg-head">
+          {/* AI Dot Matrix Overlay */}
+          <div
+            className="pointer-events-none absolute inset-0 z-0 opacity-25 [mask-image:radial-gradient(ellipse_75%_65%_at_50%_45%,#000_45%,transparent_100%)]"
+            style={{
+              backgroundImage: `radial-gradient(rgba(130, 97, 246, 0.45) 1px, transparent 1px)`,
+              backgroundSize: '24px 24px',
+            }}
+            aria-hidden="true"
+          />
+          <div className="container pb-16 relative z-10">
             <AnimatedContent distance={35} duration={0.8} threshold={0.1}>
               <StudentRegistrationSection />
             </AnimatedContent>
@@ -826,7 +856,7 @@ export const App: React.FC = () => {
                   <span className="w-2.5 h-2.5 rounded-full bg-rose-500/80 inline-block" />
                   <span className="w-2.5 h-2.5 rounded-full bg-amber-500/80 inline-block" />
                   <span className="w-2.5 h-2.5 rounded-full bg-emerald-500/80 inline-block" />
-                  <span className="ml-2 font-mono text-[11px] text-muted">AI Buildathon 2026 // FPT Polytechnic Hà Nội</span>
+                  <span className="ml-2 font-mono text-[11px] text-muted">AI Buildathon 2026 // Bộ môn CNTT - FPT Polytechnic Hà Nội</span>
                 </div>
                 <span className="pill text-[11px]">Cơ sở Hà Nội</span>
               </div>
@@ -840,7 +870,7 @@ export const App: React.FC = () => {
                     <span className="font-bold text-ink">AI Buildathon 2026</span>
                   </div>
                   <p className="text-sm text-muted leading-relaxed max-w-lg">
-                    Cuộc thi phát triển sản phẩm công nghệ ứng dụng AI trong quản lý hành chính nhân sự. 03 tuần thực chiến dành cho sinh viên FPT Polytechnic Hà Nội cùng Doanh nghiệp đồng hành.
+                    Cuộc thi phát triển sản phẩm công nghệ ứng dụng AI trong quản lý hành chính nhân sự. 03 tuần thực chiến dành cho sinh viên Bộ môn CNTT - FPT Polytechnic Hà Nội cùng Doanh nghiệp đồng hành.
                   </p>
                   <div className="pt-2 flex items-center gap-2 text-xs text-muted">
                     <span className="wordmark__ring" style={{ width: 8, height: 8, borderWidth: 1.5 }} />

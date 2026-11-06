@@ -819,7 +819,6 @@ h3 {
 .close {
   position: relative;
   margin-top: clamp(80px, 12vw, 140px);
-  padding-top: var(--space-2xl);
   background:
     radial-gradient(110% 70% at 50% 100%, var(--night-21-a9-c04h248), transparent 70%),
     linear-gradient(to bottom, var(--color-paper), var(--color-sky-low));
