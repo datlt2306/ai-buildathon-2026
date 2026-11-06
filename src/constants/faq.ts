@@ -2,53 +2,60 @@ import { FaqData } from '../types/sections';
 
 export const faqContent: FaqData = {
   eyebrow: 'CÂU HỎI THƯỜNG GẶP',
-  heading: 'GIẢI ĐÁP NHANH THẮC MẮC TỪ CÁC BÊN',
+  heading: 'GIẢI ĐÁP NHANH THẮC MẮC VỀ AI BUILDATHON 2026',
   subheading:
-    'Những thông tin cần thiết giúp sinh viên, doanh nghiệp và nhà trường chuẩn bị tốt nhất khi bước vào chương trình.',
+    'Những thông tin cần thiết giúp sinh viên FPT Polytechnic và các đối tác chuẩn bị tốt nhất khi bước vào cuộc thi.',
   studentFaqs: [
     {
       id: 'faq-stu-1',
       category: 'student',
-      question: 'Sinh viên mới biết code cơ bản, chưa hiểu sâu về AI có tham gia được không?',
+      question: 'Sinh viên chỉ biết code cơ bản, hay dùng ChatGPT có tham gia được không?',
       answer:
-        'Hoàn toàn có thể! Cuộc thi tập trung vào kỹ năng ứng dụng AI vào thực tế (sử dụng API có sẵn của ChatGPT, Gemini kết hợp giao diện web/app quen thuộc), không yêu cầu nghiên cứu thuật toán từ đầu hay kỹ thuật RAG phức tạp. Chỉ cần bạn biết lập trình cơ bản và có tinh thần đồng đội, bạn đã hoàn toàn đủ sức tạo nên một sản phẩm chạy thật ấn tượng.',
+        'Hoàn toàn được! Cuộc thi không dành riêng cho "cao thủ code" hay chuyên gia AI. Chỉ cần bạn biết lập trình cơ bản, biết dùng ChatGPT/Gemini để hỗ trợ, có khoảng 3 bạn cùng nhóm là đã đủ sức tạo ra một sản phẩm ứng dụng AI giải quyết bài toán thực tế.',
     },
     {
       id: 'faq-stu-2',
       category: 'student',
-      question: 'Tôi chưa có đội thi thì có thể đăng ký cá nhân được không?',
+      question: 'Có bắt buộc xây dựng hệ thống HRM hoàn chỉnh hay toàn bộ vòng đời nhân sự không?',
       answer:
-        'Được. Bạn chỉ cần chọn hình thức "Cá nhân tìm đội ghép (1 thành viên)" trong biểu mẫu đăng ký. Ban Tổ chức sẽ tổ chức phiên kết nối ghép đội (Team Matching Session) trong tuần đầu tiên để giúp bạn tìm thấy những đồng đội có kỹ năng bổ trợ (Dev, UI/UX, Business).',
+        'Tuyệt đối không! Cuộc thi áp dụng mô hình "Một lĩnh vực nghiệp vụ – Một số Pain Point cụ thể – Nhiều hướng giải quyết". Bạn không cần làm hệ thống HRM đồ sộ. Nhóm chỉ cần chọn 1 Pain Point hành chính nhân sự cụ thể (như tra cứu quy định, bóc tách CV/CCCD, nhắc hạn hợp đồng, phân loại đơn từ...) để phát triển một công cụ AI nhỏ trong 3 tuần.',
     },
     {
       id: 'faq-stu-3',
       category: 'student',
-      question: 'Chi phí tham gia chương trình là bao nhiêu?',
+      question: 'Tôi chưa có nhóm thì có đăng ký cá nhân được không?',
       answer:
-        'Chương trình hoàn toàn MIỄN PHÍ 100% cho tất cả các sinh viên được tuyển chọn tham gia. Các tài nguyên đào tạo, workshop và phiên cố vấn cùng chuyên gia đều được tài trợ toàn phần.',
+        'Được. Bạn chỉ cần chọn hình thức "Cá nhân ghép đội" trong biểu mẫu đăng ký. Ban Tổ chức sẽ kết nối bạn với những bạn sinh viên FPT Polytechnic khác để lập thành nhóm khoảng 3 người cùng chí hướng.',
     },
     {
       id: 'faq-stu-4',
       category: 'student',
-      question: 'Lịch trình 3 tuần có làm ảnh hưởng đến việc học chính khóa trên trường không?',
+      question: 'Mentor sẽ hỗ trợ các đội như thế nào trong 3 tuần?',
       answer:
-        'Không. Các buổi Workshop chung và các phiên Mentoring được bố trí linh hoạt vào các buổi tối ngày trong tuần hoặc cuối tuần. Thời gian làm việc nhóm do các đội chủ động tự sắp xếp theo hình thức online hoặc offline.',
+        'Mentor và chuyên gia công nghệ sẽ hỗ trợ nhiều đội thông qua các buổi Workshop hướng dẫn chung và các buổi Q&A giải đáp kỹ thuật định kỳ, không phải hình thức mentor kèm 1-1.',
     },
     {
       id: 'faq-stu-5',
       category: 'student',
-      question: 'Quyền sở hữu trí tuệ đối với sản phẩm MVP thuộc về ai?',
+      question: 'Chi phí sử dụng API AI có tốn kém không và có được miễn phí không?',
       answer:
-        'Toàn bộ sản phẩm và mã nguồn do đội thi phát triển thuộc quyền sở hữu của chính sinh viên. Doanh nghiệp đặt đề bài có quyền ưu tiên thương lượng hợp tác, cấp học bổng phát triển hoặc tài trợ triển khai thử nghiệm sau khi chương trình kết thúc.',
+        'Sinh viên tự do lựa chọn công cụ AI phù hợp. BTC sẽ hướng dẫn cách tận dụng các gói Free Tier phổ biến (Google Gemini API, Groq, open-source models). BTC không cam kết tất cả API trên thị trường đều miễn phí, nhưng bạn hoàn toàn có thể hoàn thành sản phẩm MVP tốt mà không tốn chi phí API.',
+    },
+    {
+      id: 'faq-stu-6',
+      category: 'student',
+      question: 'Yêu cầu sản phẩm MVP và điều kiện cấp chứng nhận như thế nào?',
+      answer:
+        'Cuộc thi hướng tới sản phẩm MVP có thể chạy thử và trình diễn được luồng chính tại Demo Day, không yêu cầu sản phẩm thương mại hoàn chỉnh. Về chứng nhận, theo quy định chỉ các đội lọt vào vòng chung kết hoặc đạt giải mới được cấp chứng nhận chính thức từ Ban tổ chức.',
     },
   ],
   businessFaqs: [
     {
       id: 'faq-biz-1',
       category: 'business',
-      question: 'Doanh nghiệp cần chuẩn bị những gì khi tham gia đồng hành?',
+      question: 'Doanh nghiệp đồng hành đóng vai trò như thế nào trong cuộc thi?',
       answer:
-        'Doanh nghiệp chỉ cần chuẩn bị một bản mô tả ngắn gọn về bài toán thực tế đang muốn giải quyết (kèm dữ liệu mẫu giả lập/ẩn danh nếu có) và cử 1-2 chuyên gia kỹ thuật hoặc sản phẩm dành khoảng 2-3 giờ mỗi tuần để cố vấn cho các đội thi.',
+        'Doanh nghiệp đồng hành cung cấp bối cảnh thực tế và một số Pain Point điển hình trong công tác hành chính nhân sự. BTC sẽ cùng doanh nghiệp chuẩn hóa các đề bài phù hợp để sinh viên phát triển MVP trong 3 tuần.',
     },
     {
       id: 'faq-biz-2',

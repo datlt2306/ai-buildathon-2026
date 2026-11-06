@@ -9,7 +9,7 @@ import LaserFlow from './components/LaserFlow';
 import FoldText from './components/FoldText';
 import SprintTimeline from './components/SprintTimeline';
 import OrganizersPartnersSection from './components/OrganizersPartnersSection';
-import { ChevronDown, Mail, Code2, Palette, TrendingUp, Sparkles } from 'lucide-react';
+import { ChevronDown, Mail, Code2, Palette, TrendingUp, Sparkles, Bot, Cpu, CheckCircle2, Trophy, Medal, Award, Lightbulb } from 'lucide-react';
 
 export const App: React.FC = () => {
   const [openFaqIndex, setOpenFaqIndex] = useState<number | null>(0);
@@ -19,76 +19,84 @@ export const App: React.FC = () => {
     {
       num: '01',
       title: 'Làm việc cùng đồng đội',
-      desc: 'Rủ bạn bè cùng lớp lập đội hoặc đăng ký cá nhân để được hỗ trợ ghép nhóm. Mỗi thành viên cùng đóng góp thế mạnh và kiến thức của mình.',
+      desc: 'Rủ bạn bè cùng lớp lập nhóm khoảng 3 người hoặc đăng ký cá nhân để BTC hỗ trợ kết nối đồng đội cùng khóa.',
     },
     {
       num: '02',
-      title: 'Giải quyết bài toán thực tế',
-      desc: 'Tiếp cận những vấn đề thực tế từ doanh nghiệp, tìm hiểu nhu cầu và đề xuất giải pháp bằng sản phẩm ứng dụng AI.',
+      title: 'Tiếp cận bài toán thực tế',
+      desc: 'Nhận bối cảnh hoạt động và các Pain Point thực tế trong quản lý hành chính nhân sự từ doanh nghiệp đồng hành.',
     },
     {
       num: '03',
-      title: 'Xây dựng sản phẩm ứng dụng AI',
-      desc: 'Vận dụng kiến thức đã học, kết hợp các công cụ AI để phát triển ứng dụng, hoàn thiện những chức năng cốt lõi và kiểm thử sản phẩm.',
+      title: 'Sử dụng AI để phát triển sản phẩm',
+      desc: 'Thực hành dùng AI Coding Agents và phương pháp Vibe Coding để hỗ trợ biến ý tưởng thành sản phẩm phần mềm chạy được.',
     },
     {
       num: '04',
       title: 'Demo và giới thiệu sản phẩm',
-      desc: 'Trình diễn thành quả trước hội đồng, chia sẻ cách bạn xây dựng sản phẩm và có thêm một dự án thực tế cho portfolio cá nhân.',
+      desc: 'Trình diễn sản phẩm MVP trước hội đồng chuyên môn, nhận đánh giá thực tế và bổ sung dự án vào Portfolio cá nhân.',
     },
   ];
 
-  const noExpertPoints = [
+  const capabilityGroups = [
     {
       icon: Code2,
-      title: 'Biết code cơ bản về lập trình?',
-      desc: 'Có kiến thức HTML, CSS, JavaScript, PHP, Java hoặc lập trình Mobile? Bạn có thể xây dựng giao diện, xử lý chức năng và tích hợp AI vào sản phẩm.',
-      tag: 'Lập trình ứng dụng',
+      title: 'Lập trình và phát triển',
+      desc: 'Có kiến thức về Web, Java, PHP, Mobile hoặc lập trình ứng dụng để xây dựng giao diện, xử lý chức năng và kết nối công cụ.',
+      tag: 'Lập trình & Phát triển',
     },
     {
       icon: Sparkles,
-      title: 'Thường xuyên sử dụng AI?',
-      desc: 'Biết sử dụng ChatGPT, Gemini hay các công cụ AI khác? Bạn có thể tận dụng chúng để tìm ý tưởng, phân tích vấn đề, hỗ trợ lập trình và xây dựng các tính năng thông minh.',
+      title: 'AI và công cụ công nghệ',
+      desc: 'Biết sử dụng ChatGPT, Gemini, AI Coding Agents hoặc muốn tìm hiểu cách ứng dụng AI hỗ trợ phân tích và phát triển sản phẩm.',
       tag: 'Khai thác công cụ AI',
     },
     {
       icon: Palette,
-      title: 'Có gu thẩm mỹ?',
-      desc: 'Yêu thích thiết kế giao diện, Figma, làm hình ảnh hay trình bày nội dung? Bạn có thể giúp sản phẩm dễ sử dụng, trực quan và hấp dẫn hơn.',
-      tag: 'Thiết kế trải nghiệm người dùng',
+      title: 'Thiết kế và trải nghiệm',
+      desc: 'Có khả năng thiết kế giao diện Figma, tối ưu luồng thao tác UI/UX trực quan và xây dựng slide thuyết trình cuốn hút.',
+      tag: 'Thiết kế & Trải nghiệm',
     },
     {
       icon: TrendingUp,
-      title: 'Thích lên ý tưởng và làm việc nhóm?',
-      desc: 'Bạn giỏi tìm hiểu nhu cầu, sắp xếp công việc, lên kế hoạch hoặc thuyết trình? Bạn có thể giúp đội xác định hướng đi và đưa sản phẩm đến gần hơn với người dùng.',
-      tag: 'Phát triển ý tưởng sản phẩm',
+      title: 'Phân tích nghiệp vụ và tổ chức',
+      desc: 'Có khả năng tìm hiểu vấn đề, phân tích yêu cầu, sắp xếp kế hoạch nhóm, kiểm thử sản phẩm và thuyết trình.',
+      tag: 'Ý tưởng & Tổ chức',
     },
   ];
 
   const faqs = [
     {
-      q: 'Em mới học kỳ 3, mới biết code cơ bản (HTML/CSS/JS hoặc Java), có theo nổi không?',
-      a: 'Hoàn toàn theo được! Kỳ 3 đến kỳ 6 là thời điểm vàng để bạn bắt tay làm sản phẩm thật. Bạn không cần làm thuật toán phức tạp — chỉ cần dựng giao diện đơn giản và kết nối API AI có sẵn. Phần thông minh đã có ChatGPT/Gemini lo, và còn có Mentor hỗ trợ kỹ thuật sát sao.',
+      q: '1. AI Buildathon 2026 là cuộc thi gì và bản chất như thế nào?',
+      a: 'AI Buildathon là cuộc thi phát triển sản phẩm công nghệ dựa trên bài toán và nhu cầu thực tế trong quản lý hành chính nhân sự (HR Administrative Management), dành riêng cho sinh viên FPT Polytechnic cơ sở Hà Nội. Sinh viên được khuyến khích vận dụng AI, AI Coding Agents và phương pháp Vibe Coding để hỗ trợ xây dựng một sản phẩm MVP hoạt động được trong 3 tuần.',
     },
     {
-      q: 'Cuộc thi này có bắt buộc phải biết chuyên sâu AI, làm chatbot phức tạp hay triển khai RAG không?',
-      a: 'Tuyệt đối KHÔNG! Cuộc thi không chấm điểm việc bạn tự train mô hình hay thuật toán cao siêu. Tiêu chí quan trọng nhất là: Sản phẩm của nhóm có chạy được không, có giải quyết được bài toán thực tế không và người dùng dùng có tiện lợi không.',
+      q: '2. Sinh viên có bắt buộc phải xây dựng hệ thống HRM hoàn chỉnh không?',
+      a: 'Tuyệt đối không! Cuộc thi áp dụng mô hình "Một lĩnh vực nghiệp vụ – Một số Pain Point thực tế – Nhiều hướng giải quyết". Bạn không cần làm hệ thống HRM đồ sộ hay xử lý toàn bộ vòng đời nhân sự. Mỗi đội chỉ chọn 1 Pain Point cụ thể (như tra cứu quy định, bóc tách CV/CCCD, nhắc hạn hợp đồng, phân loại đơn từ...) để phát triển một ứng dụng hoặc công cụ nhỏ chạy thử nghiệm trong 3 tuần. Một sản phẩm nhỏ giải quyết tốt một vấn đề thực tế có giá trị hơn một hệ thống lớn nhưng chỉ có giao diện minh họa.',
     },
     {
-      q: 'Em chưa bao giờ gọi API của AI thì làm sao kết nối vào ứng dụng?',
-      a: 'Rất dễ dàng! Gọi API AI cũng chỉ giống như gửi một yêu cầu lấy dữ liệu (fetch API) bạn học ở môn Web. Ban tổ chức sẽ cung cấp code mẫu (React, Next.js, Node.js, Python) và tổ chức buổi Workshop hướng dẫn từ con số 0 để bạn chạy thử được ngay sau 30 phút.',
+      q: '3. Sinh viên sẽ sử dụng AI như thế nào trong cuộc thi?',
+      a: 'AI xuất hiện ở 2 khía cạnh: (A) AI trong quá trình phát triển sản phẩm: sinh viên dùng các AI Coding Agents (Google Antigravity, Cursor, Claude Code, Gemini CLI...) để hỗ trợ phân tích yêu cầu, thiết kế CSDL/UI, sinh code, kiểm thử và sửa lỗi; (B) AI trong chính sản phẩm: nếu phù hợp với bài toán, đội thi có thể tích hợp AI vào tính năng sản phẩm (tra cứu chính sách, bóc tách hồ sơ, phân loại đơn từ, hỏi đáp dữ liệu nội bộ...). Cuộc thi KHÔNG bắt buộc mọi sản phẩm phải tích hợp AI và KHÔNG bắt buộc huấn luyện mô hình từ đầu.',
     },
     {
-      q: 'Em chưa có nhóm bạn cùng thi thì có đăng ký tham gia được không?',
-      a: 'Được chứ! Bạn chỉ cần chọn hình thức "Cá nhân ghép đội" khi đăng ký. Ban tổ chức sẽ tổ chức buổi kết nối (Orientation) để ghép bạn với các bạn sinh viên Poly khác có kỹ năng bổ trợ (code, thiết kế, ý tưởng).',
+      q: '4. Vibe Coding trong cuộc thi được hiểu như thế nào?',
+      a: 'Vibe Coding là cách tiếp cận phát triển phần mềm bằng cách sử dụng AI để hỗ trợ chuyển yêu cầu và ý tưởng thành sản phẩm. Người phát triển vẫn cần hiểu nghiệp vụ, kiểm tra kết quả, kiểm soát code và chịu trách nhiệm về phần mềm. Cuộc thi không quảng bá Vibe Coding như việc tạo ra sản phẩm hoàn chỉnh chỉ bằng một vài câu lệnh mà không hiểu bản chất.',
     },
     {
-      q: 'Chi phí sử dụng API của ChatGPT, Gemini có tốn tiền không?',
-      a: '100% Miễn phí! Ban tổ chức sẽ hướng dẫn các nhóm tận dụng các gói miễn phí (Free Tier) của Google Gemini API, Groq, Cohere, Vercel, Supabase... đủ dung lượng để phát triển và demo sản phẩm mà không tốn một đồng nào.',
+      q: '5. Tôi chỉ biết code cơ bản hoặc chưa có đội thi thì có tham gia được không?',
+      a: 'Hoàn toàn được! Cuộc thi phù hợp với sinh viên đang học tập muốn thử sức phát triển sản phẩm. Bạn không cần là cao thủ lập trình hay chuyên gia AI. Nếu chưa có nhóm, bạn chỉ cần chọn "Cá nhân ghép đội" trên form đăng ký, BTC sẽ hỗ trợ kết nối bạn với những bạn sinh viên Poly khác để lập thành nhóm khoảng 3 người có kỹ năng bổ trợ nhau.',
     },
     {
-      q: 'Nhóm em có thể lấy ý tưởng từ bài tập assignment hoặc đồ án môn học để dự thi không?',
-      a: 'Rất khuyến khích! Nếu bạn đã có sẵn bài tập lớn hoặc đồ án (như web bán hàng, app quản lý sinh viên, tool học tập...), bạn hoàn toàn có thể mang vào cuộc thi và gắn thêm tính năng AI để nâng cấp thành sản phẩm xịn sò.',
+      q: '6. Các đội thi được Mentor hỗ trợ như thế nào trong 3 tuần?',
+      a: 'Mentor sẽ hỗ trợ nhiều đội theo các buổi chung (Workshop kỹ thuật, Group Mentoring, Office Hours) để giải thích nghiệp vụ, làm rõ Pain Point, hỗ trợ thu hẹp phạm vi MVP, góp ý hướng giải pháp, trao đổi về kỹ thuật và kiến trúc. Cuộc thi không áp dụng hình thức mentor kèm 1-1.',
+    },
+    {
+      q: '7. Chi phí công cụ và API AI do ai chi trả, có được miễn phí không?',
+      a: 'Sinh viên tự do lựa chọn công nghệ và AI Coding Agents phù hợp. BTC sẽ có các buổi hướng dẫn cách tận dụng tối đa các gói Free Tier phổ biến (Gemini API, Groq, open-source models). BTC không cam kết tất cả công cụ, API hoặc dịch vụ trên thị trường đều miễn phí, nhưng hoàn toàn có thể hoàn thành sản phẩm MVP hiệu quả bằng các gói miễn phí này.',
+    },
+    {
+      q: '8. Yêu cầu sản phẩm cuối cùng và điều kiện cấp chứng nhận như thế nào?',
+      a: 'Cuộc thi hướng tới sản phẩm MVP (Minimum Viable Product) có thể chạy thử và trình diễn được luồng hoạt động chính trước hội đồng tại Demo Day, không yêu cầu sản phẩm thương mại hoàn chỉnh. Về chứng nhận, theo quy định cuộc thi, chỉ các đội lọt vào vòng chung kết hoặc đạt giải mới được cấp chứng nhận chính thức từ Ban tổ chức.',
     },
   ];
 
@@ -111,16 +119,18 @@ export const App: React.FC = () => {
           </a>
           <nav aria-label="Điều hướng chính">
             <ul className="nav__links" role="list">
-              <li><a href="#what">Bạn sẽ làm gì</a></li>
-              <li><a href="#no-expert">Cần giỏi AI không?</a></li>
-              <li><a href="#challenges">Ý tưởng thử sức</a></li>
-              <li><a href="#timeline">Lộ trình 21 ngày</a></li>
-              <li><a href="#partners">Cố vấn đồng hành</a></li>
+              <li><a href="#what">Cuộc thi có gì</a></li>
+              <li><a href="#awards">Giải thưởng</a></li>
+              <li><a href="#no-expert">Thế mạnh của bạn</a></li>
+              <li><a href="#vibe-coding">Vận dụng AI</a></li>
+              <li><a href="#challenges">Bạn sẽ xây gì?</a></li>
+              <li><a href="#timeline">Lịch trình</a></li>
+              <li><a href="#partners">Cố vấn & Đối tác</a></li>
               <li><a href="#faq">Hỏi đáp</a></li>
             </ul>
           </nav>
           <a className="btn btn--small btn--primary" href="#register">
-            Đăng ký thử sức
+            Đăng ký tham gia
           </a>
         </div>
       </header>
@@ -137,9 +147,9 @@ export const App: React.FC = () => {
               baseColor="#1d1b33"
               activeColor="#8261f6"
               shape="circle"
-              dotSize={4}
+              dotSize={2}
               gap={20}
-              proximity={140}
+              proximity={160}
               strength={1.2}
               bounce={0.6}
               tension={0.4}
@@ -150,37 +160,35 @@ export const App: React.FC = () => {
               stretch={0.5}
               glow={0.6}
               fade={0.25}
-              intro={true}
+              intro={false}
             />
-          
           </div>
 
           <div className="container hero__grid">
             <AnimatedContent className="hero__text" distance={35} duration={0.8} stagger={0.08} trigger="mount">
-              <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold mb-3">
+              <div className="inline-flex flex-wrap items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/30 text-accent text-xs font-semibold mb-3">
                 <span className="w-2 h-2 rounded-full bg-accent animate-pulse" />
-                <span>DÀNH RIÊNG CHO SINH VIÊN FPT POLYTECHNIC HÀ NỘI</span>
+                <span>AI BUILDATHON 2026 · FPT POLYTECHNIC HÀ NỘI</span>
               </div>
 
               <h1 id="hero-head" className="tracking-tight text-white">
-                Biết code cơ bản
-                <span className="block text-gradient mt-1">Thử làm sản phẩm AI!</span>
+                Có AI, có ý tưởng. Ngại gì mà không làm sản phẩm thật!
               </h1>
 
               <p className="lead">
-                Vận dụng kiến thức đã học, kết hợp sức mạnh của AI để cùng đồng đội lên ý tưởng và xây dựng một sản phẩm thực tế trong 3 tuần.
+                Cùng đồng đội vận dụng AI và các công cụ lập trình thông minh để phát triển Website / Ứng dụng Web giải quyết bài toán thực tế trong quản lý hành chính nhân sự, từ ý tưởng đến sản phẩm chạy được trong 3 tuần.
               </p>
 
               <div className="actions">
                 <a href="#register" className="btn btn--primary">
-                  Đăng ký tham gia
+                  Đăng ký tham gia ngay
                 </a>
-                <a href="#no-expert" className="btn btn--secondary">
-                  Tìm hiểu cuộc thi
+                <a href="#vibe-coding" className="btn btn--secondary">
+                  Tìm hiểu cách dùng AI
                 </a>
               </div>
 
-              <p className="hero__fine">Miễn phí tham gia · Làm việc theo nhóm · 3 tuần</p>
+              <p className="hero__fine">3 tuần thực chiến · Khoảng 3 bạn/đội · Doanh nghiệp đồng hành</p>
             </AnimatedContent>
 
             <HeroLanyardPass />
@@ -188,7 +196,7 @@ export const App: React.FC = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* SECTION 2: BẠN SẼ LÀM GÌ? (Hairline sequence)                             */}
+        {/* SECTION 2: CUỘC THI NÀY CÓ GÌ? (4 Trải nghiệm cốt lõi)                   */}
         {/* ========================================================================= */}
         <section className="sec container" id="what">
           <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
@@ -215,7 +223,7 @@ export const App: React.FC = () => {
                 />
               </h2>
               <p className="lead max-w-2xl mx-auto">
-                Không chỉ là một cuộc thi. Đây là cơ hội để bạn làm sản phẩm thật. Trong 3 tuần, bạn sẽ cùng đồng đội trải qua hành trình từ tìm ý tưởng, giải quyết vấn đề đến xây dựng và trình diễn một sản phẩm ứng dụng AI.
+                4 trải nghiệm thực tế bạn sẽ cùng đồng đội trải qua trong hành trình 3 tuần:
               </p>
             </div>
           </AnimatedContent>
@@ -236,21 +244,288 @@ export const App: React.FC = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* SECTION 3: BẠN CÓ CẦN GIỎI AI KHÔNG? (Reassurance)                        */}
+        {/* SECTION 3: CƠ CẤU GIẢI THƯỞNG (Awards)                                    */}
+        {/* ========================================================================= */}
+        <section className="sec container" id="awards">
+          <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
+            <div className="sec__head mx-auto text-center">
+              <span className="pill pill--on mb-3 inline-block">Cơ cấu giải thưởng</span>
+              <h2>
+                <FoldText
+                  text="Giải thưởng AI Buildathon 2026"
+                  foldStyle="paper"
+                  splitBy="word"
+                  hinge="top"
+                  trigger="scroll"
+                  foldAngle={90}
+                  duration={0.65}
+                  stagger={0.04}
+                  ease="power3.out"
+                  hoverRefold={true}
+                  refoldRadius={120}
+                  refoldAngle={35}
+                  perspective={700}
+                  creaseShading={0.4}
+                  fontSize="inherit"
+                  fontWeight={700}
+                  color="inherit"
+                />
+              </h2>
+              <p className="lead max-w-2xl mx-auto">
+                Cùng đồng đội tạo sản phẩm thực tế, thể hiện khả năng giải quyết vấn đề và tranh tài để chinh phục các giải thưởng.
+              </p>
+            </div>
+          </AnimatedContent>
+
+          <AnimatedContent distance={40} duration={0.8} stagger={0.12} threshold={0.1}>
+            {/* Top 3 Main Awards Podium */}
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-6 items-stretch mt-10">
+              {/* Giải Nhất - Gold / Champion */}
+              <BorderGlow
+                backgroundColor="#12111d"
+                borderRadius={24}
+                glowRadius={44}
+                glowIntensity={1.2}
+                edgeSensitivity={28}
+                colors={['#f59e0b', '#fbbf24', '#d97706']}
+                glowColor="245 158 11"
+                className="h-full md:order-2 md:-translate-y-2"
+              >
+                <div className="p-7 sm:p-8 flex flex-col justify-between h-full bg-paper-card rounded-[24px] border border-amber-500/30 relative overflow-hidden">
+                  <div className="absolute top-0 right-0 w-32 h-32 bg-amber-500/10 rounded-full blur-2xl pointer-events-none" />
+                  <div>
+                    <div className="flex items-center justify-between pb-4 border-b border-rule-2 mb-6">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-10 h-10 rounded-xl bg-amber-500/20 border border-amber-500/40 flex items-center justify-center text-amber-400 shadow-lg shadow-amber-500/10">
+                          <Trophy className="w-5 h-5 text-amber-300" />
+                        </span>
+                        <div>
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-amber-400/90 block">Quán Quân</span>
+                          <h3 className="text-2xl font-black text-white tracking-tight leading-none">Giải Nhất</h3>
+                        </div>
+                      </div>
+                      <span className="pill text-[11px] text-amber-300 bg-amber-500/15 border border-amber-500/40 font-semibold">
+                        01 đội
+                      </span>
+                    </div>
+
+                    <div className="my-6">
+                      <span className="text-xs text-muted block mb-1">Giá trị giải thưởng</span>
+                      <div className="text-3xl sm:text-4xl font-extrabold text-transparent bg-clip-text bg-gradient-to-r from-amber-200 via-amber-400 to-amber-500 tracking-tight font-mono">
+                        1.500.000 <span className="text-lg text-amber-400 font-sans font-bold">VNĐ</span>
+                      </div>
+                    </div>
+
+                    <p className="text-xs text-muted leading-relaxed">
+                      Dành cho đội thi có sản phẩm MVP hoàn thiện xuất sắc nhất, giải quyết trọn vẹn Pain Point nghiệp vụ thực tế và trình diễn thuyết phục trước Hội đồng.
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-rule-2 flex items-center justify-between text-xs text-amber-400 font-medium">
+                    <span>Hạng mục cao nhất</span>
+                    <span className="w-2 h-2 rounded-full bg-amber-400 animate-ping" />
+                  </div>
+                </div>
+              </BorderGlow>
+
+              {/* Giải Nhì - Silver / Runner-up */}
+              <BorderGlow
+                backgroundColor="#12111d"
+                borderRadius={24}
+                glowRadius={38}
+                glowIntensity={0.9}
+                edgeSensitivity={30}
+                colors={['#94a3b8', '#38bdf8', '#64748b']}
+                glowColor="56 189 248"
+                className="h-full md:order-1"
+              >
+                <div className="p-7 sm:p-8 flex flex-col justify-between h-full bg-paper-card rounded-[24px]">
+                  <div>
+                    <div className="flex items-center justify-between pb-4 border-b border-rule-2 mb-6">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-10 h-10 rounded-xl bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400">
+                          <Medal className="w-5 h-5 text-sky-300" />
+                        </span>
+                        <div>
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-sky-400/90 block">Á Quân</span>
+                          <h3 className="text-2xl font-bold text-white tracking-tight leading-none">Giải Nhì</h3>
+                        </div>
+                      </div>
+                      <span className="pill text-[11px] text-sky-300 font-semibold">
+                        01 đội
+                      </span>
+                    </div>
+
+                    <div className="my-6">
+                      <span className="text-xs text-muted block mb-1">Giá trị giải thưởng</span>
+                      <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono">
+                        1.000.000 <span className="text-lg text-muted font-sans font-medium">VNĐ</span>
+                      </div>
+                    </div>
+
+                    <p className="text-xs text-muted leading-relaxed">
+                      Dành cho đội thi có sản phẩm chất lượng cao, tính ứng dụng thực tiễn rõ nét và khả năng vận dụng AI hiệu quả trong quá trình phát triển.
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-rule-2 flex items-center justify-between text-xs text-muted">
+                    <span>Hạng nhì chung cuộc</span>
+                    <span className="w-2 h-2 rounded-full bg-sky-400" />
+                  </div>
+                </div>
+              </BorderGlow>
+
+              {/* Giải Ba - Bronze */}
+              <BorderGlow
+                backgroundColor="#12111d"
+                borderRadius={24}
+                glowRadius={38}
+                glowIntensity={0.9}
+                edgeSensitivity={30}
+                colors={['#f97316', '#fb923c', '#ea580c']}
+                glowColor="249 115 22"
+                className="h-full md:order-3"
+              >
+                <div className="p-7 sm:p-8 flex flex-col justify-between h-full bg-paper-card rounded-[24px]">
+                  <div>
+                    <div className="flex items-center justify-between pb-4 border-b border-rule-2 mb-6">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-10 h-10 rounded-xl bg-orange-500/15 border border-orange-500/30 flex items-center justify-center text-orange-400">
+                          <Award className="w-5 h-5 text-orange-300" />
+                        </span>
+                        <div>
+                          <span className="text-[11px] font-bold uppercase tracking-wider text-orange-400/90 block">Quý Quân</span>
+                          <h3 className="text-2xl font-bold text-white tracking-tight leading-none">Giải Ba</h3>
+                        </div>
+                      </div>
+                      <span className="pill text-[11px] text-orange-300 font-semibold">
+                        01 đội
+                      </span>
+                    </div>
+
+                    <div className="my-6">
+                      <span className="text-xs text-muted block mb-1">Giá trị giải thưởng</span>
+                      <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono">
+                        7.00.000<span className="text-lg text-muted font-sans font-medium">VNĐ</span>
+                      </div>
+                    </div>
+
+                    <p className="text-xs text-muted leading-relaxed">
+                      Dành cho đội thi có giải pháp hoàn chỉnh, nỗ lực bứt phá và trình diễn tiềm năng ứng dụng thực tế trong quản lý hành chính nhân sự.
+                    </p>
+                  </div>
+
+                  <div className="mt-6 pt-4 border-t border-rule-2 flex items-center justify-between text-xs text-muted">
+                    <span className="text-[11px] text-amber-400/90">Hạng 3 chung cuộc</span>
+                    <span className="w-2 h-2 rounded-full bg-orange-400" />
+                  </div>
+                </div>
+              </BorderGlow>
+            </div>
+
+            {/* Sub-awards: AI Solution & Innovation */}
+            <div className="mt-8">
+              <div className="text-xs font-semibold text-muted uppercase tracking-wider mb-4 px-1 flex items-center gap-2">
+                <span className="w-1.5 h-1.5 rounded-full bg-accent" />
+                <span>Nhóm giải thưởng phụ & chuyên môn</span>
+              </div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                {/* Giải AI Solution */}
+                <div className="p-6 sm:p-7 rounded-2xl bg-paper border border-rule-2 hover:border-accent/40 transition-colors flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <span className="w-9 h-9 rounded-xl bg-accent/15 border border-accent/30 flex items-center justify-center text-accent">
+                          <Bot className="w-4 h-4" />
+                        </span>
+                        <div>
+                          <h4 className="text-lg font-bold text-white tracking-tight">Giải AI Solution</h4>
+                          <p className="text-xs text-muted">Ứng dụng công nghệ AI hiệu quả</p>
+                        </div>
+                      </div>
+                      <span className="pill text-[11px] text-accent font-semibold">
+                        02 đội
+                      </span>
+                    </div>
+
+                    <p className="text-xs text-muted leading-relaxed mb-4">
+                      Trao tặng cho các đội thi có giải pháp tích hợp hoặc khai thác AI thông minh, giải quyết sắc bén tác vụ nghiệp vụ hành chính nhân sự.
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-rule flex items-center justify-between">
+                    <span className="text-xs text-muted">Giá trị giải thưởng:</span>
+                    <span className="text-xl font-bold font-mono text-ink">
+                      500.000 <span className="text-xs font-sans text-muted">VNĐ</span>
+                    </span>
+                  </div>
+                </div>
+
+                {/* Giải Innovation */}
+                <div className="p-6 sm:p-7 rounded-2xl bg-paper border border-rule-2 hover:border-accent/40 transition-colors flex flex-col justify-between">
+                  <div>
+                    <div className="flex items-center justify-between mb-4">
+                      <div className="flex items-center gap-3">
+                        <span className="w-9 h-9 rounded-xl bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                          <Lightbulb className="w-4 h-4" />
+                        </span>
+                        <div>
+                          <h4 className="text-lg font-bold text-white tracking-tight">Giải Innovation</h4>
+                          <p className="text-xs text-muted">Ý tưởng sáng tạo & đột phá</p>
+                        </div>
+                      </div>
+                      <span className="pill text-[11px] text-amber-300 font-semibold">
+                        03 đội
+                      </span>
+                    </div>
+
+                    <p className="text-xs text-muted leading-relaxed mb-4">
+                      Trao tặng cho các đội thi có ý tưởng mới lạ, hướng tiếp cận bài toán độc đáo và trải nghiệm sản phẩm sáng tạo.
+                    </p>
+                  </div>
+
+                  <div className="pt-4 border-t border-rule flex items-center justify-between">
+                    <span className="text-xs text-muted">Giá trị giải thưởng:</span>
+                    <span className="text-xl font-bold font-mono text-ink">
+                      300.000 <span className="text-xs font-sans text-muted">VNĐ</span>
+                    </span>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            {/* Disclaimer & Confirmation Note */}
+            <div className="p-4 rounded-xl bg-paper border border-rule-2 mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted text-center sm:text-left">
+              <div className="flex items-center gap-2">
+                <span className="text-amber-400 text-sm">📌</span>
+                <span>
+                  <strong className="text-white">* Lưu ý:</strong> Giá trị giải thưởng Giải Ba đang cần BTC xác nhận chính thức.
+                </span>
+              </div>
+              <div className="text-[11px] text-ink/70">
+                Tổng cộng 08 giải thưởng trao cho Top 8 đội xuất sắc nhất tại Vòng 2 (Final Pitch)
+              </div>
+            </div>
+          </AnimatedContent>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* SECTION 4: BẠN CÓ THẾ MẠNH GÌ? (4 Nhóm năng lực)                          */}
         {/* ========================================================================= */}
         <section className="sec container" id="no-expert">
           <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
             <div className="sec__head mx-auto text-center">
               <h2>Bạn có thế mạnh gì? Đều có thể đóng góp!</h2>
               <p className="lead max-w-2xl mx-auto">
-                Không cần một đội toàn những người giỏi lập trình hay chuyên sâu về AI. Một sản phẩm tốt cần nhiều kỹ năng khác nhau. Hãy xem bạn có thể đóng góp gì cho đội của mình!
+                Không cần một đội toàn những người giỏi lập trình hay chuyên sâu về AI. Một sản phẩm tốt cần sự kết hợp của nhiều nhóm năng lực khác nhau:
               </p>
             </div>
           </AnimatedContent>
 
           <AnimatedContent distance={50} duration={0.8} stagger={0.1} threshold={0.1}>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mt-12">
-              {noExpertPoints.map((pt, idx) => {
+              {capabilityGroups.map((pt, idx) => {
                 const Icon = pt.icon;
                 return (
                   <BorderGlow
@@ -284,7 +559,166 @@ export const App: React.FC = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* SECTION 4: NHỮNG BÀI TOÁN BẠN CÓ THỂ GIẢI QUYẾT (Challenge Tour)          */}
+        {/* SECTION 4: PHƯƠNG PHÁP & CÔNG CỤ PHÁT TRIỂN (AI Coding & Vibe Coding)    */}
+        {/* ========================================================================= */}
+        <section className="sec container" id="vibe-coding">
+          <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
+            <div className="sec__head mx-auto text-center">
+              <span className="pill pill--on mb-3 inline-block">Phương pháp phát triển</span>
+              <h2>
+                <FoldText
+                  text="Vận dụng AI trong cuộc thi: Hai khía cạnh & Vibe Coding"
+                  foldStyle="paper"
+                  splitBy="word"
+                  hinge="top"
+                  trigger="scroll"
+                  foldAngle={90}
+                  duration={0.65}
+                  stagger={0.04}
+                  ease="power3.out"
+                  hoverRefold={true}
+                  refoldRadius={120}
+                  refoldAngle={35}
+                  perspective={700}
+                  creaseShading={0.4}
+                  fontSize="inherit"
+                  fontWeight={700}
+                  color="inherit"
+                />
+              </h2>
+              <p className="lead max-w-3xl mx-auto">
+                AI không chỉ là tính năng trong sản phẩm, mà còn là trợ thủ đắc lực trong suốt quá trình xây dựng phần mềm từ con số 0.
+              </p>
+            </div>
+          </AnimatedContent>
+
+          <AnimatedContent distance={40} duration={0.8} stagger={0.15} threshold={0.1}>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mt-10">
+              {/* Pillar A: AI in Product Development */}
+              <BorderGlow
+                backgroundColor="#12111d"
+                borderRadius={24}
+                glowRadius={42}
+                glowIntensity={1.1}
+                edgeSensitivity={30}
+                colors={['#8261f6', '#4378ff', '#a588f6']}
+                glowColor="255 85 70"
+                className="h-full"
+              >
+                <div className="p-7 sm:p-8 flex flex-col justify-between h-full bg-paper-card rounded-[24px]">
+                  <div>
+                    <div className="flex items-center justify-between pb-4 border-b border-rule-2 mb-5">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-8 h-8 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center text-accent">
+                          <Bot className="w-4 h-4" />
+                        </span>
+                        <span className="font-bold text-white text-base">A. AI trong quá trình phát triển</span>
+                      </div>
+                      <span className="pill text-[11px] text-accent font-semibold">AI Coding Agents</span>
+                    </div>
+
+                    <p className="text-sm text-ink leading-relaxed">
+                      Sinh viên được khuyến khích sử dụng các <strong className="text-white">AI Coding Agents</strong> (như <em>Google Antigravity, Cursor, Claude Code, Gemini CLI...</em>) để hỗ trợ toàn diện:
+                    </p>
+
+                    <ul className="mt-4 space-y-2 text-xs text-muted">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                        <span><strong>Phân tích yêu cầu:</strong> Làm rõ bối cảnh và quy trình nghiệp vụ HR.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                        <span><strong>Thiết kế giải pháp:</strong> Lên kiến trúc phần mềm, cấu trúc dữ liệu và mockup UI.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                        <span><strong>Sinh code & chức năng:</strong> Viết logic, tạo API và xây dựng màn hình tương tác.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                        <span><strong>Kiểm thử & sửa lỗi:</strong> Rà soát bug, gỡ lỗi và tối ưu hiệu năng sản phẩm.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Vibe Coding Explanation Callout */}
+                  <div className="mt-6 p-4 rounded-xl bg-accent/10 border border-accent/30 space-y-1.5 text-xs">
+                    <p className="text-accent font-semibold flex items-center gap-1.5">
+                      <span>⚡</span>
+                      <span>Hiểu đúng về phương pháp Vibe Coding</span>
+                    </p>
+                    <p className="text-muted leading-relaxed">
+                      Vibe Coding là cách tiếp cận phát triển phần mềm bằng cách sử dụng AI để hỗ trợ chuyển yêu cầu và ý tưởng thành sản phẩm. <strong className="text-white">Người phát triển vẫn cần hiểu nghiệp vụ, kiểm tra kết quả, kiểm soát code và chịu trách nhiệm về phần mềm</strong> (không phải là tạo sản phẩm chỉ bằng vài câu lệnh mà không hiểu bản chất).
+                    </p>
+                  </div>
+                </div>
+              </BorderGlow>
+
+              {/* Pillar B: AI inside Product */}
+              <BorderGlow
+                backgroundColor="#12111d"
+                borderRadius={24}
+                glowRadius={42}
+                glowIntensity={1.1}
+                edgeSensitivity={30}
+                colors={['#4378ff', '#8261f6', '#38bdf8']}
+                glowColor="255 85 70"
+                className="h-full"
+              >
+                <div className="p-7 sm:p-8 flex flex-col justify-between h-full bg-paper-card rounded-[24px]">
+                  <div>
+                    <div className="flex items-center justify-between pb-4 border-b border-rule-2 mb-5">
+                      <div className="flex items-center gap-2.5">
+                        <span className="w-8 h-8 rounded-lg bg-sky-500/15 border border-sky-500/30 flex items-center justify-center text-sky-400">
+                          <Cpu className="w-4 h-4" />
+                        </span>
+                        <span className="font-bold text-white text-base">B. AI trong chính sản phẩm</span>
+                      </div>
+                      <span className="pill text-[11px] text-sky-400 font-semibold">Tùy chọn theo bài toán</span>
+                    </div>
+
+                    <p className="text-sm text-ink leading-relaxed">
+                      Nếu phù hợp với bài toán hành chính nhân sự đã chọn, đội thi có thể tích hợp AI vào tính năng sản phẩm:
+                    </p>
+
+                    <ul className="mt-4 space-y-2 text-xs text-muted">
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
+                        <span><strong>Trợ lý tra cứu:</strong> Giải đáp quy định, chính sách, sổ tay nhân sự nội bộ.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
+                        <span><strong>Xử lý hồ sơ:</strong> Trích xuất dữ liệu từ CV ứng viên, ảnh chụp CCCD vào bảng tính.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
+                        <span><strong>Phân loại đơn từ:</strong> Tự động điều phối đơn xin nghỉ, đề xuất thiết bị đến đúng người.</span>
+                      </li>
+                      <li className="flex items-start gap-2">
+                        <CheckCircle2 className="w-3.5 h-3.5 text-sky-400 flex-shrink-0 mt-0.5" />
+                        <span><strong>Theo dõi & tổng hợp:</strong> Nhắc hạn hợp đồng lao động, tóm tắt dữ liệu chấm công.</span>
+                      </li>
+                    </ul>
+                  </div>
+
+                  {/* Important Principles Note */}
+                  <div className="mt-6 p-4 rounded-xl bg-paper border border-rule-2 space-y-1.5 text-xs">
+                    <p className="text-white font-semibold flex items-center gap-1.5">
+                      <span>📌</span>
+                      <span>Lưu ý quan trọng về AI trong sản phẩm</span>
+                    </p>
+                    <p className="text-muted leading-relaxed">
+                      <strong className="text-white">Không bắt buộc mọi sản phẩm phải tích hợp AI</strong> nếu bài toán chỉ cần một ứng dụng hoặc công cụ tự động hóa chuẩn mực. Cuộc thi cũng <strong className="text-white">không yêu cầu huấn luyện mô hình AI từ đầu</strong>.
+                    </p>
+                  </div>
+                </div>
+              </BorderGlow>
+            </div>
+          </AnimatedContent>
+        </section>
+
+        {/* ========================================================================= */}
+        {/* SECTION 5: BÀI TOÁN THỰC TẾ HR ADMIN (Challenge Tour)                    */}
         {/* ========================================================================= */}
         <section className="sec container" id="challenges">
           <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
@@ -293,14 +727,14 @@ export const App: React.FC = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* SECTION 5: HÀNH TRÌNH 03 TUẦN (Timeline Strip & Tallies)                  */}
+        {/* SECTION 6: LỊCH TRÌNH AI BUILDATHON 2026 (Timeline Strip & Tallies)       */}
         {/* ========================================================================= */}
         <section className="sec container" id="timeline">
           <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
             <div className="sec__head mx-auto text-center">
               <h2>
                 <FoldText
-                  text="Hành trình 03 tuần: Từ ý tưởng đến sản phẩm."
+                  text="Lịch trình AI Buildathon 2026"
                   foldStyle="paper"
                   splitBy="word"
                   hinge="top"
@@ -320,7 +754,7 @@ export const App: React.FC = () => {
                 />
               </h2>
               <p className="lead max-w-2xl mx-auto">
-                21 ngày thực chiến được thiết kế vừa sức cho sinh viên Poly. Có Workshop hướng dẫn từ đầu và Mentor là Senior Dev đồng hành gỡ rối kỹ thuật.
+                Theo dõi các cột mốc quan trọng từ khi phát động cuộc thi đến vòng chung kết.
               </p>
             </div>
           </AnimatedContent>
@@ -332,8 +766,8 @@ export const App: React.FC = () => {
           <AnimatedContent distance={35} duration={0.7} stagger={0.08} threshold={0.1}>
             <dl className="tally">
               <div>
-                <dt>Thời gian thực chiến</dt>
-                <dd className="num">03 <span className="c">tuần</span></dd>
+                <dt>Thời gian tổ chức</dt>
+                <dd className="num">09/11 <span className="c">– 02/12</span></dd>
               </div>
               <div>
                 <dt>Đối tượng sinh viên</dt>
@@ -344,91 +778,10 @@ export const App: React.FC = () => {
                 <dd className="num is-open">Khoảng 3 <span className="c">bạn</span></dd>
               </div>
               <div>
-                <dt>Lệ phí tham gia</dt>
-                <dd className="num">0đ <span className="c">Free 100%</span></dd>
+                <dt>Vòng chung kết</dt>
+                <dd className="num">Top 8 <span className="c">đội</span></dd>
               </div>
             </dl>
-          </AnimatedContent>
-        </section>
-
-        {/* ========================================================================= */}
-        {/* SECTION 6 & 7: AI NÊN THAM GIA? & BẠN NHẬN ĐƯỢC GÌ? (Wells)               */}
-        {/* ========================================================================= */}
-        <section className="sec container" id="participants">
-          <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
-            <div className="sec__head mx-auto text-center">
-              <h2>Ai nên tham gia và bạn nhận được gì?</h2>
-              <p className="lead max-w-2xl mx-auto">
-               Không cần cả đội đều giỏi lập trình hay AI. Hãy kết hợp những thế mạnh khác nhau để cùng tạo nên một sản phẩm thực tế.
-              </p>
-            </div>
-          </AnimatedContent>
-
-          <AnimatedContent distance={40} duration={0.8} stagger={0.15} threshold={0.1}>
-            <div className="wells">
-              {/* Well 1: Ai nên tham gia? */}
-              <BorderGlow
-                backgroundColor="#12111d"
-                borderRadius={24}
-                glowRadius={40}
-                glowIntensity={1.0}
-                edgeSensitivity={30}
-                colors={['#7c5dfa', '#4378ff', '#a588f6']}
-                glowColor="255 85 70"
-              >
-                <figure className="well p-7 sm:p-8 m-0 flex flex-col justify-between h-full bg-paper-card rounded-[24px]">
-                  <div>
-                    <div className="flex items-center justify-between pb-4 border-b border-rule-2 mb-5">
-                      <span className="font-semibold text-white flex items-center gap-2.5 text-base">
-                        <span className="wordmark__ring" style={{ width: 10, height: 10, borderWidth: 2 }} />
-                        Một đội thi cần những ai?
-                      </span>
-                      <span className="pill">Khoảng 3 bạn/đội</span>
-                    </div>
-                    <div className="space-y-3 text-sm text-muted leading-relaxed">
-                      <p><strong className="text-white">Lập trình viên:</strong> Có kiến thức về Web, Java, PHP hoặc Mobile? Bạn có thể xây dựng giao diện, chức năng và tích hợp AI vào ứng dụng.</p>
-                      <p><strong className="text-white">Thiết kế & Trải nghiệm: </strong> Yêu thích Figma, thiết kế giao diện hoặc làm nội dung? Bạn có thể giúp sản phẩm trực quan và dễ sử dụng hơn.</p>
-                      <p><strong className="text-white">AI & Công nghệ:</strong> Thường xuyên sử dụng ChatGPT, Gemini và các công cụ AI? Bạn có thể khai thác AI để tìm ý tưởng, hỗ trợ lập trình và phát triển tính năng.</p>
-                      <p><strong className="text-white">Ý tưởng & Tổ chức:</strong> Có khả năng tìm hiểu nhu cầu, lên kế hoạch và thuyết trình? Bạn có thể giúp đội xác định hướng đi và giới thiệu sản phẩm.</p>
-                    </div>
-                  </div>
-                  <figcaption className="mt-6 pt-4 border-t border-rule-2">
-                    <span className="well__title text-white font-bold">Ai cũng có vai trò quan trọng</span>
-                    Chưa có đội? Đăng ký cá nhân để BTC hỗ trợ kết nối với các bạn khác.
-                  </figcaption>
-                </figure>
-              </BorderGlow>
-
-              {/* Well 2: Bạn nhận được gì? */}
-              <BorderGlow
-                backgroundColor="#12111d"
-                borderRadius={24}
-                glowRadius={40}
-                glowIntensity={1.0}
-                edgeSensitivity={30}
-                colors={['#7c5dfa', '#4378ff', '#a588f6']}
-                glowColor="255 85 70"
-              >
-                <figure className="well p-7 sm:p-8 m-0 flex flex-col justify-between h-full bg-paper-card rounded-[24px]">
-                  <div>
-                    <div className="flex items-center justify-between pb-4 border-b border-rule-2 mb-5">
-                      <span className="font-semibold text-white text-base">Bạn nhận được gì?</span>
-                      <span className="pill">Thiết thực</span>
-                    </div>
-                    <div className="space-y-3 text-sm text-muted leading-relaxed">
-                      <p><strong className="text-white">Một sản phẩm thực tế cho Portfolio:</strong> Tự tay xây dựng sản phẩm cùng đồng đội, có thêm dự án để giới thiệu năng lực của mình.</p>
-                      <p><strong className="text-white">Được hướng dẫn và góp ý:</strong> Tham gia các buổi chia sẻ, trao đổi với Mentor để nhận góp ý và tháo gỡ khó khăn trong quá trình phát triển sản phẩm..</p>
-                      <p><strong className="text-white">Cơ hội khám phá công cụ AI:</strong> Tự chọn công cụ phù hợp với dự án và được BTC hướng dẫn cách tận dụng các gói Free Tier để phát triển sản phẩm.</p>
-                      <p><strong className="text-white">Cơ hội trình diễn và tranh tài:</strong> Giới thiệu sản phẩm trước hội đồng, cạnh tranh các giải thưởng và nhận chứng nhận dành cho những đội vào vòng cuối hoặc đạt giải.</p>
-                    </div>
-                  </div>
-                  <figcaption className="mt-6 pt-4 border-t border-rule-2">
-                    <span className="well__title text-white font-bold">Hành trang cho chặng đường tiếp theo</span>
-                    Kiến thức, kinh nghiệm làm việc nhóm và sản phẩm bạn xây dựng có thể trở thành tư liệu hữu ích khi hoàn thiện Portfolio và tìm kiếm cơ hội thực tập, việc làm.
-                  </figcaption>
-                </figure>
-              </BorderGlow>
-            </div>
           </AnimatedContent>
         </section>
 
@@ -440,7 +793,7 @@ export const App: React.FC = () => {
         </AnimatedContent>
 
         {/* ========================================================================= */}
-        {/* SECTION 8: FORM ĐĂNG KÝ TRONG CLOSE BAND                                   */}
+        {/* SECTION 9: FORM ĐĂNG KÝ TRONG CLOSE BAND                                   */}
         {/* ========================================================================= */}
         <section className="close" id="register" aria-labelledby="reg-head">
           <div className="container pb-16">
@@ -451,14 +804,14 @@ export const App: React.FC = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* SECTION 9: CÂU HỎI THƯỜNG GẶP (FAQ)                                      */}
+        {/* SECTION 10: CÂU HỎI THƯỜNG GẶP (FAQ)                                     */}
         {/* ========================================================================= */}
-        {/* <section className="sec container max-w-4xl" id="faq">
+        <section className="sec container max-w-4xl" id="faq">
           <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
             <div className="sec__head mx-auto text-center">
               <h2>
                 <FoldText
-                  text="Những thắc mắc thường gặp."
+                  text="Những thắc mắc thường gặp về cuộc thi"
                   foldStyle="paper"
                   splitBy="word"
                   hinge="top"
@@ -478,7 +831,7 @@ export const App: React.FC = () => {
                 />
               </h2>
               <p className="lead">
-                Giải đáp chi tiết mọi băn khoăn của sinh viên FPT Polytechnic trước khi gửi đơn đăng ký.
+                Giải đáp chi tiết các thông tin về cuộc thi, đề tài và quy định hỗ trợ dành cho sinh viên FPT Polytechnic.
               </p>
             </div>
           </AnimatedContent>
@@ -511,7 +864,7 @@ export const App: React.FC = () => {
               })}
             </div>
           </AnimatedContent>
-        </section> */}
+        </section>
       </main>
 
       {/* ========================================================================= */}
@@ -559,7 +912,7 @@ export const App: React.FC = () => {
                     <span className="font-bold text-ink">AI Buildathon 2026</span>
                   </div>
                   <p className="text-sm text-muted leading-relaxed max-w-lg">
-                    Không cần tự xây dựng mô hình AI. Hãy dùng AI có sẵn để tạo ra sản phẩm giải quyết vấn đề thực tế. Cuộc thi 03 tuần thực chiến dành cho sinh viên FPT Polytechnic Hà Nội (Kỳ 3 - Kỳ 6).
+                    Cuộc thi phát triển sản phẩm công nghệ ứng dụng AI trong quản lý hành chính nhân sự. 03 tuần thực chiến dành cho sinh viên FPT Polytechnic Hà Nội cùng Doanh nghiệp đồng hành.
                   </p>
                   <div className="pt-2 flex items-center gap-2 text-xs text-muted">
                     <span className="wordmark__ring" style={{ width: 8, height: 8, borderWidth: 1.5 }} />
@@ -574,14 +927,14 @@ export const App: React.FC = () => {
                     <p className="text-sm text-ink font-semibold">Ban Tổ Chức AI Buildathon 2026</p>
                   </div>
                   <p className="text-xs text-muted leading-relaxed">
-                    Dành cho sinh viên FPT Polytechnic, doanh nghiệp đối tác hoặc giảng viên cần hỗ trợ thông tin:
+                    Dành cho sinh viên FPT Polytechnic, doanh nghiệp đồng hành hoặc giảng viên cần trao đổi thông tin:
                   </p>
                   <div className="pt-2 flex flex-col sm:flex-row flex-wrap gap-x-4 gap-y-2 text-xs text-ink">
                     <span className="flex items-center gap-1.5 text-accent font-medium">
                       <Mail className="w-3.5 h-3.5" />
                       btc@aibuildathon.vn
                     </span>
-                    <span className="text-muted">Hotline: [BTC CẦN BỔ SUNG]</span>
+                    <span className="text-muted">Cơ sở: Trịnh Văn Bô, Nam Từ Liêm, Hà Nội</span>
                   </div>
                 </div>
               </div>
@@ -590,9 +943,10 @@ export const App: React.FC = () => {
               <div className="px-7 sm:p-9 py-5 border-t border-rule-2 bg-paper-2/40 flex flex-col md:flex-col items-start md:items-center justify-between gap-4">
                 <nav className="footer__links flex flex-wrap gap-x-6 gap-y-2" aria-label="Chân trang">
                   <a href="#top">Đầu trang</a>
-                  <a href="#what">Bạn sẽ làm gì</a>
-                  <a href="#no-expert">Cần giỏi AI không?</a>
-                  <a href="#challenges">Ý tưởng thử sức</a>
+                  <a href="#what">Cuộc thi có gì</a>
+                  <a href="#no-expert">Thế mạnh của bạn</a>
+                  <a href="#vibe-coding">Vận dụng AI</a>
+                  <a href="#challenges">Bài toán HR Admin</a>
                   <a href="#timeline">Lộ trình</a>
                   <a href="#partners">Cố vấn & Đối tác</a>
                   <a href="#register">Đăng ký</a>

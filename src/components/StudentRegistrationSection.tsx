@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { validateStudentForm } from '../services/validation';
 import { mockApiService } from '../services/mockApiService';
-import { ChallengeCategory, StudentRegistrationFormValues } from '../types/forms';
+import { StudentRegistrationFormValues } from '../types/forms';
 import { CheckCircle2, AlertCircle, Loader2, Send, Users, Calendar, Trophy } from 'lucide-react';
 
 export const StudentRegistrationSection: React.FC = () => {
@@ -13,7 +13,6 @@ export const StudentRegistrationSection: React.FC = () => {
   const [hasTeam, setHasTeam] = useState<boolean>(true);
   const [teamName, setTeamName] = useState('');
   const [teamSize, setTeamSize] = useState<'1' | '2' | '3' | '4' | '5'>('3');
-  const [domainInterest, setDomainInterest] = useState<ChallengeCategory>('customer-support');
 
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -32,7 +31,7 @@ export const StudentRegistrationSection: React.FC = () => {
       majorClass: majorClass.trim(),
       teamName: hasTeam ? (teamName.trim() || 'Đội AI') : 'Cá nhân ghép đội',
       teamSize: hasTeam ? teamSize : '1',
-      domainInterest,
+      domainInterest: 'other',
     };
 
     const validationErrors = validateStudentForm(values);
@@ -69,7 +68,7 @@ export const StudentRegistrationSection: React.FC = () => {
           Đăng ký thử sức cùng AI Buildathon 2026
         </h2>
         <p className="mt-2 text-sm text-muted leading-relaxed">
-          Biết code cơ bản, hay dùng ChatGPT, có 2-3 bạn cùng nhóm? Đăng ký ngay để cùng nhau tạo ra sản phẩm thật! Nếu chưa có nhóm, hãy chọn <strong>"Cá nhân ghép đội"</strong> để BTC kết nối bạn với đồng đội cùng khóa.
+          Biết lập trình cơ bản, biết dùng ChatGPT, có khoảng 3 bạn cùng nhóm? Đăng ký ngay để phát triển sản phẩm ứng dụng AI giải quyết bài toán thực tế! Nếu chưa có nhóm, chọn <strong>"Cá nhân ghép đội"</strong> để BTC hỗ trợ kết nối.
         </p>
 
         {/* 3 Quick Facts Grid */}
@@ -77,22 +76,22 @@ export const StudentRegistrationSection: React.FC = () => {
           <div className="p-3 rounded-xl bg-paper border border-rule-2 flex items-center gap-3">
             <Users className="w-4 h-4 text-accent flex-shrink-0" />
             <div>
-              <span className="text-muted block">Quy mô tuyển chọn</span>
-              <span className="font-medium text-ink">20 đến 25 đội</span>
+              <span className="text-muted block">Quy mô đội thi</span>
+              <span className="font-medium text-ink">Khoảng 3 sinh viên/đội</span>
             </div>
           </div>
           <div className="p-3 rounded-xl bg-paper border border-rule-2 flex items-center gap-3">
             <Calendar className="w-4 h-4 text-accent flex-shrink-0" />
             <div>
-              <span className="text-muted block">Đối tượng sinh viên</span>
+              <span className="text-muted block">Đối tượng tham gia</span>
               <span className="font-medium text-accent">Kỳ 3 đến Kỳ 6 Poly HN</span>
             </div>
           </div>
           <div className="p-3 rounded-xl bg-paper border border-rule-2 flex items-center gap-3">
             <Trophy className="w-4 h-4 text-accent flex-shrink-0" />
             <div>
-              <span className="text-muted block">Lệ phí tham gia</span>
-              <span className="font-medium text-accent">100% Miễn phí & Hỗ trợ API</span>
+              <span className="text-muted block">Lệ phí & Công cụ</span>
+              <span className="font-medium text-accent">Miễn phí & Hướng dẫn Free Tier</span>
             </div>
           </div>
         </div>
@@ -149,7 +148,7 @@ export const StudentRegistrationSection: React.FC = () => {
                       : 'bg-paper-2 text-muted border border-rule hover:text-ink'
                   }`}
                 >
-                  Đã có nhóm
+                  Đã có nhóm (~3 bạn)
                 </button>
                 <button
                   type="button"
@@ -293,31 +292,11 @@ export const StudentRegistrationSection: React.FC = () => {
               </div>
             )}
 
-            {/* Domain Interest */}
-            <div>
-              <label htmlFor="domainInterest" className="block text-xs font-medium text-muted mb-1.5">
-                Nhóm bài toán quan tâm thử sức nhất *
-              </label>
-              <select
-                id="domainInterest"
-                value={domainInterest}
-                onChange={(e) => setDomainInterest(e.target.value as ChallengeCategory)}
-                className="w-full h-11 px-3.5 rounded-xl bg-paper border border-rule text-sm text-ink outline-none focus:border-accent"
-              >
-                <option value="customer-support">01. Trợ lý CSKH & Chốt đơn Shop / Fanpage</option>
-                <option value="marketing-assistant">02. Trợ lý sáng tạo kịch bản TikTok & Content Marketing</option>
-                <option value="document-processing">03. Số hóa hóa đơn & Bóc tách chứng từ tự động</option>
-                <option value="workflow-automation">04. Trợ lý học tập & Ôn thi trắc nghiệm FPT Poly</option>
-                <option value="data-analytics">05. Tìm trọ & Quán ngon quanh trường theo ngân sách</option>
-                <option value="other">06. Đề tài mở / Nâng cấp đồ án môn học với AI</option>
-              </select>
-            </div>
-
             {/* Friendly Motivation Note */}
             <div className="p-3.5 rounded-xl bg-paper-2 border border-rule-2 flex items-start gap-2.5 text-xs text-muted">
               <span className="text-base flex-shrink-0" aria-hidden="true">💡</span>
               <p className="leading-relaxed">
-                <strong className="text-white">Chưa từng kết nối API AI?</strong> Đừng lo! BTC sẽ tổ chức buổi Workshop hướng dẫn từ con số 0 và Mentor sẽ ngồi cùng nhóm bạn sửa code, gỡ lỗi suốt 3 tuần thi.
+                <strong className="text-white">Chưa từng tích hợp API AI?</strong> Đừng lo! BTC sẽ tổ chức Workshop hướng dẫn tận dụng các gói Free Tier phổ biến (Gemini, Groq, Open-source...) và các buổi Q&amp;A giải đáp kỹ thuật chung trong suốt 3 tuần phát triển MVP.
               </p>
             </div>
 

@@ -2,57 +2,57 @@ import React from 'react';
 import ProfileCard from './ProfileCard';
 import FoldText from './FoldText';
 import BorderGlow from './BorderGlow';
-import { Handshake, Sparkles, Building2, ShieldCheck, Mail } from 'lucide-react';
+import { Building2, ShieldCheck, CheckCircle2, GraduationCap } from 'lucide-react';
 
 interface ProfileItem {
   name: string;
   title: string;
-  handle: string;
+  roleLabel: string;
+  roleBadge: string;
   status: string;
   statusColor: string;
-  contactText: string;
   avatarUrl: string;
   iconUrl: string;
 }
 
 const PROFILES: ProfileItem[] = [
   {
-    name: 'TS. Lê Hoàng Nam',
-    title: 'Trưởng Ban Cố Vấn Học Thuật & AI',
-    handle: 'nam.le',
-    status: 'Cố vấn chuyên môn',
-    statusColor: '#22c55e',
-    contactText: 'Liên hệ',
+    name: 'Đại diện Ban tổ chức',
+    title: 'Điều phối chương trình và tổ chức cuộc thi',
+    roleLabel: 'Điều phối chương trình',
+    roleBadge: 'Ban Tổ Chức',
+    status: 'FPT Polytechnic Hà Nội',
+    statusColor: '#8261f6',
     avatarUrl: '/assets/profiles/avatar-academic.svg',
     iconUrl: '/assets/profiles/holo-pattern.svg',
   },
   {
-    name: 'Nguyễn Quốc Bảo',
-    title: 'AI Tech Lead & Mentor Kỹ Thuật',
-    handle: 'bao.ai',
-    status: 'Mentor 1-1',
-    statusColor: '#8261f6',
-    contactText: 'Cố vấn',
+    name: 'Đại diện Ban tổ chức',
+    title: 'Phụ trách chuyên môn và kỹ thuật',
+    roleLabel: 'Chuyên môn & Kỹ thuật',
+    roleBadge: 'Ban Tổ Chức',
+    status: 'FPT Polytechnic Hà Nội',
+    statusColor: '#38bdf8',
     avatarUrl: '/assets/profiles/avatar-tech.svg',
     iconUrl: '/assets/profiles/holo-pattern.svg',
   },
   {
-    name: 'Trần Minh Anh',
-    title: 'Head of Product & UX Mentor',
-    handle: 'minhanh.ux',
-    status: 'Cố vấn MVP',
-    statusColor: '#38bdf8',
-    contactText: 'Cố vấn',
+    name: 'Đại diện Ban tổ chức',
+    title: 'Hỗ trợ đội thi và kết nối hoạt động',
+    roleLabel: 'Hỗ trợ đội thi',
+    roleBadge: 'Ban Tổ Chức',
+    status: 'FPT Polytechnic Hà Nội',
+    statusColor: '#22c55e',
     avatarUrl: '/assets/profiles/avatar-product.svg',
     iconUrl: '/assets/profiles/holo-pattern.svg',
   },
   {
-    name: 'Doanh Nghiệp Đặt Bài Toán',
-    title: 'Đối Tác Đồng Hành & Tài Trợ',
-    handle: 'partner.slot',
-    status: 'Tiếp nhận đăng ký',
+    name: 'Doanh nghiệp đồng hành',
+    title: 'Chia sẻ bài toán nghiệp vụ HR Admin và đồng hành chuyên môn',
+    roleLabel: 'Đồng hành chuyên môn',
+    roleBadge: 'Doanh Nghiệp',
+    status: 'Đang cập nhật danh tính',
     statusColor: '#f59e0b',
-    contactText: 'Đồng hành',
     avatarUrl: '/assets/profiles/avatar-enterprise.svg',
     iconUrl: '/assets/profiles/holo-pattern.svg',
   },
@@ -65,11 +65,11 @@ export const OrganizersPartnersSection: React.FC = () => {
       <div className="sec__head text-center mx-auto max-w-3xl">
         <span className="pill mb-4 inline-flex items-center gap-1.5 text-xs text-accent">
           <ShieldCheck className="w-3.5 h-3.5" />
-          Hội đồng chuyên môn & Mạng lưới đối tác
+          Đơn vị tổ chức & Đối tác chuyên môn
         </span>
         <h2 id="partners-head">
           <FoldText
-            text="Đội ngũ cố vấn & Mạng lưới đối tác"
+            text="Ban tổ chức & Doanh nghiệp đồng hành"
             foldStyle="paper"
             splitBy="word"
             hinge="top"
@@ -89,7 +89,7 @@ export const OrganizersPartnersSection: React.FC = () => {
           />
         </h2>
         <p className="lead">
-          Đội ngũ chuyên gia công nghệ, cố vấn học thuật từ viện trường và các doanh nghiệp tiên phong đồng hành hỗ trợ trực tiếp các đội thi trong suốt 03 tuần.
+          Những người đứng sau AI Buildathon 2026, cùng kết nối sinh viên, doanh nghiệp và các bài toán thực tế để tạo nên một sân chơi công nghệ ý nghĩa.
         </p>
       </div>
 
@@ -100,10 +100,10 @@ export const OrganizersPartnersSection: React.FC = () => {
             <ProfileCard
               name={p.name}
               title={p.title}
-              handle={p.handle}
+              roleLabel={p.roleLabel}
+              roleBadge={p.roleBadge}
               status={p.status}
               statusColor={p.statusColor}
-              contactText={p.contactText}
               avatarUrl={p.avatarUrl}
               iconUrl={p.iconUrl}
               holo={0.85}
@@ -116,16 +116,12 @@ export const OrganizersPartnersSection: React.FC = () => {
               showUserInfo={true}
               theme="dark"
               className="w-full max-w-[320px]"
-              onContactClick={() => {
-                const reg = document.getElementById('register');
-                if (reg) reg.scrollIntoView({ behavior: 'smooth' });
-              }}
             />
           </div>
         ))}
       </div>
 
-      {/* Enterprise Partnership Invitation Panel */}
+      {/* Roles & Collaboration Framework Panel */}
       <div className="mt-12">
         <BorderGlow
           backgroundColor="#12111d"
@@ -133,55 +129,85 @@ export const OrganizersPartnersSection: React.FC = () => {
           glowRadius={42}
           glowIntensity={1.1}
           edgeSensitivity={30}
-          colors={['#f59e0b', '#8261f6', '#4378ff']}
+          colors={['#8261f6', '#4378ff', '#f59e0b']}
           glowColor="255 85 70"
         >
-          <div className="p-7 sm:p-9 bg-paper-card rounded-[24px] grid grid-cols-1 lg:grid-cols-12 gap-8 items-center">
-            {/* Left Column: Proposition */}
-            <div className="lg:col-span-8 space-y-4">
-              <div className="flex items-center gap-2">
-                <span className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
-                  <Building2 className="w-4 h-4" />
-                </span>
-                <span className="pill text-[11px] text-amber-400 border-amber-500/30 bg-amber-500/10">
-                  Doanh nghiệp & Đơn vị đồng hành
-                </span>
+          <div className="p-7 sm:p-9 bg-paper-card rounded-[24px]">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 items-stretch">
+              {/* Role 1: Ban Tổ Chức (FPT Polytechnic Hà Nội) */}
+              <div className="space-y-3.5 p-6 rounded-2xl bg-paper/60 border border-rule-2 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span className="w-8 h-8 rounded-lg bg-accent/15 border border-accent/30 flex items-center justify-center text-accent">
+                      <GraduationCap className="w-4 h-4" />
+                    </span>
+                    <span className="pill text-[11px] text-accent border-accent/30 bg-accent/10 font-semibold">
+                      Vai trò của Ban tổ chức
+                    </span>
+                  </div>
+
+                  <h3 className="text-lg font-bold text-white tracking-tight leading-snug">
+                    FPT Polytechnic Hà Nội – Đơn vị sáng lập & Tổ chức
+                  </h3>
+
+                  <ul className="mt-3 space-y-2 text-xs text-muted leading-relaxed">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                      <span><strong>Khởi xướng & điều phối:</strong> Xây dựng thể lệ, quản lý toàn bộ các cột mốc từ Kickoff đến Chung kết.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                      <span><strong>Đào tạo & hỗ trợ kỹ thuật:</strong> Tổ chức các buổi Seminar/Workshop trang bị kỹ năng Vibe Coding và AI Coding Agents.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-accent flex-shrink-0 mt-0.5" />
+                      <span><strong>Kết nối & bảo trợ:</strong> Đồng hành giải đáp thắc mắc, ghép đội sinh viên và bảo trợ chuyên môn cho các sản phẩm.</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="pt-3 border-t border-rule text-[11px] text-muted">
+                  📍 Địa điểm tổ chức: FPT Polytechnic cơ sở Hà Nội
+                </div>
               </div>
 
-              <h3 className="text-xl sm:text-2xl font-bold text-white tracking-tight leading-snug">
-                Đưa bài toán thực tế của doanh nghiệp đến thế hệ tài năng AI trẻ
-              </h3>
+              {/* Role 2: Doanh Nghiệp Đồng Hành */}
+              <div className="space-y-3.5 p-6 rounded-2xl bg-paper/60 border border-rule-2 flex flex-col justify-between">
+                <div>
+                  <div className="flex items-center gap-2.5 mb-3">
+                    <span className="w-8 h-8 rounded-lg bg-amber-500/15 border border-amber-500/30 flex items-center justify-center text-amber-400">
+                      <Building2 className="w-4 h-4" />
+                    </span>
+                    <span className="pill text-[11px] text-amber-400 border-amber-500/30 bg-amber-500/10 font-semibold">
+                      Vai trò của Doanh nghiệp đồng hành
+                    </span>
+                  </div>
 
-              <p className="text-sm text-muted leading-relaxed max-w-2xl">
-                Cùng AI Buildathon 2026 kiến tạo sản phẩm AI giải quyết bài toán nghiệp vụ thật. Doanh nghiệp tham gia với tư cách <strong>Đơn vị đặt đề bài</strong>, <strong>Cố vấn chuyên môn (Mentor)</strong> hoặc <strong>Nhà tài trợ</strong> sẽ tiếp cận sớm các ý tưởng đột phá và nguồn nhân lực tài năng.
-              </p>
+                  <h3 className="text-lg font-bold text-white tracking-tight leading-snug">
+                    Doanh nghiệp đối tác – Đồng hành bối cảnh & Đánh giá thực tế
+                  </h3>
 
-              <div className="pt-2 flex flex-wrap items-center gap-4 text-xs text-muted">
-                <span className="flex items-center gap-1.5 text-accent font-medium">
-                  <Sparkles className="w-3.5 h-3.5" />
-                  Đang tiếp nhận đăng ký đồng hành
-                </span>
-                <span>·</span>
-                <span>Danh sách đối tác chính thức đang cập nhật</span>
+                  <ul className="mt-3 space-y-2 text-xs text-muted leading-relaxed">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <span><strong>Cung cấp bài toán nghiệp vụ:</strong> Đưa ra bối cảnh và các Pain Point thực tế trong quản lý hành chính nhân sự.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <span><strong>Định hướng bài toán:</strong> Trực tiếp giải đáp thắc mắc nghiệp vụ cho sinh viên tại buổi Kickoff & Orientation.</span>
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle2 className="w-3.5 h-3.5 text-amber-400 flex-shrink-0 mt-0.5" />
+                      <span><strong>Hội đồng chuyên môn:</strong> Tham gia đánh giá sản phẩm MVP Vòng 1 và chấm thi tại Vòng chung kết (Final Pitch).</span>
+                    </li>
+                  </ul>
+                </div>
+
+                <div className="pt-3 border-t border-rule text-[11px] text-muted flex items-center gap-1.5">
+                  <span className="text-amber-400">🤝</span>
+                  <span>Đồng hành xuyên suốt từ khi công bố đề tài đến ngày Demo Day</span>
+                </div>
               </div>
-            </div>
-
-            {/* Right Column: CTA Actions */}
-            <div className="lg:col-span-4 flex flex-col gap-3 justify-center">
-              <a
-                href="#register"
-                className="btn btn--primary w-full justify-center text-center py-3.5 flex items-center gap-2 shadow-lg shadow-accent/20"
-              >
-                <Handshake className="w-4 h-4" />
-                <span>Trở thành đối tác đồng hành</span>
-              </a>
-              <a
-                href="mailto:btc@aibuildathon.vn"
-                className="btn btn--secondary w-full justify-center text-center py-3 flex items-center gap-2"
-              >
-                <Mail className="w-3.5 h-3.5" />
-                <span>Gửi thư hợp tác (btc@aibuildathon.vn)</span>
-              </a>
             </div>
           </div>
         </BorderGlow>

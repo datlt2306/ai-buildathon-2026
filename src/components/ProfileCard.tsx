@@ -13,6 +13,8 @@ export interface ProfileCardProps {
   name?: string;
   title?: string;
   handle?: string;
+  roleLabel?: string;
+  roleBadge?: string;
   status?: string;
   statusColor?: string;
   contactText?: string;
@@ -229,10 +231,12 @@ export const ProfileCard = ({
   miniAvatarUrl,
   name = 'Javi A. Torres',
   title = 'Software Engineer',
-  handle = 'javicodes',
+  handle,
+  roleLabel,
+  roleBadge,
   status = 'Online',
   statusColor = '#22c55e',
-  contactText = 'Contact',
+  contactText,
   showUserInfo = true,
   onContactClick,
   theme = 'dark',
@@ -509,9 +513,18 @@ export const ProfileCard = ({
               </span>
             )}
             <div className={META}>
-              {handle && <span className={HANDLE}>@{handle}</span>}
+              {roleLabel ? (
+                <span className={HANDLE}>{roleLabel}</span>
+              ) : handle ? (
+                <span className={HANDLE}>@{handle}</span>
+              ) : null}
               {status && <span className={STATUS}>{status}</span>}
             </div>
+            {roleBadge && (
+              <span className="px-2.5 py-1 rounded-md text-[11px] font-semibold bg-accent/15 text-accent border border-accent/30 whitespace-nowrap">
+                {roleBadge}
+              </span>
+            )}
             {contactText && (
               <button
                 type="button"
