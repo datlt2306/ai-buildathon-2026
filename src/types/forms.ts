@@ -36,6 +36,7 @@ export interface StudentRegistrationFormValues {
   majorClass: string;
   teamName: string;
   teamSize: '1' | '2' | '3' | '4' | '5';
+  mentor?: string;
   domainInterest: ChallengeCategory;
   members?: TeamMemberInfo[];
 }

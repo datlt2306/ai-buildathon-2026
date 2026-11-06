@@ -83,8 +83,9 @@ Bạn có 2 cách cực kỳ đơn giản để kích hoạt:
 1. Điền thông tin thử nghiệm vào form:
    - Tên đội: `Team AI Innovators`
    - Số lượng thành viên: `3 thành viên`
+   - Giảng viên hướng dẫn / Mentor: chọn 1 trong 11 thầy (ví dụ: `Hoàng Nhật Minh - Minhnh31`)
    - Trưởng nhóm: `Nguyễn Văn A`, MSSV `PH12345`, Email `anvph12345@fpt.edu.vn`, SĐT `0912345678`, Lớp `WD18301 - Lập trình Web Kỳ 4`
    - Thành viên 2: `Trần Thị B`, MSSV `PH23456`
    - Thành viên 3: `Lê Văn C`, MSSV `PH34567`
 2. Bấm nút **"Xác nhận đăng ký đội thi"**.
-3. Mở tab Google Sheets trên Google Drive -> Một hàng mới với đầy đủ 17 cột sẽ lập tức xuất hiện với ngày giờ, mã đăng ký và toàn bộ thông tin đội thi!
+3. Mở tab Google Sheets trên Google Drive -> Một hàng mới với đầy đủ 18 cột (bao gồm cột Giảng viên / Mentor) sẽ lập tức xuất hiện với ngày giờ, mã đăng ký và toàn bộ thông tin đội thi!

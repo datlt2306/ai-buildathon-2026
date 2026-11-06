@@ -6,6 +6,7 @@ export interface GoogleSheetRowPayload {
   registrationId: string;
   teamName: string;
   teamSize: string;
+  mentor: string;
   leaderName: string;
   leaderStudentId: string;
   leaderEmail: string;
@@ -27,23 +28,29 @@ export interface GoogleSheetsSyncResult {
   error?: string;
 }
 
-export const GOOGLE_SHEETS_CONFIG_STORAGE_KEY = 'aic_google_sheets_url';
+export const DEFAULT_GOOGLE_SHEETS_URL =
+  'https://script.google.com/macros/s/AKfycbzu8Mijx-pwM-pkIpqMyrE1Dg4z9__WuUjrFzigdOta27yfNSBsuQeut3MiBfs3TBeddQ/exec';
+
+let customWebhookOverride: string | null = null;
 
 /**
- * Lấy URL Google Apps Script Web App (Webhook) từ:
- * 1. LocalStorage (người dùng/BTC cấu hình trực tiếp trên UI)
- * 2. Biến môi trường Vite: VITE_GOOGLE_SHEETS_SCRIPT_URL
+ * Lấy URL Google Apps Script Web App (Webhook):
+ * Ưu tiên 1: Override trực tiếp (dùng trong test hoặc cấu hình tạm thời)
+ * Ưu tiên 2: Biến môi trường Vite (VITE_GOOGLE_SHEETS_SCRIPT_URL)
+ * Ưu tiên 3: URL Webhook chính thức mặc định
  */
 export function getGoogleSheetsWebhookUrl(): string {
+  if (customWebhookOverride !== null) {
+    return customWebhookOverride;
+  }
+
+  // Tự động dọn dẹp cache cũ trong localStorage để không bị trỏ nhầm link cũ
   try {
     if (typeof window !== 'undefined' && window.localStorage) {
-      const stored = window.localStorage.getItem(GOOGLE_SHEETS_CONFIG_STORAGE_KEY);
-      if (stored && stored.trim()) {
-        return stored.trim();
-      }
+      window.localStorage.removeItem('aic_google_sheets_url');
     }
   } catch {
-    // Ignore localStorage access issues in restricted environments
+    // Ignore
   }
 
   // Vite environment variable (Vite thay thế tĩnh lúc compile) hoặc process.env
@@ -60,24 +67,15 @@ export function getGoogleSheetsWebhookUrl(): string {
     envUrl = process.env.VITE_GOOGLE_SHEETS_SCRIPT_URL || '';
   }
 
-  return envUrl.trim();
+  const finalUrl = envUrl.trim() || DEFAULT_GOOGLE_SHEETS_URL;
+  return finalUrl;
 }
 
 /**
- * Lưu URL Google Apps Script Web App vào LocalStorage
+ * Cho phép thiết lập URL Webhook (hoặc truyền chuỗi rỗng để mô phỏng chưa cấu hình)
  */
 export function setGoogleSheetsWebhookUrl(url: string): void {
-  try {
-    if (typeof window !== 'undefined' && window.localStorage) {
-      if (url.trim()) {
-        window.localStorage.setItem(GOOGLE_SHEETS_CONFIG_STORAGE_KEY, url.trim());
-      } else {
-        window.localStorage.removeItem(GOOGLE_SHEETS_CONFIG_STORAGE_KEY);
-      }
-    }
-  } catch (err) {
-    console.warn('[GoogleSheets] Failed to save webhook URL to localStorage:', err);
-  }
+  customWebhookOverride = url;
 }
 
 /**
@@ -107,6 +105,7 @@ export function formatStudentRegistrationForSheet(
     registrationId: result?.registrationId || `AIC-STU-${Date.now().toString(36).toUpperCase()}`,
     teamName: values.teamName.trim(),
     teamSize: `${values.teamSize} thành viên`,
+    mentor: values.mentor?.trim() || 'Chưa chỉ định',
     leaderName: values.fullName.trim(),
     leaderStudentId: values.studentId.trim().toUpperCase(),
     leaderEmail: values.email.trim(),
@@ -235,6 +234,7 @@ export function exportRegistrationsToCSV(): void {
       'Mã đăng ký',
       'Tên đội thi',
       'Số lượng thành viên',
+      'Giảng viên / Mentor',
       'Trưởng nhóm - Họ tên',
       'Trưởng nhóm - MSSV',
       'Trưởng nhóm - Email',
@@ -266,6 +266,7 @@ export function exportRegistrationsToCSV(): void {
         escapeCsv(rec.confirmationCode || rec.registrationId || ''),
         escapeCsv(rec.teamName || ''),
         escapeCsv(rec.teamSize ? `${rec.teamSize} thành viên` : ''),
+        escapeCsv(rec.mentor || 'Chưa chỉ định'),
         escapeCsv(rec.fullName || ''),
         escapeCsv(rec.studentId || ''),
         escapeCsv(rec.email || ''),

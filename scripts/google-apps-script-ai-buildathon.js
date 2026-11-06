@@ -24,6 +24,22 @@
 // Tên trang tính lưu trữ danh sách đăng ký
 var SHEET_NAME = "Đăng ký AI Buildathon 2026";
 
+// (TÙY CHỌN) ID của Google Sheet: Nếu bạn mở Apps Script trực tiếp từ menu "Tiện ích mở rộng > Apps Script"
+// trong file Google Sheets thì CỨ ĐỂ TRỐNG "".
+// Nếu tạo Script độc lập từ script.google.com, hãy dán ID file Google Sheets vào đây (chuỗi ký tự nằm giữa /d/ và /edit trên thanh địa chỉ).
+var SPREADSHEET_ID = "";
+
+function getSpreadsheet() {
+  if (SPREADSHEET_ID && SPREADSHEET_ID.trim() !== "") {
+    return SpreadsheetApp.openById(SPREADSHEET_ID.trim());
+  }
+  var ss = SpreadsheetApp.getActiveSpreadsheet();
+  if (!ss) {
+    throw new Error("Không tìm thấy bảng tính liên kết. Vui lòng điền SPREADSHEET_ID vào dòng 31 của script.");
+  }
+  return ss;
+}
+
 // Danh sách các cột tiêu đề
 var HEADERS = [
   "STT",
@@ -31,6 +47,7 @@ var HEADERS = [
   "Mã đăng ký",
   "Tên đội thi",
   "Số lượng thành viên",
+  "Giảng viên / Mentor",
   "Trưởng nhóm - Họ và tên",
   "Trưởng nhóm - MSSV",
   "Trưởng nhóm - Email",
@@ -60,7 +77,7 @@ function doPost(e) {
   }
 
   try {
-    var ss = SpreadsheetApp.getActiveSpreadsheet();
+    var ss = getSpreadsheet();
     var sheet = getOrCreateRegistrationSheet(ss);
 
     var rawData = e.postData.contents;
@@ -92,6 +109,7 @@ function doPost(e) {
       "'" + (data.registrationId || ""),
       data.teamName || "",
       data.teamSize || "",
+      data.mentor || "",
       data.leaderName || "",
       "'" + (data.leaderStudentId || ""), // Dấu ' giúp giữ nguyên số 0 hoặc định dạng chuỗi
       data.leaderEmail || "",
@@ -114,16 +132,16 @@ function doPost(e) {
     var rowRange = sheet.getRange(currentRowIndex, 1, 1, HEADERS.length);
     rowRange.setVerticalAlignment("middle");
     
-    // Căn giữa cột STT, Mã, MSSV, SĐT
+    // Căn giữa cột STT, Ngày tháng, Mã, MSSV, SĐT, Trạng thái
     sheet.getRange(currentRowIndex, 1).setHorizontalAlignment("center");
     sheet.getRange(currentRowIndex, 2).setHorizontalAlignment("center");
     sheet.getRange(currentRowIndex, 3).setHorizontalAlignment("center");
-    sheet.getRange(currentRowIndex, 7).setHorizontalAlignment("center");
-    sheet.getRange(currentRowIndex, 9).setHorizontalAlignment("center");
-    sheet.getRange(currentRowIndex, 12).setHorizontalAlignment("center");
-    sheet.getRange(currentRowIndex, 14).setHorizontalAlignment("center");
-    sheet.getRange(currentRowIndex, 16).setHorizontalAlignment("center");
+    sheet.getRange(currentRowIndex, 8).setHorizontalAlignment("center");
+    sheet.getRange(currentRowIndex, 10).setHorizontalAlignment("center");
+    sheet.getRange(currentRowIndex, 13).setHorizontalAlignment("center");
+    sheet.getRange(currentRowIndex, 15).setHorizontalAlignment("center");
     sheet.getRange(currentRowIndex, 17).setHorizontalAlignment("center");
+    sheet.getRange(currentRowIndex, 18).setHorizontalAlignment("center");
 
     return ContentService
       .createTextOutput(JSON.stringify({
@@ -186,6 +204,24 @@ function getOrCreateRegistrationSheet(ss) {
     // Tự động căn chỉnh độ rộng các cột
     for (var col = 1; col <= HEADERS.length; col++) {
       sheet.autoResizeColumn(col);
+    }
+  } else {
+    // Tự động kiểm tra nếu sheet cũ chưa có cột "Giảng viên / Mentor" thì tự động chèn thêm
+    var lastCol = sheet.getLastColumn();
+    if (lastCol > 0) {
+      var currentHeaders = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
+      if (currentHeaders.indexOf("Giảng viên / Mentor") === -1) {
+        sheet.insertColumnAfter(5);
+        var mentorHeaderCell = sheet.getRange(1, 6);
+        mentorHeaderCell.setValue("Giảng viên / Mentor");
+        mentorHeaderCell.setBackground("#0F172A");
+        mentorHeaderCell.setFontColor("#FFFFFF");
+        mentorHeaderCell.setFontWeight("bold");
+        mentorHeaderCell.setFontSize(10);
+        mentorHeaderCell.setHorizontalAlignment("center");
+        mentorHeaderCell.setVerticalAlignment("middle");
+        sheet.autoResizeColumn(6);
+      }
     }
   }
   return sheet;

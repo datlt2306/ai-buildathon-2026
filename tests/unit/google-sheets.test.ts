@@ -13,6 +13,7 @@ describe('Unit: Google Sheets & Drive Excel Integration', () => {
   const sampleStudentPayload: StudentRegistrationFormValues = {
     teamName: 'Poly AI Innovators',
     teamSize: '3',
+    mentor: 'Hoàng Nhật Minh - Minhnh31',
     fullName: 'Nguyễn Văn An',
     studentId: 'PH12345',
     email: 'annvph12345@fpt.edu.vn',
@@ -36,6 +37,7 @@ describe('Unit: Google Sheets & Drive Excel Integration', () => {
     assert.equal(row.registrationId, 'AIC-STU-TEST-001');
     assert.equal(row.teamName, 'Poly AI Innovators');
     assert.equal(row.teamSize, '3 thành viên');
+    assert.equal(row.mentor, 'Hoàng Nhật Minh - Minhnh31');
     assert.equal(row.leaderName, 'Nguyễn Văn An');
     assert.equal(row.leaderStudentId, 'PH12345');
     assert.equal(row.leaderEmail, 'annvph12345@fpt.edu.vn');
@@ -71,10 +73,11 @@ describe('Unit: Google Sheets & Drive Excel Integration', () => {
   });
 
   it('handles sync gracefully when webhook URL is not yet configured', async () => {
-    // In node environment without configured URL
+    setGoogleSheetsWebhookUrl('');
     const result = await syncStudentRegistrationToGoogleSheets(sampleStudentPayload);
     assert.equal(result.success, true);
     assert.equal(result.syncedToCloud, false);
     assert.match(result.message, /Đã lưu đăng ký cục bộ/);
+    setGoogleSheetsWebhookUrl(null as any);
   });
 });

@@ -12,11 +12,13 @@ import {
   Sparkles
 } from 'lucide-react';
 import { syncStudentRegistrationToGoogleSheets } from '../services/googleSheetsService';
+import { MENTORS_LIST } from '../constants/mentors';
 
 export const StudentRegistrationSection: React.FC = () => {
   // Team info
   const [teamName, setTeamName] = useState('');
   const [teamSize, setTeamSize] = useState<'3' | '4'>('3');
+  const [mentor, setMentor] = useState('');
 
   // Leader info (Thành viên 1 - Đại diện nhóm)
   const [fullName, setFullName] = useState('');
@@ -69,6 +71,11 @@ export const StudentRegistrationSection: React.FC = () => {
       localErrors.teamName = 'Tên đội thi phải có ít nhất 2 ký tự.';
     }
 
+    // Validate Mentor
+    if (!mentor.trim()) {
+      localErrors.mentor = 'Vui lòng chọn Giảng viên hướng dẫn / Mentor đồng hành.';
+    }
+
     // Validate Leader Info
     const values: StudentRegistrationFormValues = {
       fullName: fullName.trim(),
@@ -78,6 +85,7 @@ export const StudentRegistrationSection: React.FC = () => {
       majorClass: majorClass.trim(),
       teamName: teamName.trim() || 'Team AI Builders',
       teamSize,
+      mentor: mentor.trim(),
       domainInterest: 'other',
       members,
     };
@@ -107,10 +115,12 @@ export const StudentRegistrationSection: React.FC = () => {
     try {
       const response = await mockApiService.registerStudent(values);
       if (response.success) {
-        // Tự động điền vào file Google Drive Excel / Google Sheets trong background
-        syncStudentRegistrationToGoogleSheets(values, response.data).catch((err) => {
-          console.warn('[GoogleSheets] Background sync warning:', err);
-        });
+        // Tự động điền vào file Google Drive Excel / Google Sheets
+        try {
+          await syncStudentRegistrationToGoogleSheets(values, response.data);
+        } catch (err) {
+          console.warn('[GoogleSheets] Sync warning:', err);
+        }
         setIsSuccess(true);
       } else {
         setServerError(response.message || 'Có lỗi xảy ra khi gửi thông tin. Vui lòng thử lại.');
@@ -175,6 +185,10 @@ export const StudentRegistrationSection: React.FC = () => {
 
             {/* Members summary */}
             <div className="p-4 rounded-xl bg-paper border border-rule-2 max-w-md mx-auto text-left text-xs space-y-2 mt-4">
+              <div className="flex items-center justify-between pb-2 border-b border-rule/50">
+                <span className="text-muted font-medium">Giảng viên / Mentor:</span>
+                <span className="text-accent font-semibold">{mentor || 'Chưa chỉ định'}</span>
+              </div>
               <div className="text-muted font-medium">Danh sách thành viên đăng ký:</div>
               <div className="text-ink flex items-center justify-between">
                 <span>1. {fullName} (Trưởng nhóm)</span>
@@ -195,6 +209,7 @@ export const StudentRegistrationSection: React.FC = () => {
                 onClick={() => {
                   setIsSuccess(false);
                   setTeamName('');
+                  setMentor('');
                   setFullName('');
                   setEmail('');
                   setPhone('');
@@ -263,6 +278,31 @@ export const StudentRegistrationSection: React.FC = () => {
                     <option value="4">4 thành viên</option>
                   </select>
                 </div>
+              </div>
+
+              <div>
+                <div className="flex items-center justify-between mb-1.5">
+                  <label htmlFor="mentor" className="text-xs font-medium text-muted">
+                    Giảng viên hướng dẫn / Mentor đồng hành *
+                  </label>
+                  <span className="text-[11px] text-accent">11 Thầy đồng hành</span>
+                </div>
+                <select
+                  id="mentor"
+                  value={mentor}
+                  onChange={(e) => setMentor(e.target.value)}
+                  className={`w-full h-11 px-3.5 rounded-xl bg-paper border text-sm text-ink outline-none transition-colors ${
+                    errors.mentor ? 'border-red-500' : 'border-rule focus:border-accent'
+                  }`}
+                >
+                  <option value="">-- Chọn Giảng viên hướng dẫn / Mentor --</option>
+                  {MENTORS_LIST.map((m) => (
+                    <option key={m.id} value={`${m.name} - ${m.username}`}>
+                      {m.name} - {m.username}
+                    </option>
+                  ))}
+                </select>
+                {errors.mentor && <p className="mt-1 text-xs text-red-400">{errors.mentor}</p>}
               </div>
             </div>
 
