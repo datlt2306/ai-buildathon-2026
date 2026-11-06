@@ -29,7 +29,7 @@ export interface GoogleSheetsSyncResult {
 }
 
 export const DEFAULT_GOOGLE_SHEETS_URL =
-  'https://script.google.com/macros/s/AKfycbzu8Mijx-pwM-pkIpqMyrE1Dg4z9__WuUjrFzigdOta27yfNSBsuQeut3MiBfs3TBeddQ/exec';
+  'https://script.google.com/macros/s/AKfycbychcwV3JlCshtBoXbxP0A2lCwby3tW2avAofsJl814ODJJO74W_zqyz1ogZMXkeV-bDA/exec';
 
 let customWebhookOverride: string | null = null;
 
