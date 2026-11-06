@@ -164,10 +164,10 @@ export const App: React.FC = () => {
         <section className="sec container relative overflow-hidden" id="what">
           {/* Plus Crosshair Mesh Overlay */}
           <div
-            className="pointer-events-none absolute inset-0 z-0 opacity-20 [mask-image:radial-gradient(ellipse_65%_55%_at_50%_50%,#000_65%,transparent_100%)]"
+            className="pointer-events-none absolute inset-0 z-0 opacity-10 [mask-image:radial-gradient(ellipse_65%_55%_at_50%_50%,#000_65%,transparent_100%)]"
             style={{
               backgroundImage: `url("data:image/svg+xml,%3Csvg width='32' height='32' viewBox='0 0 32 32' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M16 13v6m-3-3h6' stroke='%238261f6' stroke-width='1.2' stroke-linecap='round'/%3E%3C/svg%3E")`,
-              backgroundSize: '32px 32px',
+              backgroundSize: '22px 22px',
             }}
             aria-hidden="true"
           />

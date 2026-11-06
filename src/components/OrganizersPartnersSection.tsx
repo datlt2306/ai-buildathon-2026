@@ -47,13 +47,13 @@ const PROFILES: ProfileItem[] = [
     iconUrl: '/assets/profiles/holo-pattern.svg',
   },
   {
-    name: 'Doanh nghiệp đồng hành',
-    title: 'Chia sẻ bài toán nghiệp vụ HR Admin và đồng hành chuyên môn',
-    roleLabel: 'Đồng hành chuyên môn',
+    name: 'Henry Trần',
+    title: 'Chief Executive Officer & Founder',
+    roleLabel: 'Doanh nghiệp đồng hành',
     roleBadge: 'Doanh Nghiệp',
-    status: 'Đang cập nhật danh tính',
+    status: 'GTS Việt Nam',
     statusColor: '#f59e0b',
-    avatarUrl: '/assets/profiles/avatar-enterprise.svg',
+    avatarUrl: '/assets/profiles/henry-tran.jpg',
     iconUrl: '/assets/profiles/holo-pattern.svg',
   },
 ];
@@ -101,10 +101,10 @@ export const OrganizersPartnersSection: React.FC = () => {
               name={p.name}
               title={p.title}
               roleLabel={p.roleLabel}
-              roleBadge={p.roleBadge}
               status={p.status}
               statusColor={p.statusColor}
               avatarUrl={p.avatarUrl}
+              miniAvatarUrl={p.avatarUrl}
               iconUrl={p.iconUrl}
               holo={0.85}
               glare={0.55}
@@ -184,7 +184,7 @@ export const OrganizersPartnersSection: React.FC = () => {
                   </div>
 
                   <h3 className="text-lg font-bold text-white tracking-tight leading-snug">
-                    Doanh nghiệp đối tác – Đồng hành bối cảnh & Đánh giá thực tế
+                    GTS Việt Nam – Doanh nghiệp đối tác đồng hành & Đánh giá thực tế
                   </h3>
 
                   <ul className="mt-3 space-y-2 text-xs text-muted leading-relaxed">
