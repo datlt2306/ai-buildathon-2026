@@ -62,6 +62,28 @@ var HEADERS = [
   "Trạng thái xác nhận"
 ];
 
+// Chiều rộng cột rộng rãi (pixel) để tiêu đề luôn nằm trên 1 DÒNG DUY NHẤT, không bị gập chữ
+var COLUMN_WIDTHS = [
+  60,  // 1: STT
+  175, // 2: Thời gian đăng ký
+  165, // 3: Mã đăng ký
+  210, // 4: Tên đội thi
+  160, // 5: Số lượng thành viên
+  240, // 6: Giảng viên / Mentor
+  220, // 7: Trưởng nhóm - Họ và tên
+  140, // 8: Trưởng nhóm - MSSV
+  250, // 9: Trưởng nhóm - Email
+  140, // 10: Trưởng nhóm - SĐT
+  300, // 11: Lớp / Ngành / Kỳ học
+  200, // 12: Thành viên 2 - Họ tên
+  135, // 13: Thành viên 2 - MSSV
+  200, // 14: Thành viên 3 - Họ tên
+  135, // 15: Thành viên 3 - MSSV
+  200, // 16: Thành viên 4 - Họ tên
+  135, // 17: Thành viên 4 - MSSV
+  170  // 18: Trạng thái xác nhận
+];
+
 /**
  * Xử lý yêu cầu HTTP POST khi sinh viên submit form từ website
  */
@@ -183,28 +205,7 @@ function getOrCreateRegistrationSheet(ss) {
   var sheet = ss.getSheetByName(SHEET_NAME);
   if (!sheet) {
     sheet = ss.insertSheet(SHEET_NAME);
-
-    // Tạo dòng Header
     sheet.appendRow(HEADERS);
-
-    // Định dạng dòng tiêu đề
-    var headerRange = sheet.getRange(1, 1, 1, HEADERS.length);
-    headerRange.setBackground("#0F172A"); // Màu xanh đậm hiện đại
-    headerRange.setFontColor("#FFFFFF");
-    headerRange.setFontWeight("bold");
-    headerRange.setFontSize(10);
-    headerRange.setHorizontalAlignment("center");
-    headerRange.setVerticalAlignment("middle");
-    headerRange.setWrap(true);
-    sheet.setRowHeight(1, 38);
-
-    // Cố định dòng tiêu đề
-    sheet.setFrozenRows(1);
-
-    // Tự động căn chỉnh độ rộng các cột
-    for (var col = 1; col <= HEADERS.length; col++) {
-      sheet.autoResizeColumn(col);
-    }
   } else {
     // Tự động kiểm tra nếu sheet cũ chưa có cột "Giảng viên / Mentor" thì tự động chèn thêm
     var lastCol = sheet.getLastColumn();
@@ -212,17 +213,44 @@ function getOrCreateRegistrationSheet(ss) {
       var currentHeaders = sheet.getRange(1, 1, 1, lastCol).getValues()[0];
       if (currentHeaders.indexOf("Giảng viên / Mentor") === -1) {
         sheet.insertColumnAfter(5);
-        var mentorHeaderCell = sheet.getRange(1, 6);
-        mentorHeaderCell.setValue("Giảng viên / Mentor");
-        mentorHeaderCell.setBackground("#0F172A");
-        mentorHeaderCell.setFontColor("#FFFFFF");
-        mentorHeaderCell.setFontWeight("bold");
-        mentorHeaderCell.setFontSize(10);
-        mentorHeaderCell.setHorizontalAlignment("center");
-        mentorHeaderCell.setVerticalAlignment("middle");
-        sheet.autoResizeColumn(6);
+        sheet.getRange(1, 6).setValue("Giảng viên / Mentor");
       }
     }
   }
+
+  // Luôn áp dụng định dạng độ rộng cột rộng rãi và tiêu đề chỉ 1 dòng (không xuống dòng)
+  applySheetDesign(sheet);
+
   return sheet;
+}
+
+/**
+ * Định dạng các cột rộng rãi, tiêu đề 1 dòng duy nhất, không wrap text
+ */
+function applySheetDesign(sheet) {
+  var headerRange = sheet.getRange(1, 1, 1, HEADERS.length);
+  headerRange.setBackground("#0F172A"); // Màu xanh đậm hiện đại
+  headerRange.setFontColor("#FFFFFF");
+  headerRange.setFontWeight("bold");
+  headerRange.setFontSize(10);
+  headerRange.setHorizontalAlignment("center");
+  headerRange.setVerticalAlignment("middle");
+  headerRange.setWrap(false); // QUAN TRỌNG: KHÔNG XUỐNG DÒNG, CHỈ 1 DÒNG DUY NHẤT
+  sheet.setRowHeight(1, 40);
+  sheet.setFrozenRows(1);
+
+  // Đặt độ rộng rộng rãi cho từng cột để tiêu đề hiển thị trọn vẹn trên 1 dòng
+  for (var col = 1; col <= COLUMN_WIDTHS.length; col++) {
+    sheet.setColumnWidth(col, COLUMN_WIDTHS[col - 1]);
+  }
+}
+
+/**
+ * Bạn có thể bấm nút "Chạy" (Run) hàm này trong trình soạn thảo Apps Script
+ * để định dạng lại toàn bộ bảng tính hiện có ngay lập tức!
+ */
+function dinhDangLaiBangTinh() {
+  var ss = getSpreadsheet();
+  var sheet = getOrCreateRegistrationSheet(ss);
+  applySheetDesign(sheet);
 }
