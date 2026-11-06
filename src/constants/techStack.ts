@@ -17,27 +17,27 @@ export const buildWithAiContent: BuildWithAiData = {
         'Cuộc thi không yêu cầu bạn phải huấn luyện mô hình nền tảng từ đầu. Hãy tận dụng sức mạnh của các Foundation Models sẵn có để tập trung nguồn lực phát triển sản phẩm MVP trong 3 tuần.',
     },
     {
-      title: 'Ưu tiên hạ tầng Free-Tier & Chi phí bền vững',
+      title: 'Tự do kiến trúc & Chủ động công cụ',
       description:
-        'Khuyến khích khai thác tối đa các nền tảng có gói miễn phí (Free Tier) hoặc mã nguồn mở để giải pháp có thể dễ dàng vận hành và nhân rộng sau cuộc thi.',
+        'Sinh viên hoàn toàn chủ động lựa chọn nền tảng, công cụ phát triển và kiến trúc phần mềm phù hợp nhất với năng lực của đội thi.',
     },
   ],
   techGroups: [
     {
       groupTitle: 'Mô hình AI & API dịch vụ',
-      groupDescription: 'Các API mô hình ngôn ngữ lớn và đa phương tiện hàng đầu với tốc độ cao và chi phí tối ưu.',
+      groupDescription: 'Các API mô hình ngôn ngữ lớn và đa phương tiện hàng đầu với tốc độ cao và hiệu năng tối ưu.',
       tools: [
         {
           name: 'Google Gemini (1.5 Flash / Pro)',
-          badge: 'Free Tier Hào Phóng',
+          badge: 'Đa phương tiện & Hiệu năng cao',
           description: 'Hỗ trợ Context Window lên đến 1M tokens, multimodal xử lý văn bản, hình ảnh, âm thanh qua Google AI Studio.',
-          isFreeTierHighlighted: true,
+          isFreeTierHighlighted: false,
         },
         {
           name: 'Groq Cloud (Llama 3 & Mixtral)',
           badge: 'Tốc độ cực cao',
-          description: 'Tốc độ suy luận hàng trăm tokens/giây với gói sử dụng miễn phí lý tưởng cho demo thời gian thực.',
-          isFreeTierHighlighted: true,
+          description: 'Tốc độ suy luận hàng trăm tokens/giây, lý tưởng cho demo và trải nghiệm thời gian thực.',
+          isFreeTierHighlighted: false,
         },
         {
           name: 'OpenAI (GPT-4o mini / GPT-4o)',

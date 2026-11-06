@@ -55,7 +55,7 @@ export const InteractiveHeroWorkbench: React.FC = () => {
           <div>
             <div className="flex items-center justify-between mb-4">
               <span className="text-xs text-muted">Thông số mô hình</span>
-              <span className="text-xs font-mono text-accent">0đ (Free tier)</span>
+              <span className="text-xs font-mono text-accent">Tối ưu hiệu năng</span>
             </div>
 
             {/* Model Selector */}

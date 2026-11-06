@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { validateStudentForm } from '../services/validation';
 import { mockApiService } from '../services/mockApiService';
 import { StudentRegistrationFormValues } from '../types/forms';
-import { CheckCircle2, AlertCircle, Loader2, Send, Users, Calendar, Trophy } from 'lucide-react';
+import { CheckCircle2, AlertCircle, Loader2, Send, Users, Calendar, Sparkles } from 'lucide-react';
 
 export const StudentRegistrationSection: React.FC = () => {
   const [fullName, setFullName] = useState('');
@@ -88,10 +88,10 @@ export const StudentRegistrationSection: React.FC = () => {
             </div>
           </div>
           <div className="p-3 rounded-xl bg-paper border border-rule-2 flex items-center gap-3">
-            <Trophy className="w-4 h-4 text-accent flex-shrink-0" />
+            <Sparkles className="w-4 h-4 text-accent flex-shrink-0" />
             <div>
-              <span className="text-muted block">Lệ phí & Công cụ</span>
-              <span className="font-medium text-accent">Miễn phí & Hướng dẫn Free Tier</span>
+              <span className="text-muted block">Công cụ & Công nghệ</span>
+              <span className="font-medium text-accent">Sinh viên tự chọn</span>
             </div>
           </div>
         </div>
@@ -296,7 +296,7 @@ export const StudentRegistrationSection: React.FC = () => {
             <div className="p-3.5 rounded-xl bg-paper-2 border border-rule-2 flex items-start gap-2.5 text-xs text-muted">
               <span className="text-base flex-shrink-0" aria-hidden="true">💡</span>
               <p className="leading-relaxed">
-                <strong className="text-white">Chưa từng tích hợp API AI?</strong> Đừng lo! BTC sẽ tổ chức Workshop hướng dẫn tận dụng các gói Free Tier phổ biến (Gemini, Groq, Open-source...) và các buổi Q&amp;A giải đáp kỹ thuật chung trong suốt 3 tuần phát triển MVP.
+                <strong className="text-white">Chủ động công cụ &amp; công nghệ:</strong> Sinh viên hoàn toàn tự do lựa chọn ngôn ngữ lập trình, framework, công cụ phát triển và AI Coding Agents phù hợp với sở trường của nhóm để xây dựng sản phẩm.
               </p>
             </div>
 

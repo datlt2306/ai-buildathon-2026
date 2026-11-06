@@ -40,7 +40,7 @@ export const mentorsPartnersContent: MentorsPartnersData = {
       roleTitle: 'Senior Cloud & DevOps Engineer',
       focusArea: 'Triển khai hạ tầng, Container & API Integration',
       description:
-        'Hỗ trợ thiết lập môi trường CI/CD, đóng gói Docker container và triển khai sản phẩm lên các dịch vụ đám mây miễn phí ổn định.',
+        'Hỗ trợ thiết lập môi trường CI/CD, đóng gói Docker container và triển khai sản phẩm lên các dịch vụ đám mây ổn định.',
       statusBadge: 'Đang tiếp nhận hồ sơ Cố vấn',
       iconName: 'Cloud',
     },

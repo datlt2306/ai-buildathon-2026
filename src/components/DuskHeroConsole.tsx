@@ -30,8 +30,8 @@ export const DuskHeroConsole: React.FC = () => {
         </div>
         <div className="p-3 rounded-xl bg-paper-2 border border-white/5 text-center">
           <Trophy className="w-4 h-4 text-accent-2 mx-auto mb-1.5" />
-          <span className="text-[11px] text-muted block">Lệ phí thi</span>
-          <span className="text-xs font-semibold text-accent-2 mt-0.5 block">Miễn phí 100%</span>
+          <span className="text-[11px] text-muted block">Công cụ & Công nghệ</span>
+          <span className="text-xs font-semibold text-accent-2 mt-0.5 block">Tự do lựa chọn</span>
         </div>
       </div>
 

@@ -41,7 +41,7 @@ export const MILESTONES: MilestoneItem[] = [
     shortTitle: 'Vòng 1: MVP Review',
     fullTitle: 'Vòng 1 – MVP Review và triển khai Seminar/Workshop',
     roundBadge: 'VÒNG 1: MVP REVIEW',
-    desc: 'Các đội tập trung phát triển giải pháp phần mềm Web MVP ứng dụng AI. BTC tổ chức các buổi Seminar/Workshop hướng dẫn tận dụng các gói Free Tier phổ biến và giải đáp kỹ thuật chung. Hạn chót nộp sản phẩm: 23/11.',
+    desc: 'Các đội tập trung phát triển giải pháp phần mềm Web MVP ứng dụng AI, chủ động lựa chọn công nghệ và công cụ phù hợp. BTC tổ chức các buổi Seminar/Workshop chuyên môn và giải đáp kỹ thuật chung. Hạn chót nộp sản phẩm: 23/11.',
     keyAction: 'Xây dựng sản phẩm Web MVP chạy được, nộp mã nguồn và video demo chức năng.',
   },
   {

@@ -37,9 +37,9 @@ export const faqContent: FaqData = {
     {
       id: 'faq-stu-5',
       category: 'student',
-      question: 'Chi phí sử dụng API AI có tốn kém không và có được miễn phí không?',
+      question: 'Đội thi được sử dụng những công cụ, ngôn ngữ và nền tảng nào?',
       answer:
-        'Sinh viên tự do lựa chọn công cụ AI phù hợp. BTC sẽ hướng dẫn cách tận dụng các gói Free Tier phổ biến (Google Gemini API, Groq, open-source models). BTC không cam kết tất cả API trên thị trường đều miễn phí, nhưng bạn hoàn toàn có thể hoàn thành sản phẩm MVP tốt mà không tốn chi phí API.',
+        'Sinh viên hoàn toàn tự do lựa chọn ngôn ngữ lập trình, framework, công cụ phát triển và AI Coding Agents phù hợp với khả năng của đội (như React, Next.js, Node.js, Python, Antigravity, Cursor, Gemini API...). Cuộc thi không áp đặt hay giới hạn công nghệ.',
     },
     {
       id: 'faq-stu-6',

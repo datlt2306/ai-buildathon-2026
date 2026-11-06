@@ -25,7 +25,7 @@ export const heroData = {
   stats: [
     { label: 'Thời gian thi đấu', value: '03 tuần' },
     { label: 'Quy mô mỗi đội', value: 'Khoảng 3 bạn' },
-    { label: 'Chi phí tham gia', value: 'Miễn phí 100%' },
+    { label: 'Công nghệ & công cụ', value: 'Sinh viên tự chọn' },
     { label: 'Yêu cầu sản phẩm', value: 'MVP chạy thử nghiệm' },
   ],
 };
@@ -45,9 +45,9 @@ export const interactiveChallenges: ChallengeMockup[] = [
     ],
     interactiveDemo: {
       type: 'chat',
-      model: 'Gemini 2.0 Flash (Free Tier)',
+      model: 'Gemini 2.0 Flash',
       latency: '220 ms',
-      cost: '0 VNĐ (Free Tier)',
+      cost: 'Tối ưu tài nguyên',
       previewTitle: 'Luồng hỏi đáp chính sách nhân sự',
       previewContent: 'Nhân viên hỏi: "Mình là nhân viên thử việc tháng thứ 2 thì có được hưởng ngày phép năm không và thủ tục xin nghỉ thế nào?"',
       outputSample: 'Trợ lý HR: "Chào bạn, theo Điều 14 Sổ tay nhân viên:\n• Nhân viên trong thời gian thử việc chưa được tính phép năm có hưởng lương.\n• Bạn có thể xin nghỉ không lương (tối đa 2 ngày/tháng) bằng cách nộp đơn trên cổng nội bộ trước 24h và được Quản lý trực tiếp duyệt.\nBạn có cần mình mở mẫu đơn xin nghỉ không lương không?"',
@@ -69,7 +69,7 @@ export const interactiveChallenges: ChallengeMockup[] = [
       type: 'doc',
       model: 'Gemini 2.0 Flash Vision',
       latency: '280 ms',
-      cost: 'Free tier quota',
+      cost: 'Tối ưu tài nguyên',
       previewTitle: 'Trích xuất hồ sơ ứng viên mẫu',
       previewContent: 'Tập tin tải lên: "CV_NguyenVanA.pdf" + "CCCD_mat_truoc.jpg"',
       outputSample: '{\n  "ho_va_ten": "Nguyễn Văn A",\n  "ngay_sinh": "2003-05-18",\n  "so_cccd": "001203012345",\n  "vi_tri_ung_tuyen": "Lập trình viên Frontend",\n  "ky_nang_chinh": ["React", "JavaScript", "Tailwind CSS"],\n  "so_dien_thoai": "0912345678"\n}\n-> Đã cập nhật vào bảng dữ liệu nhân sự thành công!',
@@ -91,7 +91,7 @@ export const interactiveChallenges: ChallengeMockup[] = [
       type: 'analytics',
       model: 'LLM Automation',
       latency: '350 ms',
-      cost: 'Free tier',
+      cost: 'Tối ưu tài nguyên',
       previewTitle: 'Cảnh báo hạn hợp đồng lao động',
       previewContent: 'Dữ liệu: "Hợp đồng thử việc NV Trần Thị B - Hết hạn: 25/11/2026 - Quản lý: Lê Văn C"',
       outputSample: '[CẢNH BÁO ĐẾN HẠN] Còn 15 ngày là hết hạn thử việc của NV Trần Thị B.\n[Bản thảo email gửi Quản lý Lê Văn C]:\n"Chào anh C, hợp đồng thử việc của bạn Trần Thị B sẽ kết thúc vào ngày 25/11/2026. Anh vui lòng hoàn thiện phiếu đánh giá thử việc trước ngày 18/11 để phòng HR chuẩn bị thủ tục ký HĐLĐ chính thức."',
@@ -117,7 +117,7 @@ export const stakeholdersData = [
     points: [
       'Xây dựng sản phẩm MVP thực tế để đưa vào Portfolio cá nhân',
       'Được cố vấn chuyên môn & tham gia các buổi giải đáp kỹ thuật chung',
-      'Tự do chọn công nghệ, BTC hướng dẫn tận dụng các gói Free Tier',
+      'Tự do lựa chọn công nghệ, công cụ và AI Coding Agents',
     ],
     featured: true,
   },
@@ -205,8 +205,8 @@ export const buildWithAiPrinciples = [
     desc: 'Sử dụng các mô hình sẵn có (Gemini, OpenAI, Claude, Groq, DeepSeek). Không yêu cầu tự huấn luyện mô hình từ đầu.',
   },
   {
-    title: 'Ưu tiên tài nguyên miễn phí',
-    desc: 'Tận dụng các gói Free Tier của cloud và mô hình mã nguồn mở để tối ưu chi phí phát triển.',
+    title: 'Tự chủ công nghệ & công cụ',
+    desc: 'Đội thi chủ động lựa chọn nền tảng, công cụ phát triển và AI Agents phù hợp nhất với giải pháp của mình.',
   },
   {
     title: 'Sản phẩm có giao diện thực',
@@ -239,8 +239,8 @@ export const studentFaqs = [
     a: 'Mentor sẽ đồng hành cùng các đội thông qua các buổi Workshop hướng dẫn chung và các phiên Q&A giải đáp kỹ thuật theo nhóm, không phải hình thức kèm cặp 1-1.',
   },
   {
-    q: 'Chi phí sử dụng API AI có tốn kém không?',
-    a: 'Sinh viên tự do lựa chọn công cụ AI. BTC sẽ hướng dẫn cách tận dụng các gói Free Tier phổ biến (Gemini API, Groq, open-source). BTC không cam kết tất cả API đều miễn phí, nhưng hoàn toàn có thể xây dựng MVP hiệu quả bằng các gói miễn phí.',
+    q: 'Sinh viên được sử dụng những công nghệ và công cụ nào?',
+    a: 'Sinh viên hoàn toàn tự do lựa chọn ngôn ngữ, framework, công cụ phát triển và AI Coding Agents phù hợp với khả năng của đội (React, Next.js, Python, Node.js, Cursor, Antigravity...). Cuộc thi không áp đặt hay giới hạn công nghệ.',
   },
   {
     q: 'Chứng nhận tham gia được cấp như thế nào?',

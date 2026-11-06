@@ -14,7 +14,7 @@ export const siteConfig = {
     durationWeeks: 3,
     location: 'Hội trường Đổi Mới Sáng Tạo & Nền tảng Trực tuyến',
     format: 'Hybrid (Trực tiếp & Trực tuyến)',
-    fee: '100% Miễn phí cho sinh viên',
+    fee: 'Chủ động lựa chọn công cụ & công nghệ',
     status: 'Đang mở cổng tiếp nhận đăng ký',
   },
   contact: {
@@ -64,7 +64,7 @@ export const heroContent: HeroData = {
     { label: 'Hành trình', value: '03 Tuần', description: 'Tăng tốc phát triển MVP' },
     { label: 'Nguồn bài toán', value: '100%', description: 'Đề bài từ doanh nghiệp thực tế' },
     { label: 'Cố vấn chuyên môn', value: '1 : 1', description: 'Đồng hành cùng Tech Lead' },
-    { label: 'Chi phí tham gia', value: '0 VNĐ', description: 'Hoàn toàn miễn phí sinh viên' },
+    { label: 'Công nghệ & Công cụ', value: 'Tự chọn', description: 'Sinh viên tự do lựa chọn' },
   ],
 };
 

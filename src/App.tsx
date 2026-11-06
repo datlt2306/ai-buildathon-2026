@@ -91,8 +91,8 @@ export const App: React.FC = () => {
       a: 'Mentor sẽ hỗ trợ nhiều đội theo các buổi chung (Workshop kỹ thuật, Group Mentoring, Office Hours) để giải thích nghiệp vụ, làm rõ Pain Point, hỗ trợ thu hẹp phạm vi MVP, góp ý hướng giải pháp, trao đổi về kỹ thuật và kiến trúc. Cuộc thi không áp dụng hình thức mentor kèm 1-1.',
     },
     {
-      q: '7. Chi phí công cụ và API AI do ai chi trả, có được miễn phí không?',
-      a: 'Sinh viên tự do lựa chọn công nghệ và AI Coding Agents phù hợp. BTC sẽ có các buổi hướng dẫn cách tận dụng tối đa các gói Free Tier phổ biến (Gemini API, Groq, open-source models). BTC không cam kết tất cả công cụ, API hoặc dịch vụ trên thị trường đều miễn phí, nhưng hoàn toàn có thể hoàn thành sản phẩm MVP hiệu quả bằng các gói miễn phí này.',
+      q: '7. Đội thi được sử dụng những công cụ, ngôn ngữ và nền tảng nào?',
+      a: 'Sinh viên hoàn toàn tự do lựa chọn ngôn ngữ lập trình, framework, công cụ phát triển và AI Coding Agents phù hợp với sở trường của nhóm (như React, Next.js, Node.js, Python, Antigravity, Cursor, Gemini API...). Cuộc thi không áp đặt hay giới hạn công nghệ.',
     },
     {
       q: '8. Yêu cầu sản phẩm cuối cùng và điều kiện cấp chứng nhận như thế nào?',
@@ -172,11 +172,11 @@ export const App: React.FC = () => {
               </div>
 
               <h1 id="hero-head" className="tracking-tight text-white">
-                Có AI, có ý tưởng. Ngại gì mà không làm sản phẩm thật!
+                Dùng AI, giải bài toán nhân sự thực tế!
               </h1>
 
               <p className="lead">
-                Cùng đồng đội vận dụng AI và các công cụ lập trình thông minh để phát triển Website / Ứng dụng Web giải quyết bài toán thực tế trong quản lý hành chính nhân sự, từ ý tưởng đến sản phẩm chạy được trong 3 tuần.
+                Cùng đồng đội xây dựng Website/Web App giải quyết các vấn đề trong quản lý hành chính nhân sự. Sử dụng AI hỗ trợ lập trình và phát triển sản phẩm trong 3 tuần.
               </p>
 
               <div className="actions">
@@ -188,7 +188,7 @@ export const App: React.FC = () => {
                 </a>
               </div>
 
-              <p className="hero__fine">3 tuần thực chiến · Khoảng 3 bạn/đội · Doanh nghiệp đồng hành</p>
+              <p className="hero__fine">3 tuần thực chiến · Khoảng 3 bạn/đội · Doanh nghiệp đồng hành · Tự do chọn công nghệ</p>
             </AnimatedContent>
 
             <HeroLanyardPass />
@@ -495,18 +495,6 @@ export const App: React.FC = () => {
               </div>
             </div>
 
-            {/* Disclaimer & Confirmation Note */}
-            <div className="p-4 rounded-xl bg-paper border border-rule-2 mt-6 flex flex-col sm:flex-row items-center justify-between gap-3 text-xs text-muted text-center sm:text-left">
-              <div className="flex items-center gap-2">
-                <span className="text-amber-400 text-sm">📌</span>
-                <span>
-                  <strong className="text-white">* Lưu ý:</strong> Giá trị giải thưởng Giải Ba đang cần BTC xác nhận chính thức.
-                </span>
-              </div>
-              <div className="text-[11px] text-ink/70">
-                Tổng cộng 08 giải thưởng trao cho Top 8 đội xuất sắc nhất tại Vòng 2 (Final Pitch)
-              </div>
-            </div>
           </AnimatedContent>
         </section>
 

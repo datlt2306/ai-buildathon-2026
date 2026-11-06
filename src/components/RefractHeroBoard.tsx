@@ -60,9 +60,9 @@ export const RefractHeroBoard: React.FC = () => {
 
       <div className="today__foot">
         <div>
-          <span className="text-xs text-muted block">Lệ phí tham gia</span>
-          <span className="text-xl font-display font-medium text-ink">
-            0đ <small className="text-xs text-accent font-normal">Miễn phí 100%</small>
+          <span className="text-xs text-muted block">Công cụ & Công nghệ</span>
+          <span className="text-base font-display font-medium text-ink">
+            Sinh viên tự chọn
           </span>
         </div>
         <a className="btn btn--sm" href="#register">

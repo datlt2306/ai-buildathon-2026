@@ -79,14 +79,14 @@ export const CompetitionMixer: React.FC = () => {
           <span className="ch__name">Bạn / đội</span>
         </div>
 
-        {/* Channel 3: Chi phí tham gia */}
+        {/* Channel 3: Công cụ & Công nghệ */}
         <div className="ch" data-ch="free" style={{ '--level': faderLevels.free } as React.CSSProperties}>
-          <span className="ch__value">0đ</span>
+          <span className="ch__value">Tự do</span>
           <div
             className="ch__fader"
             role="slider"
             tabIndex={0}
-            aria-label="Lệ phí tham gia"
+            aria-label="Công nghệ & Công cụ"
             aria-valuemin={0}
             aria-valuemax={100}
             aria-valuenow={0}
@@ -101,7 +101,7 @@ export const CompetitionMixer: React.FC = () => {
             </span>
             <span className="ch__cap" />
           </div>
-          <span className="ch__name">Miễn phí 100%</span>
+          <span className="ch__name">Sinh viên tự chọn</span>
         </div>
       </div>
 
