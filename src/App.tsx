@@ -793,72 +793,12 @@ export const App: React.FC = () => {
 
         {/* ========================================================================= */}
         {/* SECTION 10: CÂU HỎI THƯỜNG GẶP (FAQ)                                     */}
-        {/* ========================================================================= */}
-        <section className="sec container max-w-4xl" id="faq">
-          <AnimatedContent distance={30} duration={0.7} threshold={0.15}>
-            <div className="sec__head mx-auto text-center">
-              <h2>
-                <FoldText
-                  text="Những thắc mắc thường gặp về cuộc thi"
-                  foldStyle="paper"
-                  splitBy="word"
-                  hinge="top"
-                  trigger="scroll"
-                  foldAngle={90}
-                  duration={0.65}
-                  stagger={0.05}
-                  ease="power3.out"
-                  hoverRefold={true}
-                  refoldRadius={120}
-                  refoldAngle={35}
-                  perspective={700}
-                  creaseShading={0.4}
-                  fontSize="inherit"
-                  fontWeight="inherit"
-                  color="inherit"
-                />
-              </h2>
-              <p className="lead">
-                Giải đáp chi tiết các thông tin về cuộc thi, đề tài và quy định hỗ trợ dành cho sinh viên FPT Polytechnic.
-              </p>
-            </div>
-          </AnimatedContent>
-
-          <AnimatedContent distance={30} duration={0.6} stagger={0.05} threshold={0.1}>
-            <div className="space-y-3 mt-12">
-              {faqs.map((faq, idx) => {
-                const isOpen = openFaqIndex === idx;
-                return (
-                  <div key={idx} className="panel overflow-hidden">
-                    <button
-                      type="button"
-                      onClick={() => setOpenFaqIndex(isOpen ? null : idx)}
-                      className="w-full p-5 text-left flex items-center justify-between gap-4 text-ink hover:text-accent transition-colors"
-                    >
-                      <span className="text-base font-medium">{faq.q}</span>
-                      <ChevronDown
-                        className={`w-4 h-4 text-muted flex-shrink-0 transition-transform duration-200 ${
-                          isOpen ? 'rotate-180 text-accent' : ''
-                        }`}
-                      />
-                    </button>
-                    {isOpen && (
-                      <div className="px-5 pb-5 text-xs text-muted leading-relaxed border-t border-rule pt-3 bg-paper-2">
-                        {faq.a}
-                      </div>
-                    )}
-                  </div>
-                );
-              })}
-            </div>
-          </AnimatedContent>
-        </section>
       </main>
 
       {/* ========================================================================= */}
       {/* FOOTER                                                                    */}
       {/* ========================================================================= */}
-      <footer className="footer relative overflow-hidden mt-20">
+      <footer className="footer relative overflow-hidden">
         <LaserFlow
           surfaceRef={footerContactRef}
           color="#8261f6"
