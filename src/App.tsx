@@ -398,7 +398,7 @@ export const App: React.FC = () => {
                     <div className="my-6">
                       <span className="text-xs text-muted block mb-1">Giá trị giải thưởng</span>
                       <div className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-mono">
-                        7.00.000<span className="text-lg text-muted font-sans font-medium">VNĐ</span>
+                        700.000<span className="text-lg text-muted font-sans font-medium">VNĐ</span>
                       </div>
                     </div>
 
