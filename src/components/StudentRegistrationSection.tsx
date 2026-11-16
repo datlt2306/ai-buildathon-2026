@@ -11,20 +11,18 @@ import {
   User,
   Calendar,
   Sparkles,
-  UserCheck,
 } from 'lucide-react';
 import { syncStudentRegistrationToGoogleSheets } from '../services/googleSheetsService';
 import { MENTORS_LIST } from '../constants/mentors';
 
 export const StudentRegistrationSection: React.FC = () => {
-  // Registration Type: 'team' (Đội thi 3-4 bạn) or 'individual' (Cá nhân / Thí sinh tự do)
+  // Registration Type: 'team' (Đội thi 3-4 bạn) or 'individual' (Cá nhân / Solo Builder)
   const [registrationType, setRegistrationType] = useState<'team' | 'individual'>('team');
 
   // Team info
   const [teamName, setTeamName] = useState('');
   const [teamSize, setTeamSize] = useState<'3' | '4'>('3');
   const [mentor, setMentor] = useState('');
-  const [matchingPreference, setMatchingPreference] = useState<'need-team' | 'solo'>('need-team');
 
   // Candidate / Leader info
   const [fullName, setFullName] = useState('');
@@ -93,7 +91,7 @@ export const StudentRegistrationSection: React.FC = () => {
 
     // Determine final values
     const finalTeamName = isIndividual
-      ? (teamName.trim() || `Thí sinh tự do - ${fullName.trim() || 'Sinh viên'}`)
+      ? (teamName.trim() || `Cá nhân - ${fullName.trim() || 'Sinh viên'}`)
       : teamName.trim();
     const finalMentor = isIndividual
       ? (mentor.trim() || 'BTC hỗ trợ điều phối Mentor')
@@ -172,7 +170,7 @@ export const StudentRegistrationSection: React.FC = () => {
           Đăng ký tham gia AI Buildathon 2026
         </h2>
         <p className="mt-2 text-sm text-muted leading-relaxed">
-          Đăng ký theo <strong>Đội thi (3–4 sinh viên)</strong> hoặc <strong>Cá nhân</strong> (BTC hỗ trợ kết nối đồng đội tại phiên Team Matching). Cùng tham gia phát triển sản phẩm ứng dụng AI giải quyết bài toán hành chính nhân sự thực tế!
+          Đăng ký tham gia theo <strong>Cá nhân (Solo Builder)</strong> hoặc <strong>Đội thi (3–4 sinh viên)</strong>. Tự do lựa chọn hình thức phù hợp để phát triển sản phẩm ứng dụng AI giải quyết bài toán hành chính nhân sự thực tế!
         </p>
 
         {/* 3 Quick Facts Grid */}
@@ -213,7 +211,7 @@ export const StudentRegistrationSection: React.FC = () => {
             <p className="text-sm text-muted max-w-lg mx-auto leading-relaxed">
               {isIndividual ? (
                 <>
-                  Chúc mừng bạn <strong className="text-accent">{fullName}</strong> (MSSV: <span className="font-mono text-white">{studentId}</span>) đã hoàn tất đăng ký tham gia <strong className="text-ink">AI Buildathon 2026</strong>. Ban tổ chức đã gửi thông tin xác nhận và lịch phiên kết nối ghép đội (Team Matching) đến email <strong className="text-ink">{email}</strong>.
+                  Chúc mừng bạn <strong className="text-accent">{fullName}</strong> (MSSV: <span className="font-mono text-white">{studentId}</span>) đã hoàn tất đăng ký tham gia <strong className="text-ink">AI Buildathon 2026</strong> với tư cách cá nhân (Solo Builder). Ban tổ chức đã gửi thông tin xác nhận và tài liệu hướng dẫn thi đấu đến email <strong className="text-ink">{email}</strong>.
                 </>
               ) : (
                 <>
@@ -227,7 +225,7 @@ export const StudentRegistrationSection: React.FC = () => {
               <div className="flex items-center justify-between pb-2 border-b border-rule/50">
                 <span className="text-muted font-medium">Hình thức đăng ký:</span>
                 <span className="text-accent font-semibold">
-                  {isIndividual ? 'Cá nhân (Thí sinh tự do)' : `Đội thi (${teamSize} thành viên)`}
+                  {isIndividual ? 'Cá nhân (Solo Builder)' : `Đội thi (${teamSize} thành viên)`}
                 </span>
               </div>
               <div className="flex items-center justify-between pb-2 border-b border-rule/50">
@@ -247,12 +245,6 @@ export const StudentRegistrationSection: React.FC = () => {
                   <div className="text-muted flex items-center justify-between text-[11px] pt-1">
                     <span>Lớp &amp; Kỳ:</span>
                     <span className="text-ink font-medium">{majorClass}</span>
-                  </div>
-                  <div className="text-muted flex items-center justify-between text-[11px]">
-                    <span>Nguyện vọng:</span>
-                    <span className="text-accent font-medium">
-                      {matchingPreference === 'need-team' ? 'Tham gia ghép đội tại Team Matching' : 'Thi đấu độc lập / Tự tìm đội'}
-                    </span>
                   </div>
                 </>
               ) : (
@@ -318,7 +310,7 @@ export const StudentRegistrationSection: React.FC = () => {
                 }`}
               >
                 <Users className="w-4 h-4" />
-                <span>Đăng ký theo Đội thi</span>
+                <span>Đăng ký Đội thi</span>
                 <span className="hidden sm:inline text-[11px] opacity-80">(3–4 bạn)</span>
               </button>
 
@@ -333,7 +325,7 @@ export const StudentRegistrationSection: React.FC = () => {
               >
                 <User className="w-4 h-4" />
                 <span>Đăng ký Cá nhân</span>
-                <span className="hidden sm:inline text-[11px] opacity-80">(Ghép đội)</span>
+                <span className="hidden sm:inline text-[11px] opacity-80">(Solo Builder)</span>
               </button>
             </div>
 
@@ -343,11 +335,11 @@ export const StudentRegistrationSection: React.FC = () => {
                 <div className="flex items-center gap-2">
                   <span className="w-6 h-6 rounded-md bg-accent/20 border border-accent/30 text-accent flex items-center justify-center text-xs font-bold">1</span>
                   <span className="text-sm font-bold text-ink">
-                    {isIndividual ? 'Hình thức & Nguyện vọng tham gia' : 'Thông tin đội thi'}
+                    {isIndividual ? 'Thông tin đăng ký cá nhân' : 'Thông tin đội thi'}
                   </span>
                 </div>
                 <span className="text-xs text-muted">
-                  {isIndividual ? 'Thí sinh tự do' : 'Bắt buộc'}
+                  {isIndividual ? 'Cá nhân (1 bạn)' : 'Bắt buộc'}
                 </span>
               </div>
 
@@ -415,42 +407,22 @@ export const StudentRegistrationSection: React.FC = () => {
                 </>
               ) : (
                 // INDIVIDUAL MODE FIELDS
-                <>
-                  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                    <div>
-                      <label htmlFor="soloTeamName" className="block text-xs font-medium text-muted mb-1.5">
-                        Tên đội thi hoặc Biệt danh (Tùy chọn)
-                      </label>
-                      <input
-                        id="soloTeamName"
-                        type="text"
-                        placeholder="Ví dụ: Poly Solo Builder, AI Coder..."
-                        value={teamName}
-                        onChange={(e) => setTeamName(e.target.value)}
-                        className="w-full h-11 px-3.5 rounded-xl bg-paper border border-rule text-sm text-ink placeholder:text-muted/40 outline-none focus:border-accent"
-                      />
-                      <p className="mt-1 text-[11px] text-muted">
-                        Để trống: hệ thống sẽ đặt là &ldquo;Thí sinh tự do - [Họ tên bạn]&rdquo;.
-                      </p>
-                    </div>
-
-                    <div>
-                      <label htmlFor="matchingPref" className="block text-xs font-medium text-muted mb-1.5">
-                        Nguyện vọng kết nối đồng đội
-                      </label>
-                      <select
-                        id="matchingPref"
-                        value={matchingPreference}
-                        onChange={(e) => setMatchingPreference(e.target.value as 'need-team' | 'solo')}
-                        className="w-full h-11 px-3.5 rounded-xl bg-paper border border-rule text-sm text-ink outline-none focus:border-accent"
-                      >
-                        <option value="need-team">Muốn BTC hỗ trợ ghép đội (Team Matching)</option>
-                        <option value="solo">Tự tìm đồng đội sau / Thử sức độc lập</option>
-                      </select>
-                      <p className="mt-1 text-[11px] text-accent">
-                        Khuyến nghị: Tham gia Team Matching để ghép nhóm 3–4 bạn.
-                      </p>
-                    </div>
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                  <div>
+                    <label htmlFor="soloTeamName" className="block text-xs font-medium text-muted mb-1.5">
+                      Tên dự án hoặc Biệt danh thi đấu (Tùy chọn)
+                    </label>
+                    <input
+                      id="soloTeamName"
+                      type="text"
+                      placeholder="Ví dụ: AI HR Assistant, Solo Builder..."
+                      value={teamName}
+                      onChange={(e) => setTeamName(e.target.value)}
+                      className="w-full h-11 px-3.5 rounded-xl bg-paper border border-rule text-sm text-ink placeholder:text-muted/40 outline-none focus:border-accent"
+                    />
+                    <p className="mt-1 text-[11px] text-muted">
+                      Để trống: hệ thống sẽ đặt là &ldquo;Cá nhân - [Họ tên bạn]&rdquo;.
+                    </p>
                   </div>
 
                   <div>
@@ -464,7 +436,7 @@ export const StudentRegistrationSection: React.FC = () => {
                       id="soloMentor"
                       value={mentor}
                       onChange={(e) => setMentor(e.target.value)}
-                      className="w-full h-11 px-3.5 rounded-xl bg-paper border text-sm text-ink outline-none focus:border-accent"
+                      className="w-full h-11 px-3.5 rounded-xl bg-paper border border-rule text-sm text-ink outline-none focus:border-accent"
                     >
                       <option value="">-- Để BTC hỗ trợ điều phối Mentor phù hợp (Mặc định) --</option>
                       {MENTORS_LIST.map((m) => (
@@ -473,8 +445,11 @@ export const StudentRegistrationSection: React.FC = () => {
                         </option>
                       ))}
                     </select>
+                    <p className="mt-1 text-[11px] text-muted">
+                      Bạn có thể chọn thầy hướng dẫn hoặc để BTC điều phối sau.
+                    </p>
                   </div>
-                </>
+                </div>
               )}
             </div>
 
@@ -582,8 +557,8 @@ export const StudentRegistrationSection: React.FC = () => {
               </div>
             </div>
 
-            {/* Section 3: Team Members or Team Matching Support */}
-            {!isIndividual ? (
+            {/* Section 3: Team Members (Only shown when registering as a team) */}
+            {!isIndividual && (
               <div className="p-5 sm:p-6 rounded-2xl bg-paper-2/60 border border-rule-2 space-y-4">
                 <div className="flex items-center justify-between pb-3 border-b border-rule">
                   <div className="flex items-center gap-2">
@@ -644,34 +619,21 @@ export const StudentRegistrationSection: React.FC = () => {
                   })}
                 </div>
               </div>
-            ) : (
-              // Individual Info Box
-              <div className="p-5 sm:p-6 rounded-2xl bg-paper-2/60 border border-rule-2 space-y-3">
-                <div className="flex items-center justify-between pb-3 border-b border-rule">
-                  <div className="flex items-center gap-2">
-                    <span className="w-6 h-6 rounded-md bg-accent/20 border border-accent/30 text-accent flex items-center justify-center text-xs font-bold">3</span>
-                    <span className="text-sm font-bold text-ink">Kết nối đồng đội (Team Matching)</span>
-                  </div>
-                  <span className="pill text-[11px] text-accent font-semibold">Tự động kết nối</span>
-                </div>
-
-                <div className="p-4 rounded-xl bg-accent/10 border border-accent/20 flex items-start gap-3">
-                  <UserCheck className="w-5 h-5 text-accent flex-shrink-0 mt-0.5" />
-                  <div className="text-xs space-y-1.5">
-                    <p className="font-semibold text-white">Bạn đang đăng ký theo hình thức Cá nhân (1 thí sinh)</p>
-                    <p className="text-muted leading-relaxed">
-                      Bạn không cần điền thêm thành viên. Sau khi tiếp nhận thông tin, Ban tổ chức sẽ mời bạn tham gia <strong>Phiên kết nối ghép đội (Team Matching)</strong> trước Sprint 1 để bạn có thể lập nhóm cùng các bạn có kỹ năng bổ trợ (Lập trình, AI Coding, UI/UX hoặc Thuyết trình).
-                    </p>
-                  </div>
-                </div>
-              </div>
             )}
 
             {/* Friendly Motivation Note */}
             <div className="p-3.5 rounded-xl bg-paper-2 border border-rule-2 flex items-start gap-2.5 text-xs text-muted">
               <span className="text-base flex-shrink-0" aria-hidden="true">💡</span>
               <p className="leading-relaxed">
-                <strong className="text-white">Chủ động công cụ &amp; công nghệ:</strong> Sinh viên hoàn toàn tự do lựa chọn ngôn ngữ lập trình, framework, công cụ phát triển và AI Coding Agents phù hợp với sở trường để xây dựng sản phẩm.
+                {isIndividual ? (
+                  <>
+                    <strong className="text-white">Thi đấu Cá nhân (Solo Builder):</strong> Bạn hoàn toàn tự do lựa chọn đề bài, quyết định kiến trúc và khai thác các công cụ AI Coding Agents (Antigravity, Cursor, Gemini...) để độc lập phát triển sản phẩm MVP của riêng mình.
+                  </>
+                ) : (
+                  <>
+                    <strong className="text-white">Chủ động công cụ &amp; công nghệ:</strong> Sinh viên hoàn toàn tự do lựa chọn ngôn ngữ lập trình, framework, công cụ phát triển và AI Coding Agents phù hợp với sở trường của nhóm để xây dựng sản phẩm.
+                  </>
+                )}
               </p>
             </div>
 

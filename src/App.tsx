@@ -17,8 +17,8 @@ export const App: React.FC = () => {
   const steps = [
     {
       num: '01',
-      title: 'Làm việc cùng đồng đội hoặc cá nhân',
-      desc: 'Lập nhóm 3–4 thành viên cùng lớp hoặc đăng ký cá nhân để Ban tổ chức hỗ trợ ghép đội tại phiên Team Matching.',
+      title: 'Làm việc cá nhân hoặc theo nhóm',
+      desc: 'Tự do lựa chọn thi đấu cá nhân độc lập (Solo Builder) hoặc lập đội nhóm 3–4 thành viên để cùng phát triển sản phẩm.',
     },
     {
       num: '02',

@@ -23,9 +23,9 @@ export const faqContent: FaqData = {
     {
       id: 'faq-stu-3',
       category: 'student',
-      question: 'Quy định về việc đăng ký và quy mô đội thi như thế nào? Chưa có đội có đăng ký được không?',
+      question: 'Quy định về việc đăng ký: Có bắt buộc phải thi theo nhóm không?',
       answer:
-        'Hoàn toàn được! Cuộc thi hỗ trợ cả hình thức đăng ký theo Đội thi (3–4 sinh viên) và Đăng ký Cá nhân (thí sinh tự do). Với các bạn đăng ký cá nhân, Ban tổ chức sẽ hỗ trợ kết nối ghép đội tại phiên Team Matching trước khi bước vào chặng thi đấu chính thức.',
+        'Không bắt buộc! Bạn hoàn toàn có thể đăng ký thi đấu Cá nhân (Solo Builder) độc lập hoặc đăng ký theo Đội thi (3–4 thành viên). Dù thi đấu một mình hay theo nhóm, bạn đều được tiếp cận trọn vẹn đề bài thực tế từ doanh nghiệp, có Mentor đồng hành và quyền lợi giải thưởng bình đẳng.',
     },
     {
       id: 'faq-stu-4',
