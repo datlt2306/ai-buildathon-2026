@@ -72,6 +72,34 @@ describe('Unit: Google Sheets & Drive Excel Integration', () => {
     assert.equal(row.member4StudentId, 'PH45678');
   });
 
+  it('correctly maps individual registration (1 member) into row format', () => {
+    const individualPayload: StudentRegistrationFormValues = {
+      teamName: 'Thí sinh tự do - Nguyễn Văn An',
+      teamSize: '1',
+      mentor: 'BTC hỗ trợ điều phối Mentor',
+      fullName: 'Nguyễn Văn An',
+      studentId: 'PH12345',
+      email: 'annvph12345@fpt.edu.vn',
+      phone: '0987654321',
+      majorClass: 'WD18301 - Lập trình Web (Kỳ 4)',
+      domainInterest: 'workflow-automation',
+      members: []
+    };
+
+    const row = formatStudentRegistrationForSheet(individualPayload);
+    assert.equal(row.teamSize, '1 thành viên');
+    assert.equal(row.teamName, 'Thí sinh tự do - Nguyễn Văn An');
+    assert.equal(row.leaderName, 'Nguyễn Văn An');
+    assert.equal(row.leaderStudentId, 'PH12345');
+    assert.equal(row.member2Name, '');
+    assert.equal(row.member2StudentId, '');
+    assert.equal(row.member3Name, '');
+    assert.equal(row.member3StudentId, '');
+    assert.equal(row.member4Name, '');
+    assert.equal(row.member4StudentId, '');
+    assert.equal(row.status, 'Đã tiếp nhận');
+  });
+
   it('handles sync gracefully when webhook URL is not yet configured', async () => {
     setGoogleSheetsWebhookUrl('');
     const result = await syncStudentRegistrationToGoogleSheets(sampleStudentPayload);

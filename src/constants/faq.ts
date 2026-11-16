@@ -23,9 +23,9 @@ export const faqContent: FaqData = {
     {
       id: 'faq-stu-3',
       category: 'student',
-      question: 'Quy định về việc đăng ký và quy mô đội thi như thế nào?',
+      question: 'Quy định về việc đăng ký và quy mô đội thi như thế nào? Chưa có đội có đăng ký được không?',
       answer:
-        'Cuộc thi yêu cầu đăng ký theo đội (khuyến khích khoảng 3 sinh viên/đội). Trưởng nhóm sẽ đại diện đăng ký thông tin đội và điền danh sách các thành viên tham gia trên biểu mẫu đăng ký của website.',
+        'Hoàn toàn được! Cuộc thi hỗ trợ cả hình thức đăng ký theo Đội thi (3–4 sinh viên) và Đăng ký Cá nhân (thí sinh tự do). Với các bạn đăng ký cá nhân, Ban tổ chức sẽ hỗ trợ kết nối ghép đội tại phiên Team Matching trước khi bước vào chặng thi đấu chính thức.',
     },
     {
       id: 'faq-stu-4',

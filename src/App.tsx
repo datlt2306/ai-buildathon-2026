@@ -17,8 +17,8 @@ export const App: React.FC = () => {
   const steps = [
     {
       num: '01',
-      title: 'Làm việc cùng đồng đội',
-      desc: 'Rủ bạn bè cùng lớp lập nhóm 3 hoặc 4 thành viên để đăng ký tham gia và cùng nhau phát triển sản phẩm.',
+      title: 'Làm việc cùng đồng đội hoặc cá nhân',
+      desc: 'Lập nhóm 3–4 thành viên cùng lớp hoặc đăng ký cá nhân để Ban tổ chức hỗ trợ ghép đội tại phiên Team Matching.',
     },
     {
       num: '02',
@@ -139,7 +139,7 @@ export const App: React.FC = () => {
               </h1>
 
               <p className="lead">
-                Cùng đồng đội xây dựng Website/Web App giải quyết các vấn đề trong quản lý hành chính nhân sự. Sử dụng AI hỗ trợ lập trình và phát triển sản phẩm trong 3 tuần.
+                Cùng đồng đội hoặc đăng ký cá nhân xây dựng Website/Web App giải quyết các vấn đề trong quản lý hành chính nhân sự. Sử dụng AI hỗ trợ lập trình và phát triển sản phẩm trong 3 tuần.
               </p>
 
               <div className="actions">
@@ -151,7 +151,7 @@ export const App: React.FC = () => {
                 </a>
               </div>
 
-              <p className="hero__fine">3 tuần thực chiến · 3–4 bạn/đội · Doanh nghiệp đồng hành · Tự do chọn công nghệ</p>
+              <p className="hero__fine">3 tuần thực chiến · Cá nhân hoặc Đội thi (1–4 bạn) · Doanh nghiệp đồng hành · Tự do chọn công nghệ</p>
             </AnimatedContent>
 
             <HeroLanyardPass />
@@ -782,8 +782,8 @@ export const App: React.FC = () => {
                 <dd className="num">Kỳ 3 – 6 <span className="c">Poly HN</span></dd>
               </div>
               <div>
-                <dt>Mỗi đội thi</dt>
-                <dd className="num is-open">3 – 4 <span className="c">bạn</span></dd>
+                <dt>Quy mô tham gia</dt>
+                <dd className="num is-open">Cá nhân <span className="c">hoặc Đội 3–4</span></dd>
               </div>
               <div>
                 <dt>Vòng chung kết</dt>
