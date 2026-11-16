@@ -385,7 +385,7 @@ export const StudentRegistrationSection: React.FC = () => {
                       <label htmlFor="mentor" className="text-xs font-medium text-muted">
                         Giảng viên hướng dẫn / Mentor đồng hành *
                       </label>
-                      <span className="text-[11px] text-accent">11 Thầy đồng hành</span>
+                      <span className="text-[11px] text-accent">{MENTORS_LIST.length} Thầy đồng hành</span>
                     </div>
                     <select
                       id="mentor"
@@ -430,7 +430,7 @@ export const StudentRegistrationSection: React.FC = () => {
                       <label htmlFor="soloMentor" className="text-xs font-medium text-muted">
                         Giảng viên / Mentor mong muốn (Tùy chọn)
                       </label>
-                      <span className="text-[11px] text-accent">11 Thầy đồng hành</span>
+                      <span className="text-[11px] text-accent">{MENTORS_LIST.length} Thầy đồng hành</span>
                     </div>
                     <select
                       id="soloMentor"
