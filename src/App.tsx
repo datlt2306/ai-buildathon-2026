@@ -775,7 +775,7 @@ export const App: React.FC = () => {
             <dl className="tally">
               <div>
                 <dt>Thời gian tổ chức</dt>
-                <dd className="num">09/11 <span className="c">– 02/12</span></dd>
+                <dd className="num">09/11 <span className="c">– 03/12</span></dd>
               </div>
               <div>
                 <dt>Đối tượng sinh viên</dt>

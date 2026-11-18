@@ -20,59 +20,79 @@ export const MILESTONES: MilestoneItem[] = [
     id: 1,
     time: '09–12/11',
     shortTitle: 'Phát động & Đăng ký',
-    fullTitle: 'Phát động cuộc thi và mở cổng đăng ký',
+    fullTitle: 'Phát động cuộc thi & Mở cổng đăng ký',
     roundBadge: 'GIAI ĐOẠN KHỞI ĐỘNG',
-    desc: 'Mở cổng tiếp nhận hồ sơ đăng ký tham gia dành cho sinh viên FPT Polytechnic cơ sở Hà Nội. Trưởng nhóm đại diện đăng ký thông tin đội thi (3 hoặc 4 sinh viên/đội) trực tiếp trên landing page.',
-    keyAction: 'Trưởng nhóm hoàn tất đăng ký thông tin đội thi (3–4 bạn) trên landing page trước khi đóng cổng.',
+    desc: 'Truyền thông, tiếp nhận đăng ký cá nhân và đội nhóm.',
+    keyAction: 'Sinh viên hoàn tất đăng ký cá nhân (Solo Builder) hoặc đội nhóm (3–4 thành viên) trên website.',
   },
   {
     id: 2,
     time: '11/11',
     shortTitle: 'Kickoff cuộc thi',
-    fullTitle: 'Lễ Kickoff & Công bố đề tài nghiệp vụ',
+    fullTitle: 'Kickoff cuộc thi – Giới thiệu bài toán HRM',
     roundBadge: 'SỰ KIỆN QUAN TRỌNG',
-    desc: 'Buổi lễ phát động chính thức của AI Buildathon 2026. Doanh nghiệp đồng hành chia sẻ bối cảnh hoạt động, quy trình nghiệp vụ HR Admin và chính thức công bố các bài toán thực tế.',
-    keyAction: 'Tham gia trực tiếp / online để nắm rõ đề bài và giải đáp thắc mắc cùng Doanh nghiệp.',
+    desc: 'Giới thiệu bài toán HRM, định hướng và thể lệ.',
+    keyAction: 'Tham gia buổi Kickoff để nắm rõ bối cảnh bài toán nhân sự thực tế từ doanh nghiệp và thể lệ thi đấu.',
     isKeyMilestone: true,
   },
   {
     id: 3,
-    time: '12–23/11',
-    shortTitle: 'Vòng 1: MVP Review',
-    fullTitle: 'Vòng 1 – MVP Review và triển khai Seminar/Workshop',
-    roundBadge: 'VÒNG 1: MVP REVIEW',
-    desc: 'Các đội tập trung phát triển giải pháp phần mềm Web MVP ứng dụng AI, chủ động lựa chọn công nghệ và công cụ phù hợp. BTC tổ chức các buổi Seminar/Workshop chuyên môn và giải đáp kỹ thuật chung. Hạn chót nộp sản phẩm: 23/11.',
-    keyAction: 'Xây dựng sản phẩm Web MVP chạy được, nộp mã nguồn và video demo chức năng.',
+    time: '19/11',
+    shortTitle: 'Workshop: Idea to MVP',
+    fullTitle: 'Workshop: From Idea to MVP cùng AI Agent',
+    roundBadge: 'WORKSHOP CHUYÊN MÔN',
+    desc: 'Hỗ trợ định hình sản phẩm, phát triển với AI Agent.',
+    keyAction: 'Học hỏi phương pháp chuyển đổi ý tưởng thành MVP chạy thực tế, ứng dụng AI Coding Agents để bứt phá tốc độ phát triển.',
+    isKeyMilestone: true,
   },
   {
     id: 4,
-    time: '25/11',
-    shortTitle: 'Công bố Top 8',
-    fullTitle: 'Công bố kết quả Vòng 1 – Top 8 đội vào vòng 2',
-    roundBadge: 'KẾT QUẢ VÒNG 1',
-    desc: 'Hội đồng Ban giám khảo đánh giá sản phẩm MVP của các đội thi dựa trên tính giải quyết vấn đề thực tế và chất lượng hoàn thiện. Chính thức công bố danh sách 8 đội thi xuất sắc nhất bước vào vòng chung kết.',
-    keyAction: 'Top 8 đội sẵn sàng tiếp nhận hướng dẫn chuyên sâu cho vòng chung kết.',
+    time: '12–23/11',
+    shortTitle: 'Vòng 1: Proposal',
+    fullTitle: 'Vòng 1: Solution Proposal – Pitch Deck & Video thuyết trình',
+    roundBadge: 'VÒNG 1: NỘP BÀI THI',
+    desc: 'Các đội hoàn thiện Pitch Deck và Video thuyết trình.',
+    keyAction: 'Hoàn thiện hồ sơ giải pháp gồm Pitch Deck giới thiệu sản phẩm và Video thuyết trình demo trước hạn chót 23/11.',
     isKeyMilestone: true,
   },
   {
     id: 5,
-    time: '27–28/11',
-    shortTitle: 'Seminar/Workshop số 1',
-    fullTitle: 'Seminar/Workshop số 1 hỗ trợ Top 8',
-    roundBadge: 'VÒNG 2: CHUNG KẾT',
-    desc: 'Phiên chia sẻ và cố vấn chuyên sâu hỗ trợ Top 8 hoàn thiện tính năng sản phẩm, tối ưu trải nghiệm người dùng và rèn luyện kỹ năng thuyết trình (pitching) trước Hội đồng.',
-    keyAction: 'Hoàn thiện slide thuyết trình, kịch bản demo và trau chuốt sản phẩm thực tế.',
+    time: '24/11',
+    shortTitle: 'Đánh giá Top 8',
+    fullTitle: 'Đánh giá & Lựa chọn Top 8 đội xuất sắc',
+    roundBadge: 'HỘI ĐỒNG ĐÁNH GIÁ',
+    desc: 'Ban giám khảo/Mentor đánh giá hồ sơ dự thi.',
+    keyAction: 'Hội đồng Ban giám khảo và Mentor chấm điểm hồ sơ dự thi dựa trên tính giải quyết vấn đề và chất lượng giải pháp.',
   },
   {
     id: 6,
-    time: '30/11–02/12',
-    shortTitle: 'Vòng 2: Final Pitch',
-    fullTitle: 'Vòng 2 – Vòng chung kết & Final Pitch trao giải',
-    roundBadge: 'VÒNG 2: FINAL PITCH',
-    desc: 'Top 8 đội thi trình diễn trực tiếp sản phẩm MVP và thuyết trình bảo vệ giải pháp trước Hội đồng Ban giám khảo, Doanh nghiệp đồng hành và khán giả để tìm ra các đội đoạt giải.',
-    keyAction: 'Demo sản phẩm thực tế, trả lời phản biện và vinh danh trao giải thưởng.',
+    time: '25/11',
+    shortTitle: 'Công bố Top 8',
+    fullTitle: 'Công bố kết quả Vòng 1 – Top 8 vào Vòng 2',
+    roundBadge: 'KẾT QUẢ VÒNG 1',
+    desc: 'Thông báo các đội vào vòng phát triển sản phẩm.',
+    keyAction: 'Top 8 đội xuất sắc nhất nhận thông báo chính thức bước vào giai đoạn Mentoring phát triển sản phẩm thực tế.',
     isKeyMilestone: true,
-    notes: 'Thời gian tổ chức cụ thể sẽ được BTC thông báo chính thức sau khi xác nhận lịch hội trường.',
+  },
+  {
+    id: 7,
+    time: '26–28/11',
+    shortTitle: 'Mentoring & Dev',
+    fullTitle: 'Mentoring & Product Development – Hoàn thiện MVP',
+    roundBadge: 'GIAI ĐOẠN TĂNG TỐC',
+    desc: 'Mentor đồng hành, hỗ trợ các đội hoàn thiện MVP.',
+    keyAction: 'Làm việc cùng Mentor chuyên môn để tối ưu luồng chức năng, tinh chỉnh UI/UX và chuẩn bị kịch bản Final Pitch.',
+  },
+  {
+    id: 8,
+    time: '03/12',
+    shortTitle: 'Vòng 2: Final Pitch',
+    fullTitle: 'Vòng 2: Final Pitch – Chung kết & Trao giải',
+    roundBadge: 'VÒNG 2: CHUNG KẾT',
+    desc: 'Trình diễn sản phẩm và bảo vệ giải pháp trước Ban giám khảo.',
+    keyAction: 'Live demo sản phẩm thực tế trước Hội đồng Ban giám khảo, phản biện bảo vệ giải pháp và vinh danh trao giải thưởng.',
+    isKeyMilestone: true,
+    notes: 'Thời gian và địa điểm chi tiết sẽ được Ban tổ chức gửi thông báo trực tiếp đến Top 8.',
   },
 ];
 
@@ -96,7 +116,7 @@ export const SprintTimeline: React.FC = () => {
         <div className="flex items-center gap-2.5">
           <Calendar className="w-4 h-4 text-accent flex-shrink-0" />
           <span className="text-white font-medium">
-            Lịch trình tổ chức: <strong className="text-accent font-mono font-bold">09/11 đến 02/12</strong>
+            Lịch trình tổ chức: <strong className="text-accent font-mono font-bold">09/11 đến 03/12</strong>
           </span>
           <span className="hidden sm:inline text-muted/60">·</span>
           <span className="hidden sm:inline text-ink/70">Nhấp vào từng cột mốc để xem chi tiết hoạt động</span>
@@ -104,14 +124,14 @@ export const SprintTimeline: React.FC = () => {
 
         <div className="flex items-center gap-2">
           <span className="pill text-[11px] font-semibold text-accent border border-accent/30 bg-accent/10">
-            2 Vòng thi: MVP Review &amp; Final Pitch
+            2 Vòng thi: Solution Proposal &amp; Final Pitch
           </span>
         </div>
       </div>
 
-      {/* 2. Interactive Timeline Stepper Track (6 Nodes) */}
+      {/* 2. Interactive Timeline Stepper Track (8 Nodes) */}
       <div className="p-5 sm:p-6 rounded-2xl bg-paper border border-rule-2 overflow-x-auto">
-        <div className="min-w-[620px] sm:min-w-0">
+        <div className="min-w-[760px] lg:min-w-0">
           <div className="relative">
             {/* Background connecting progress line */}
             <div className="absolute top-4 left-6 right-6 h-0.5 bg-paper-2 rounded-full overflow-hidden pointer-events-none">
@@ -121,8 +141,8 @@ export const SprintTimeline: React.FC = () => {
               />
             </div>
 
-            {/* 6 Milestone Nodes */}
-            <div className="grid grid-cols-6 gap-2 relative z-10">
+            {/* 8 Milestone Nodes */}
+            <div className="grid grid-cols-8 gap-2 relative z-10">
               {MILESTONES.map((m) => {
                 const isSelected = activeId === m.id;
                 const isPassed = m.id < activeId;
@@ -203,7 +223,7 @@ export const SprintTimeline: React.FC = () => {
             <div className="flex flex-wrap items-center justify-between gap-3 pb-4 border-b border-rule-2">
               <div className="flex flex-wrap items-center gap-2.5">
                 <span className="font-mono text-xs font-bold text-accent px-2.5 py-1 rounded-md bg-accent/15 border border-accent/30">
-                  Cột mốc 0{current.id} / 06
+                  Cột mốc 0{current.id} / 0{MILESTONES.length}
                 </span>
                 <span className="pill text-[11px] text-muted font-mono font-semibold">
                   {current.roundBadge}
@@ -229,7 +249,7 @@ export const SprintTimeline: React.FC = () => {
                   <span className="hidden sm:inline">Trước</span>
                 </button>
                 <span className="text-xs font-mono text-muted/60">
-                  {activeId}/6
+                  {activeId}/{MILESTONES.length}
                 </span>
                 <button
                   type="button"
