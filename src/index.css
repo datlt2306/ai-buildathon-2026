@@ -206,17 +206,20 @@ h3 {
 .nav__bar {
   display: flex;
   align-items: center;
-  gap: var(--space-xl);
+  justify-content: space-between;
+  gap: clamp(12px, 1.5vw, 24px);
   height: var(--nav-height);
 }
 
 .nav nav {
   margin-left: auto;
+  margin-right: clamp(12px, 1.5vw, 24px);
 }
 
 .nav__links {
   display: flex;
-  gap: var(--space-xl);
+  align-items: center;
+  gap: clamp(12px, 1.3vw, 22px);
   margin: 0;
   padding: 0;
   list-style: none;
@@ -225,6 +228,7 @@ h3 {
 .nav__links a {
   font-size: var(--text-sm);
   font-weight: 500;
+  white-space: nowrap;
   color: var(--color-ink-2);
   text-decoration: underline;
   text-decoration-color: transparent;

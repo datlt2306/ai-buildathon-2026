@@ -75,26 +75,25 @@ export const App: React.FC = () => {
       {/* Navigation (Ribbon edge-aligned) */}
       <header className="nav">
         <div className="container nav__bar">
-          <a className="wordmark flex items-center gap-2.5" href="#top" aria-label="AI Buildathon 2026, về đầu trang">
+          <a className="wordmark flex items-center gap-2.5 flex-shrink-0" href="#top" aria-label="AI Buildathon 2026, về đầu trang">
             <span className="wordmark__ring" aria-hidden="true" />
             <div className="flex flex-col text-left">
               <span className="font-bold text-ink leading-tight text-sm">AI Buildathon 2026</span>
               <span className="text-[10px] text-accent font-semibold leading-none tracking-tight">Bộ môn CNTT - FPT Polytechnic Hà Nội</span>
             </div>
           </a>
-          <nav aria-label="Điều hướng chính">
+          <nav aria-label="Điều hướng chính" className="hidden lg:block">
             <ul className="nav__links" role="list">
-              <li><a href="#what">Cuộc thi có gì</a></li>
+              <li><a href="#what">Tổng quan</a></li>
               <li><a href="#awards">Giải thưởng</a></li>
-              <li><a href="#no-expert">Thế mạnh của bạn</a></li>
+              <li><a href="#no-expert">Thế mạnh</a></li>
               <li><a href="#vibe-coding">Vận dụng AI</a></li>
-              <li><a href="#challenges">Bạn sẽ xây gì?</a></li>
+              <li><a href="#challenges">Bài toán</a></li>
               <li><a href="#timeline">Lịch trình</a></li>
-              <li><a href="#partners">Cố vấn & Đối tác</a></li>
-              <li><a href="#submission" className="text-accent font-semibold">Nộp bài Vòng 1</a></li>
+              <li><a href="#partners">Đối tác</a></li>
             </ul>
           </nav>
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 flex-shrink-0">
             <a className="btn btn--small btn--primary whitespace-nowrap" href="#submission">
               Nộp bài Vòng 1
             </a>
