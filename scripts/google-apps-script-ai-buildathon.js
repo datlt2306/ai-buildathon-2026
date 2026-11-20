@@ -256,6 +256,13 @@ function handleStudentRegistration(ss, data) {
 function handleVerifyTeam(ss, data) {
   var regSheet = ss.getSheetByName(REGISTRATION_SHEET_NAME);
   if (!regSheet) {
+    // Tự động nhận diện sheet đầu tiên nếu tab chưa đổi tên
+    var allSheets = ss.getSheets();
+    if (allSheets.length > 0 && allSheets[0].getName() !== PHASE1_SHEET_NAME) {
+      regSheet = allSheets[0];
+    }
+  }
+  if (!regSheet) {
     return {
       status: "error",
       valid: false,
@@ -517,10 +524,15 @@ function handleSubmitPhase1(ss, data) {
 function getOrCreateRegistrationSheet(ss) {
   var sheet = ss.getSheetByName(REGISTRATION_SHEET_NAME);
   if (!sheet) {
-    sheet = ss.insertSheet(REGISTRATION_SHEET_NAME);
-    sheet.appendRow(REG_HEADERS);
+    var allSheets = ss.getSheets();
+    if (allSheets.length > 0 && allSheets[0].getName() !== PHASE1_SHEET_NAME) {
+      sheet = allSheets[0];
+    } else {
+      sheet = ss.insertSheet(REGISTRATION_SHEET_NAME);
+      sheet.appendRow(REG_HEADERS);
+      applyHeaderDesign(sheet, REG_HEADERS, REG_COLUMN_WIDTHS, "#0F172A");
+    }
   }
-  applyHeaderDesign(sheet, REG_HEADERS, REG_COLUMN_WIDTHS, "#0F172A");
   return sheet;
 }
 
