@@ -142,6 +142,7 @@ describe('Unit: Google Sheets & Drive Excel Integration', () => {
   });
 
   it('verifies team identity with verifyTeamForPhase1', async () => {
+    setGoogleSheetsWebhookUrl(''); // Test offline local fallback path
     // 1. Missing inputs -> should fail validation
     const emptyResult = await verifyTeamForPhase1('', '');
     assert.equal(emptyResult.valid, false);
