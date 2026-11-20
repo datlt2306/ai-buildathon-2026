@@ -1,7 +1,6 @@
 import React, { useRef } from 'react';
 import { HeroLanyardPass } from './components/HeroLanyardPass';
 import { ChallengeTour } from './components/ChallengeTour';
-import { StudentRegistrationSection } from './components/StudentRegistrationSection';
 import { Phase1SubmissionSection } from './components/Phase1SubmissionSection';
 import DotGrid from './components/DotGrid';
 import BorderGlow from './components/BorderGlow';
@@ -10,7 +9,7 @@ import LaserFlow from './components/LaserFlow';
 import FoldText from './components/FoldText';
 import SprintTimeline from './components/SprintTimeline';
 import OrganizersPartnersSection from './components/OrganizersPartnersSection';
-import { Mail, Code2, Palette, TrendingUp, Sparkles, Bot, Cpu, CheckCircle2, Trophy, Medal, Award, Lightbulb } from 'lucide-react';
+import { Mail, Code2, Palette, TrendingUp, Sparkles, Bot, Cpu, CheckCircle2, Trophy, Medal, Award, Lightbulb, Clock } from 'lucide-react';
 
 export const App: React.FC = () => {
   const footerContactRef = useRef<HTMLDivElement>(null);
@@ -97,9 +96,6 @@ export const App: React.FC = () => {
             <a className="btn btn--small btn--primary whitespace-nowrap" href="#submission">
               Nộp bài Vòng 1
             </a>
-            <a className="btn btn--small btn--secondary whitespace-nowrap hidden sm:inline-flex" href="#register">
-              Đăng ký
-            </a>
           </div>
         </div>
       </header>
@@ -148,13 +144,14 @@ export const App: React.FC = () => {
                 Cùng đồng đội hoặc đăng ký cá nhân xây dựng Website/Web App giải quyết các vấn đề trong quản lý hành chính nhân sự. Sử dụng AI hỗ trợ lập trình và phát triển sản phẩm trong 3 tuần.
               </p>
 
-              <div className="actions">
+              <div className="actions flex flex-wrap items-center gap-3">
                 <a href="#submission" className="btn btn--primary">
                   Nộp bài Vòng 1 (Proposal)
                 </a>
-                <a href="#register" className="btn btn--secondary">
-                  Đăng ký tham gia
-                </a>
+                <span className="inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-xs text-muted bg-paper-card border border-rule-2">
+                  <span className="w-2 h-2 rounded-full bg-amber-400" />
+                  <span>Đã đóng cổng đăng ký (12/11)</span>
+                </span>
               </div>
 
               <p className="hero__fine">3 tuần thực chiến · Cá nhân hoặc Đội thi (1–4 bạn) · Doanh nghiệp đồng hành · Tự do chọn công nghệ</p>
@@ -824,24 +821,7 @@ export const App: React.FC = () => {
         </section>
 
         {/* ========================================================================= */}
-        {/* CONTEXTUAL DIVIDER: PATHWAY BRIDGE                                        */}
-        {/* ========================================================================= */}
-        <div className="container py-8 sm:py-12 relative z-10">
-          <div className="relative flex items-center justify-center">
-            <div className="border-t border-rule-2 w-full" />
-            <div className="absolute px-5 py-2 rounded-full bg-paper border border-rule-2 text-xs text-muted flex items-center gap-2 shadow-lg shadow-black/40">
-              <span className="w-2 h-2 rounded-full bg-accent" />
-              <span className="text-white font-medium">Chưa tham gia cuộc thi?</span>
-              <span className="text-rule-2">|</span>
-              <a href="#register" className="text-accent font-semibold hover:underline">
-                Đăng ký tham gia mới bên dưới ↓
-              </a>
-            </div>
-          </div>
-        </div>
-
-        {/* ========================================================================= */}
-        {/* SECTION 9: FORM ĐĂNG KÝ TRONG CLOSE BAND                                   */}
+        {/* SECTION 9: CỔNG ĐĂNG KÝ ĐÃ ĐÓNG (REGISTRATION CLOSED)                     */}
         {/* ========================================================================= */}
         <section className="close relative overflow-hidden" id="register" aria-labelledby="reg-head">
           {/* AI Dot Matrix Overlay */}
@@ -853,9 +833,30 @@ export const App: React.FC = () => {
             }}
             aria-hidden="true"
           />
-          <div className="container pb-16 relative z-10">
+          <div className="container pb-16 pt-10 relative z-10">
             <AnimatedContent distance={35} duration={0.8} threshold={0.1}>
-              <StudentRegistrationSection />
+              <div className="panel p-8 sm:p-12 max-w-2xl mx-auto text-center space-y-4">
+                <div className="w-12 h-12 rounded-full bg-amber-500/15 border border-amber-500/30 text-amber-400 flex items-center justify-center mx-auto">
+                  <Clock className="w-6 h-6" />
+                </div>
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-semibold">
+                  <span>HẠN ĐĂNG KÝ: 09/11 – 12/11/2026</span>
+                </div>
+                <h2 id="reg-head" className="text-2xl sm:text-3xl font-display font-bold text-white">
+                  Cổng đăng ký tham gia đã khép lại
+                </h2>
+                <p className="text-sm text-muted leading-relaxed max-w-lg mx-auto">
+                  Cuộc thi AI Buildathon 2026 đã hoàn thành giai đoạn tiếp nhận đăng ký mới và hiện đang trong giai đoạn <strong className="text-white">Vòng 1: Solution Proposal (12–23/11)</strong>.
+                </p>
+                <p className="text-xs text-muted max-w-md mx-auto">
+                  Các đội thi và cá nhân đã đăng ký thành công vui lòng hoàn thiện hồ sơ Slide và Video để nộp tại Cổng nộp bài bên trên trước <strong>23:59 ngày 23/11</strong>.
+                </p>
+                <div className="pt-3">
+                  <a href="#submission" className="btn btn--primary">
+                    Đến Cổng nộp bài Vòng 1 ↑
+                  </a>
+                </div>
+              </div>
             </AnimatedContent>
           </div>
         </section>
@@ -947,7 +948,6 @@ export const App: React.FC = () => {
                   <a href="#timeline">Lộ trình</a>
                   <a href="#partners">Cố vấn & Đối tác</a>
                   <a href="#submission" className="text-accent font-semibold">Nộp bài Vòng 1</a>
-                  <a href="#register">Đăng ký</a>
                 </nav>
 
                 <p className="footer__legal text-xs text-muted m-0">

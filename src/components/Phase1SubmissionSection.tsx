@@ -233,7 +233,7 @@ export const Phase1SubmissionSection: React.FC = () => {
               <li className="flex items-start gap-2.5">
                 <span className="w-5 h-5 rounded-full bg-accent/20 text-accent flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-[10px]">1</span>
                 <div>
-                  <strong className="text-white block mb-0.5">Slide Pitch Deck (10–15 slides)</strong>
+                  <strong className="text-white block mb-0.5">Slide Pitch Deck (6–8 slides)</strong>
                   <span>Tập trung làm rõ: Vấn đề nhân sự cần giải quyết, giải pháp phần mềm, giao diện Mockup/UI, kiến trúc kỹ thuật và cách ứng dụng AI.</span>
                 </div>
               </li>
@@ -241,7 +241,7 @@ export const Phase1SubmissionSection: React.FC = () => {
               <li className="flex items-start gap-2.5">
                 <span className="w-5 h-5 rounded-full bg-sky-500/20 text-sky-400 flex items-center justify-center flex-shrink-0 mt-0.5 font-bold text-[10px]">2</span>
                 <div>
-                  <strong className="text-white block mb-0.5">Video thuyết trình &amp; Demo luồng (3–5 phút)</strong>
+                  <strong className="text-white block mb-0.5">Video thuyết trình &amp; Demo luồng (khoảng 3 phút)</strong>
                   <span>Trình bày súc tích ý tưởng nhóm và demo luồng thao tác trên sản phẩm MVP thực tế (YouTube hoặc Drive mở quyền xem).</span>
                 </div>
               </li>
@@ -256,20 +256,15 @@ export const Phase1SubmissionSection: React.FC = () => {
             </ul>
           </div>
 
-          {/* Pathway Bridge: For Unregistered Students */}
-          <div className="p-5 rounded-2xl bg-paper border border-rule-2 relative overflow-hidden flex items-center justify-between gap-4">
-            <div className="space-y-1">
-              <span className="text-[11px] font-bold text-accent uppercase tracking-wider block">Chưa có đội thi?</span>
-              <p className="text-xs text-muted">
-                Nếu bạn chưa từng đăng ký tham gia cuộc thi, hãy điền form đăng ký trước khi nộp bài.
-              </p>
+          {/* Registration Closed Notice */}
+          <div className="p-5 rounded-2xl bg-paper/60 border border-rule-2 space-y-1.5">
+            <div className="flex items-center gap-2">
+              <span className="w-2 h-2 rounded-full bg-amber-400" />
+              <span className="text-[11px] font-bold text-amber-300 uppercase tracking-wider">Cổng đăng ký tham gia đã đóng (12/11)</span>
             </div>
-            <a
-              href="#register"
-              className="btn btn--small btn--secondary flex-shrink-0 text-xs font-semibold whitespace-nowrap"
-            >
-              Đăng ký mới ↓
-            </a>
+            <p className="text-xs text-muted leading-relaxed">
+              Cuộc thi hiện đang trong thời gian nộp bài Vòng 1. Cổng này chỉ tiếp nhận hồ sơ từ các đội thi và cá nhân đã đăng ký trong danh sách chính thức.
+            </p>
           </div>
         </div>
 
@@ -526,7 +521,7 @@ export const Phase1SubmissionSection: React.FC = () => {
                       <div className="flex items-center justify-between mb-1.5">
                         <label htmlFor="pitchDeckUrl" className="text-xs font-medium text-muted flex items-center gap-1.5">
                           <FileText className="w-3.5 h-3.5 text-accent" />
-                          <span>Link Slide Pitch Deck (Thuyết trình giải pháp) *</span>
+                          <span>Link Slide Pitch Deck (6–8 slides) *</span>
                         </label>
                         <span className="text-[11px] text-accent">Slides / Canva / Drive PDF</span>
                       </div>
@@ -548,7 +543,7 @@ export const Phase1SubmissionSection: React.FC = () => {
                       <div className="flex items-center justify-between mb-1.5">
                         <label htmlFor="videoUrl" className="text-xs font-medium text-muted flex items-center gap-1.5">
                           <Video className="w-3.5 h-3.5 text-sky-400" />
-                          <span>Link Video thuyết trình &amp; Trình diễn luồng MVP (3–5 phút) *</span>
+                          <span>Link Video thuyết trình &amp; Trình diễn luồng MVP (khoảng 3 phút) *</span>
                         </label>
                         <span className="text-[11px] text-sky-400">YouTube / Drive / Loom</span>
                       </div>
