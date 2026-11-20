@@ -811,10 +811,34 @@ export const App: React.FC = () => {
         {/* SECTION 8: CỔNG NỘP BÀI VÒNG 1 (SOLUTION PROPOSAL)                         */}
         {/* ========================================================================= */}
         <section className="sec container relative overflow-hidden" id="submission">
-          <AnimatedContent distance={35} duration={0.8} threshold={0.1}>
-            <Phase1SubmissionSection />
-          </AnimatedContent>
+          {/* Ambient Spotlight Glow for Submission Portal */}
+          <div
+            className="pointer-events-none absolute -top-32 left-1/2 -translate-x-1/2 w-[760px] h-[360px] bg-gradient-to-b from-accent/15 via-sky-500/10 to-transparent rounded-full blur-[130px] z-0"
+            aria-hidden="true"
+          />
+          <div className="relative z-10">
+            <AnimatedContent distance={35} duration={0.8} threshold={0.1}>
+              <Phase1SubmissionSection />
+            </AnimatedContent>
+          </div>
         </section>
+
+        {/* ========================================================================= */}
+        {/* CONTEXTUAL DIVIDER: PATHWAY BRIDGE                                        */}
+        {/* ========================================================================= */}
+        <div className="container py-8 sm:py-12 relative z-10">
+          <div className="relative flex items-center justify-center">
+            <div className="border-t border-rule-2 w-full" />
+            <div className="absolute px-5 py-2 rounded-full bg-paper border border-rule-2 text-xs text-muted flex items-center gap-2 shadow-lg shadow-black/40">
+              <span className="w-2 h-2 rounded-full bg-accent" />
+              <span className="text-white font-medium">Chưa tham gia cuộc thi?</span>
+              <span className="text-rule-2">|</span>
+              <a href="#register" className="text-accent font-semibold hover:underline">
+                Đăng ký tham gia mới bên dưới ↓
+              </a>
+            </div>
+          </div>
+        </div>
 
         {/* ========================================================================= */}
         {/* SECTION 9: FORM ĐĂNG KÝ TRONG CLOSE BAND                                   */}
