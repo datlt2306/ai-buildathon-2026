@@ -293,31 +293,64 @@ function handleVerifyTeam(ss, data) {
   var matchedLeaderRow = null;
   var matchedMemberInfo = null;
 
+  // Tự động nhận diện cột theo tiêu đề (tránh lệch cột do cấu trúc sheet khác nhau)
+  var headerRow = values[0];
+  var colMap = {
+    regId: 2,
+    teamName: 3,
+    teamSize: 4,
+    mentor: 5,
+    leaderName: 6,
+    leaderId: 7,
+    leaderEmail: 8,
+    leaderPhone: 9,
+    majorClass: 10,
+    m2Id: 12,
+    m3Id: 14,
+    m4Id: 16
+  };
+
+  for (var c = 0; c < headerRow.length; c++) {
+    var h = String(headerRow[c] || "").toLowerCase().trim();
+    if (h.indexOf("mã đăng ký") !== -1 || h.indexOf("mã đk") !== -1) colMap.regId = c;
+    else if (h.indexOf("tên đội") !== -1) colMap.teamName = c;
+    else if (h.indexOf("số lượng") !== -1 || (h.indexOf("thành viên") !== -1 && h.indexOf("họ") === -1 && h.indexOf("mssv") === -1)) colMap.teamSize = c;
+    else if (h.indexOf("mentor") !== -1 || h.indexOf("giảng viên") !== -1) colMap.mentor = c;
+    else if ((h.indexOf("trưởng nhóm") !== -1 && (h.indexOf("họ") !== -1 || h.indexOf("tên") !== -1)) || (h.indexOf("họ và tên") !== -1 && c < 7) || (h.indexOf("họ tên") !== -1 && c < 7)) colMap.leaderName = c;
+    else if ((h.indexOf("mssv") !== -1 || h.indexOf("mã số") !== -1) && h.indexOf("2") === -1 && h.indexOf("3") === -1 && h.indexOf("4") === -1) colMap.leaderId = c;
+    else if (h.indexOf("email") !== -1 && h.indexOf("2") === -1 && h.indexOf("3") === -1 && h.indexOf("4") === -1) colMap.leaderEmail = c;
+    else if ((h.indexOf("sđt") !== -1 || h.indexOf("điện thoại") !== -1 || h.indexOf("phone") !== -1) && h.indexOf("2") === -1 && h.indexOf("3") === -1 && h.indexOf("4") === -1) colMap.leaderPhone = c;
+    else if (h.indexOf("lớp") !== -1 || h.indexOf("ngành") !== -1 || h.indexOf("kỳ") !== -1) colMap.majorClass = c;
+    else if (h.indexOf("2") !== -1 && (h.indexOf("mssv") !== -1 || h.indexOf("mã") !== -1)) colMap.m2Id = c;
+    else if (h.indexOf("3") !== -1 && (h.indexOf("mssv") !== -1 || h.indexOf("mã") !== -1)) colMap.m3Id = c;
+    else if (h.indexOf("4") !== -1 && (h.indexOf("mssv") !== -1 || h.indexOf("mã") !== -1)) colMap.m4Id = c;
+  }
+
   for (var r = 1; r < values.length; r++) {
     var row = values[r];
-    var regId = String(row[2] || "").trim();
-    var teamName = String(row[3] || "").trim();
-    var teamSizeStr = String(row[4] || "").trim();
-    var mentor = String(row[5] || "").trim();
-    var leaderName = String(row[6] || "").trim();
-    var leaderId = String(row[7] || "").trim().toUpperCase();
-    var leaderEmail = String(row[8] || "").trim().toLowerCase();
-    var leaderPhone = String(row[9] || "").trim();
-    var majorClass = String(row[10] || "").trim();
+    var regId = String(row[colMap.regId] || "").trim();
+    var teamName = String(row[colMap.teamName] || "").trim();
+    var teamSizeStr = String(row[colMap.teamSize] || "").trim();
+    var mentor = String(row[colMap.mentor] || "").trim();
+    var leaderName = String(row[colMap.leaderName] || "").trim();
+    var leaderId = String(row[colMap.leaderId] || "").trim().toUpperCase();
+    var leaderEmail = String(row[colMap.leaderEmail] || "").trim().toLowerCase();
+    var leaderPhone = String(row[colMap.leaderPhone] || "").trim();
+    var majorClass = String(row[colMap.majorClass] || "").trim();
 
-    var m2Id = String(row[12] || "").trim().toUpperCase();
-    var m3Id = String(row[14] || "").trim().toUpperCase();
-    var m4Id = String(row[16] || "").trim().toUpperCase();
+    var m2Id = String(row[colMap.m2Id] || "").trim().toUpperCase();
+    var m3Id = String(row[colMap.m3Id] || "").trim().toUpperCase();
+    var m4Id = String(row[colMap.m4Id] || "").trim().toUpperCase();
 
     // Kiểm tra nếu là Trưởng nhóm hoặc Thí sinh cá nhân
     if (leaderId === searchId) {
       if (leaderEmail === searchEmail) {
         matchedLeaderRow = {
-          registrationId: regId,
-          teamName: teamName,
-          teamSize: teamSizeStr,
-          mentor: mentor,
-          leaderName: leaderName,
+          registrationId: regId || ("AIC-STU-" + leaderId),
+          teamName: teamName || ("Đội thi " + leaderId),
+          teamSize: teamSizeStr || "1 thành viên",
+          mentor: mentor || "Chưa chỉ định",
+          leaderName: leaderName || "Trưởng nhóm",
           leaderStudentId: leaderId,
           leaderEmail: leaderEmail,
           leaderPhone: leaderPhone,
@@ -406,16 +439,12 @@ function handleVerifyTeam(ss, data) {
 }
 
 /**
- * 3. Xử lý Nộp bài Vòng 1 (Có cơ chế Upsert: Tạo mới hoặc Cập nhật đè dòng cũ)
+ * 3. Xử lý Nộp bài Vòng 1 (GHI VÀO TAB 2: Vòng 1 - Nộp bài (Proposal))
+ * Tự động tạo Sheet mới nếu chưa có, hỗ trợ cơ chế Upsert cập nhật đè
  */
 function handleSubmitPhase1(ss, data) {
   var verify = handleVerifyTeam(ss, data);
-  if (!verify.valid) {
-    return {
-      status: "error",
-      message: "Từ chối tiếp nhận bài thi: " + verify.message
-    };
-  }
+  var teamInfo = (verify && verify.valid && verify.teamData) ? verify.teamData : null;
 
   var phase1Sheet = getOrCreatePhase1Sheet(ss);
   var pValues = phase1Sheet.getDataRange().getValues();
@@ -439,13 +468,14 @@ function handleSubmitPhase1(ss, data) {
     }
   }
 
-  var teamInfo = verify.teamData;
-  var finalTeamName = data.teamName || teamInfo.teamName || "";
-  var finalLeaderName = data.leaderName || teamInfo.leaderName || "";
-  var finalPhone = data.phone || teamInfo.leaderPhone || "";
-  var finalMentor = data.mentor || teamInfo.mentor || "Chưa chỉ định";
-  var finalRegId = data.registrationId || teamInfo.registrationId || "";
-  var finalType = teamInfo.registrationType === "individual" ? "Cá nhân" : "Đội thi";
+  var finalTeamName = (teamInfo && teamInfo.teamName) || data.teamName || ("Đội thi " + searchId);
+  var finalLeaderName = (teamInfo && teamInfo.leaderName) || data.leaderName || "Trưởng nhóm";
+  var finalPhone = (teamInfo && teamInfo.leaderPhone) || data.phone || "";
+  var finalMentor = (teamInfo && teamInfo.mentor) || data.mentor || "Chưa chỉ định";
+  var finalRegId = (teamInfo && teamInfo.registrationId) || data.registrationId || ("AIC-STU-" + searchId);
+  var finalType = (teamInfo && teamInfo.registrationType === "individual") ? "Cá nhân" : "Đội thi";
+  var finalStatus = (verify && verify.valid) ? "Đã tiếp nhận" : "Đã tiếp nhận (Chờ đối soát)";
+  var finalEmail = data.email || (teamInfo && teamInfo.leaderEmail) || "";
 
   // NẾU ĐÃ NỘP RỒI -> CẬP NHẬT ĐÈ VÀO DÒNG CŨ (UPSERT)
   if (existingRowIndex > 0) {
@@ -481,7 +511,7 @@ function handleSubmitPhase1(ss, data) {
     finalType,
     finalLeaderName,
     "'" + searchId,
-    data.email || teamInfo.leaderEmail || "",
+    finalEmail,
     "'" + finalPhone,
     finalMentor,
     data.projectTitle || "",
@@ -489,7 +519,7 @@ function handleSubmitPhase1(ss, data) {
     data.videoUrl || "",
     data.summaryDescription || "",
     1,
-    "Đã tiếp nhận",
+    finalStatus,
     ""
   ];
 
