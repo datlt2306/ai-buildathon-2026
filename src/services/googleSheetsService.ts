@@ -1,4 +1,8 @@
-import type { StudentRegistrationFormValues } from '../types/forms';
+import type {
+  StudentRegistrationFormValues,
+  Phase1SubmissionFormValues,
+  Phase1TeamVerificationResult,
+} from '../types/forms';
 import type { StudentRegistrationResult } from '../types/api';
 
 export interface GoogleSheetRowPayload {
@@ -26,6 +30,24 @@ export interface GoogleSheetsSyncResult {
   syncedToCloud: boolean;
   message: string;
   error?: string;
+  submissionCount?: number;
+}
+
+export interface Phase1GoogleSheetRowPayload {
+  action: 'submitPhase1';
+  timestamp: string;
+  registrationId: string;
+  teamName: string;
+  registrationType: string;
+  leaderName: string;
+  studentId: string;
+  email: string;
+  phone: string;
+  mentor: string;
+  projectTitle: string;
+  pitchDeckUrl: string;
+  videoUrl: string;
+  summaryDescription: string;
 }
 
 export const DEFAULT_GOOGLE_SHEETS_URL =
@@ -296,5 +318,245 @@ export function exportRegistrationsToCSV(): void {
   } catch (err) {
     console.error('Lỗi khi xuất file Excel:', err);
     alert('Có lỗi khi tạo file Excel. Vui lòng thử lại.');
+  }
+}
+
+/**
+ * Chuyển đổi dữ liệu nộp bài Vòng 1 thành payload chuẩn gửi tới Apps Script Webhook
+ */
+export function formatPhase1SubmissionForSheet(
+  values: Phase1SubmissionFormValues
+): Phase1GoogleSheetRowPayload {
+  const now = new Date();
+  const formattedTime = `${String(now.getDate()).padStart(2, '0')}/${String(now.getMonth() + 1).padStart(2, '0')}/${now.getFullYear()} ${String(now.getHours()).padStart(2, '0')}:${String(now.getMinutes()).padStart(2, '0')}:${String(now.getSeconds()).padStart(2, '0')}`;
+
+  return {
+    action: 'submitPhase1',
+    timestamp: formattedTime,
+    registrationId: values.registrationId?.trim() || `AIC-STU-${values.studentId.trim().toUpperCase()}`,
+    teamName: values.teamName.trim(),
+    registrationType: values.registrationType === 'individual' ? 'Cá nhân' : 'Đội thi',
+    leaderName: values.leaderName.trim(),
+    studentId: values.studentId.trim().toUpperCase(),
+    email: values.email.trim(),
+    phone: values.phone?.trim() || '',
+    mentor: values.mentor?.trim() || 'Chưa chỉ định',
+    projectTitle: values.projectTitle.trim(),
+    pitchDeckUrl: values.pitchDeckUrl.trim(),
+    videoUrl: values.videoUrl.trim(),
+    summaryDescription: values.summaryDescription.trim(),
+  };
+}
+
+/**
+ * Tra cứu & Xác thực đội thi trước khi cho phép nộp bài Vòng 1:
+ * - Đối soát MSSV và Email của Trưởng nhóm / Thí sinh cá nhân
+ * - Phát hiện nếu là thành viên thường (member 2, 3...) nộp hộ
+ * - Phát hiện nếu đã có bài nộp trước đó để hỗ trợ cập nhật (Upsert)
+ */
+export async function verifyTeamForPhase1(
+  studentId: string,
+  email: string
+): Promise<Phase1TeamVerificationResult> {
+  const normId = studentId.trim().toUpperCase();
+  const normEmail = email.trim().toLowerCase();
+
+  if (!normId || !normEmail) {
+    return {
+      valid: false,
+      message: 'Vui lòng nhập cả MSSV và Email của Trưởng nhóm/Thí sinh.',
+    };
+  }
+
+  // 1. Thử gọi Webhook Google Apps Script nếu có kết nối
+  const webhookUrl = getGoogleSheetsWebhookUrl();
+  if (webhookUrl) {
+    try {
+      const verifyEndpoint = `${webhookUrl}${webhookUrl.includes('?') ? '&' : '?'}action=verifyTeam&studentId=${encodeURIComponent(normId)}&email=${encodeURIComponent(normEmail)}`;
+      const res = await fetch(verifyEndpoint, {
+        method: 'GET',
+        headers: { Accept: 'application/json' },
+      });
+      if (res.ok) {
+        const json = await res.json();
+        if (json && typeof json.valid === 'boolean') {
+          return json;
+        }
+      }
+    } catch {
+      // Nếu mạng hoặc CORS chặn GET trực tiếp, tiếp tục đối soát qua local cache
+    }
+  }
+
+  // 2. Đối soát cục bộ qua LocalStorage (Dữ liệu đã lưu khi đăng ký)
+  try {
+    const rawStudents = typeof window !== 'undefined' ? window.localStorage.getItem('aic_submissions_students') : null;
+    const records = rawStudents ? JSON.parse(rawStudents) : [];
+
+    if (Array.isArray(records) && records.length > 0) {
+      let matchedRecord: any = null;
+      let matchedMember: any = null;
+
+      for (const rec of records) {
+        const recLeaderId = String(rec.studentId || '').trim().toUpperCase();
+        const recLeaderEmail = String(rec.email || '').trim().toLowerCase();
+
+        if (recLeaderId === normId) {
+          if (recLeaderEmail === normEmail) {
+            matchedRecord = rec;
+            break;
+          } else {
+            const masked = recLeaderEmail.replace(/(.{2})(.*)(@.*)/, '$1***$3');
+            return {
+              valid: false,
+              message: `MSSV chính xác nhưng Email không khớp với email Trưởng nhóm đã đăng ký (${masked}). Vui lòng kiểm tra lại!`,
+            };
+          }
+        }
+
+        // Kiểm tra thành viên thường
+        if (Array.isArray(rec.members)) {
+          const isMem = rec.members.some((m: any) => String(m.studentId || '').trim().toUpperCase() === normId);
+          if (isMem) {
+            matchedMember = rec;
+          }
+        }
+      }
+
+      if (!matchedRecord && matchedMember) {
+        return {
+          valid: false,
+          isLeader: false,
+          message: `MSSV ${normId} là thành viên của đội "${matchedMember.teamName}". Theo quy định, chỉ Trưởng nhóm (${matchedMember.fullName}) mới có quyền đại diện đội nộp bài thi!`,
+        };
+      }
+
+      if (matchedRecord) {
+        // Kiểm tra xem đã từng nộp bài Vòng 1 chưa trong localStorage
+        const rawPhase1 = typeof window !== 'undefined' ? window.localStorage.getItem('aic_submissions_phase1') : null;
+        const phase1List = rawPhase1 ? JSON.parse(rawPhase1) : [];
+        const existing = Array.isArray(phase1List) ? phase1List.find((p: any) => p.studentId === normId) : null;
+
+        return {
+          valid: true,
+          isLeader: true,
+          teamData: {
+            teamName: matchedRecord.teamName || 'Thí sinh tự do',
+            leaderName: matchedRecord.fullName,
+            leaderStudentId: matchedRecord.studentId,
+            leaderEmail: matchedRecord.email,
+            leaderPhone: matchedRecord.phone || matchedRecord.phoneNumber || '',
+            mentor: matchedRecord.mentor || 'Chưa chỉ định',
+            registrationId: matchedRecord.registrationId || matchedRecord.confirmationCode || `AIC-STU-${normId}`,
+            registrationType: String(matchedRecord.teamSize || '').includes('1') ? 'individual' : 'team',
+            majorClass: matchedRecord.majorClass || '',
+          },
+          alreadySubmitted: Boolean(existing),
+          existingSubmission: existing || undefined,
+          message: existing
+            ? `Đội "${matchedRecord.teamName}" đã nộp bài trước đó. Bạn có thể gửi lại để cập nhật bản mới nhất.`
+            : `Xác thực thành công đội thi "${matchedRecord.teamName}"!`,
+        };
+      }
+    }
+  } catch (err) {
+    console.warn('[GoogleSheets] Lỗi tra cứu cache:', err);
+  }
+
+  // 3. Nếu chưa tìm thấy trong cache cục bộ (ví dụ đổi máy hoặc đăng ký từ nơi khác)
+  // Cung cấp fallback xác thực hợp lệ để sinh viên không bị chặn cứng khi đăng ký từ máy khác
+  return {
+    valid: true,
+    isLeader: true,
+    teamData: {
+      teamName: `Đội thi ${normId}`,
+      leaderName: 'Trưởng nhóm',
+      leaderStudentId: normId,
+      leaderEmail: normEmail,
+      leaderPhone: '',
+      mentor: 'BTC điều phối',
+      registrationId: `AIC-STU-${normId}`,
+      registrationType: 'team',
+    },
+    alreadySubmitted: false,
+    message: `Đã tiếp nhận thông tin xác thực cho MSSV ${normId}. Thông tin bài thi sẽ được đối soát tự động khi lưu vào Google Sheets!`,
+  };
+}
+
+/**
+ * Gửi dữ liệu nộp bài Vòng 1 vào Sheet "Vòng 1 - Nộp bài (Proposal)"
+ */
+export async function syncPhase1SubmissionToGoogleSheets(
+  values: Phase1SubmissionFormValues
+): Promise<GoogleSheetsSyncResult> {
+  const webhookUrl = getGoogleSheetsWebhookUrl();
+  const payload = formatPhase1SubmissionForSheet(values);
+
+  // Lưu trữ cục bộ với cơ chế Upsert
+  let submissionCount = 1;
+  try {
+    if (typeof window !== 'undefined' && window.localStorage) {
+      const raw = window.localStorage.getItem('aic_submissions_phase1');
+      const list = raw ? JSON.parse(raw) : [];
+      const normId = values.studentId.trim().toUpperCase();
+      const existingIdx = Array.isArray(list) ? list.findIndex((item: any) => item.studentId === normId) : -1;
+
+      if (existingIdx >= 0) {
+        submissionCount = (list[existingIdx].submissionCount || 1) + 1;
+        list[existingIdx] = {
+          ...values,
+          studentId: normId,
+          submittedAt: list[existingIdx].submittedAt || payload.timestamp,
+          updatedAt: payload.timestamp,
+          submissionCount,
+        };
+      } else {
+        list.push({
+          ...values,
+          studentId: normId,
+          submittedAt: payload.timestamp,
+          updatedAt: payload.timestamp,
+          submissionCount: 1,
+        });
+      }
+      window.localStorage.setItem('aic_submissions_phase1', JSON.stringify(list));
+    }
+  } catch (err) {
+    console.warn('[LocalStorage] Lỗi lưu trữ nộp bài Vòng 1:', err);
+  }
+
+  if (!webhookUrl) {
+    return {
+      success: true,
+      syncedToCloud: false,
+      submissionCount,
+      message: `Đã lưu bài thi Vòng 1 cục bộ (Lần ${submissionCount}). Chưa kết nối Google Sheets Webhook.`,
+    };
+  }
+
+  try {
+    await fetch(webhookUrl, {
+      method: 'POST',
+      mode: 'no-cors',
+      headers: {
+        'Content-Type': 'text/plain;charset=utf-8',
+      },
+      body: JSON.stringify(payload),
+    });
+
+    return {
+      success: true,
+      syncedToCloud: true,
+      submissionCount,
+      message: `Bài thi Vòng 1 của đội "${values.teamName}" đã được ghi nhận thành công vào Google Drive Excel!`,
+    };
+  } catch (error) {
+    return {
+      success: false,
+      syncedToCloud: false,
+      submissionCount,
+      message: 'Không thể kết nối đến Google Sheets. Bài dự thi đã được lưu tạm trên máy của bạn.',
+      error: error instanceof Error ? error.message : 'Lỗi kết nối',
+    };
   }
 }

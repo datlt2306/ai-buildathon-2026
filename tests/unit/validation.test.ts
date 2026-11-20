@@ -25,6 +25,8 @@ import {
   validateStudentForm,
   validateBusinessForm,
   validateEducationForm,
+  validateUrl,
+  validatePhase1Submission,
 } from '../../src/services/validation.ts';
 
 export {
@@ -37,6 +39,8 @@ export {
   validateStudentForm,
   validateBusinessForm,
   validateEducationForm,
+  validateUrl,
+  validatePhase1Submission,
 };
 
 describe('Unit: Form Validation Engine', () => {
@@ -230,6 +234,47 @@ describe('Unit: Form Validation Engine', () => {
       expect(invalidErrors.email).toBeDefined();
       expect(invalidErrors.phoneNumber).toBeDefined();
       expect(invalidErrors.collaborationScope).toBeDefined();
+    });
+
+    it('validates URLs correctly using validateUrl', () => {
+      expect(validateUrl('https://docs.google.com/presentation/d/123')).toBeNull();
+      expect(validateUrl('http://youtube.com/watch?v=123')).toBeNull();
+      expect(validateUrl('not-a-url')).not.toBeNull();
+      expect(validateUrl('')).not.toBeNull();
+    });
+
+    it('validates a complete Phase 1 submission payload successfully', () => {
+      const validPayload = {
+        studentId: 'PH12345',
+        email: 'annvph12345@fpt.edu.vn',
+        teamName: 'Team AI Builders',
+        leaderName: 'Nguyễn Văn An',
+        projectTitle: 'Trợ lý AI tra cứu nội quy & chính sách HR',
+        pitchDeckUrl: 'https://docs.google.com/presentation/d/sample',
+        videoUrl: 'https://youtu.be/sample123',
+        summaryDescription: 'Ứng dụng AI Gemini Flash hỗ trợ nhân viên tra cứu sổ tay nội bộ tức thì.',
+        confirmedShareAccess: true,
+      };
+      const errors = validatePhase1Submission(validPayload);
+      expect(Object.keys(errors)).toHaveLength(0);
+
+      const invalidPayload = {
+        studentId: '',
+        email: 'invalid-email',
+        projectTitle: 'abc',
+        pitchDeckUrl: 'ftp://not-http',
+        videoUrl: '',
+        summaryDescription: 'short',
+        confirmedShareAccess: false,
+      };
+      const invalidErrors = validatePhase1Submission(invalidPayload);
+      expect(invalidErrors.studentId).toBeDefined();
+      expect(invalidErrors.email).toBeDefined();
+      expect(invalidErrors.projectTitle).toBeDefined();
+      expect(invalidErrors.pitchDeckUrl).toBeDefined();
+      expect(invalidErrors.videoUrl).toBeDefined();
+      expect(invalidErrors.summaryDescription).toBeDefined();
+      expect(invalidErrors.confirmedShareAccess).toBeDefined();
     });
   });
 });

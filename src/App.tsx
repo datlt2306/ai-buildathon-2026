@@ -2,6 +2,7 @@ import React, { useRef } from 'react';
 import { HeroLanyardPass } from './components/HeroLanyardPass';
 import { ChallengeTour } from './components/ChallengeTour';
 import { StudentRegistrationSection } from './components/StudentRegistrationSection';
+import { Phase1SubmissionSection } from './components/Phase1SubmissionSection';
 import DotGrid from './components/DotGrid';
 import BorderGlow from './components/BorderGlow';
 import AnimatedContent from './components/AnimatedContent';
@@ -90,11 +91,17 @@ export const App: React.FC = () => {
               <li><a href="#challenges">Bạn sẽ xây gì?</a></li>
               <li><a href="#timeline">Lịch trình</a></li>
               <li><a href="#partners">Cố vấn & Đối tác</a></li>
+              <li><a href="#submission" className="text-accent font-semibold">Nộp bài Vòng 1</a></li>
             </ul>
           </nav>
-          <a className="btn btn--small btn--primary" href="#register">
-            Đăng ký tham gia
-          </a>
+          <div className="flex items-center gap-2">
+            <a className="btn btn--small btn--primary whitespace-nowrap" href="#submission">
+              Nộp bài Vòng 1
+            </a>
+            <a className="btn btn--small btn--secondary whitespace-nowrap hidden sm:inline-flex" href="#register">
+              Đăng ký
+            </a>
+          </div>
         </div>
       </header>
 
@@ -143,11 +150,11 @@ export const App: React.FC = () => {
               </p>
 
               <div className="actions">
-                <a href="#register" className="btn btn--primary">
-                  Đăng ký tham gia ngay
+                <a href="#submission" className="btn btn--primary">
+                  Nộp bài Vòng 1 (Proposal)
                 </a>
-                <a href="#vibe-coding" className="btn btn--secondary">
-                  Tìm hiểu cách dùng AI
+                <a href="#register" className="btn btn--secondary">
+                  Đăng ký tham gia
                 </a>
               </div>
 
@@ -802,6 +809,15 @@ export const App: React.FC = () => {
         </AnimatedContent>
 
         {/* ========================================================================= */}
+        {/* SECTION 8: CỔNG NỘP BÀI VÒNG 1 (SOLUTION PROPOSAL)                         */}
+        {/* ========================================================================= */}
+        <section className="sec container relative overflow-hidden" id="submission">
+          <AnimatedContent distance={35} duration={0.8} threshold={0.1}>
+            <Phase1SubmissionSection />
+          </AnimatedContent>
+        </section>
+
+        {/* ========================================================================= */}
         {/* SECTION 9: FORM ĐĂNG KÝ TRONG CLOSE BAND                                   */}
         {/* ========================================================================= */}
         <section className="close relative overflow-hidden" id="register" aria-labelledby="reg-head">
@@ -907,6 +923,7 @@ export const App: React.FC = () => {
                   <a href="#challenges">Bài toán HR Admin</a>
                   <a href="#timeline">Lộ trình</a>
                   <a href="#partners">Cố vấn & Đối tác</a>
+                  <a href="#submission" className="text-accent font-semibold">Nộp bài Vòng 1</a>
                   <a href="#register">Đăng ký</a>
                 </nav>
 

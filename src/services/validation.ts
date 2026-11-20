@@ -2,6 +2,7 @@ import type {
   StudentRegistrationFormValues,
   BusinessPartnershipFormValues,
   EducationPartnershipFormValues,
+  Phase1SubmissionFormValues,
   ChallengeCategory,
   BusinessPartnershipType,
 } from '../types/forms';
@@ -219,6 +220,56 @@ export function validateEducationForm(
 
   const scopeError = validateRequired(values.collaborationScope, 'Nội dung phối hợp', 10, 2000);
   if (scopeError) errors.collaborationScope = scopeError;
+
+  return errors;
+}
+
+/**
+ * Validates a web URL format (must begin with http:// or https://)
+ * @returns null if valid, or a localized error message string
+ */
+export function validateUrl(url: string | undefined | null, fieldName = 'Đường liên kết'): string | null {
+  if (!url || !url.trim()) {
+    return `Vui lòng nhập ${fieldName}.`;
+  }
+  const trimmed = url.trim();
+  const urlRegex = /^https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b(?:[-a-zA-Z0-9()@:%_+.~#?&/=]*)$/;
+  if (!urlRegex.test(trimmed)) {
+    return `${fieldName} không hợp lệ (cần bắt đầu bằng http:// hoặc https://).`;
+  }
+  return null;
+}
+
+/**
+ * Validates the Phase 1 Submission payload (Vòng 1: Solution Proposal)
+ * Returns a map of fieldName -> errorMessage. Empty object means payload is valid.
+ */
+export function validatePhase1Submission(
+  values: Partial<Phase1SubmissionFormValues>
+): Record<string, string> {
+  const errors: Record<string, string> = {};
+
+  const idError = validateRequired(values.studentId, 'Mã số sinh viên Trưởng nhóm', 4, 20);
+  if (idError) errors.studentId = idError;
+
+  const emailError = validateEmail(values.email);
+  if (emailError) errors.email = emailError;
+
+  const titleError = validateRequired(values.projectTitle, 'Tên đề tài / Vấn đề nhân sự giải quyết', 5, 200);
+  if (titleError) errors.projectTitle = titleError;
+
+  const pitchError = validateUrl(values.pitchDeckUrl, 'Đường link Slide Pitch Deck');
+  if (pitchError) errors.pitchDeckUrl = pitchError;
+
+  const videoError = validateUrl(values.videoUrl, 'Đường link Video thuyết trình');
+  if (videoError) errors.videoUrl = videoError;
+
+  const descError = validateRequired(values.summaryDescription, 'Mô tả tóm tắt giải pháp', 15, 1000);
+  if (descError) errors.summaryDescription = descError;
+
+  if (!values.confirmedShareAccess) {
+    errors.confirmedShareAccess = 'Vui lòng xác nhận bạn đã mở quyền xem công khai cho các đường link trên.';
+  }
 
   return errors;
 }

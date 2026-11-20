@@ -2,12 +2,14 @@ import test, { describe, it } from 'node:test';
 import assert from 'node:assert/strict';
 import {
   formatStudentRegistrationForSheet,
+  formatPhase1SubmissionForSheet,
   syncStudentRegistrationToGoogleSheets,
+  syncPhase1SubmissionToGoogleSheets,
   setGoogleSheetsWebhookUrl,
   getGoogleSheetsWebhookUrl,
   isGoogleSheetsConfigured
 } from '../../src/services/googleSheetsService.ts';
-import type { StudentRegistrationFormValues } from '../../src/types/forms.ts';
+import type { StudentRegistrationFormValues, Phase1SubmissionFormValues } from '../../src/types/forms.ts';
 
 describe('Unit: Google Sheets & Drive Excel Integration', () => {
   const sampleStudentPayload: StudentRegistrationFormValues = {
@@ -107,5 +109,34 @@ describe('Unit: Google Sheets & Drive Excel Integration', () => {
     assert.equal(result.syncedToCloud, false);
     assert.match(result.message, /Đã lưu đăng ký cục bộ/);
     setGoogleSheetsWebhookUrl(null as any);
+  });
+
+  it('correctly maps Phase 1 submission into Sheet payload format', () => {
+    const phase1Payload: Phase1SubmissionFormValues = {
+      studentId: 'PH12345',
+      email: 'annvph12345@fpt.edu.vn',
+      teamName: 'Team AI Builders',
+      leaderName: 'Nguyễn Văn An',
+      phone: '0987654321',
+      mentor: 'Thầy Hoàng Nhật Minh',
+      registrationType: 'team',
+      registrationId: 'AIC-STU-PH12345',
+      projectTitle: 'Trợ lý AI tra cứu nội quy & chính sách HR',
+      pitchDeckUrl: 'https://docs.google.com/presentation/d/sample',
+      videoUrl: 'https://youtu.be/sample123',
+      summaryDescription: 'Ứng dụng AI Gemini Flash hỗ trợ nhân viên tra cứu sổ tay nội bộ tức thì.',
+      confirmedShareAccess: true,
+    };
+
+    const payload = formatPhase1SubmissionForSheet(phase1Payload);
+    assert.equal(payload.action, 'submitPhase1');
+    assert.equal(payload.studentId, 'PH12345');
+    assert.equal(payload.email, 'annvph12345@fpt.edu.vn');
+    assert.equal(payload.teamName, 'Team AI Builders');
+    assert.equal(payload.registrationType, 'Đội thi');
+    assert.equal(payload.projectTitle, 'Trợ lý AI tra cứu nội quy & chính sách HR');
+    assert.equal(payload.pitchDeckUrl, 'https://docs.google.com/presentation/d/sample');
+    assert.equal(payload.videoUrl, 'https://youtu.be/sample123');
+    assert.ok(payload.timestamp.length > 0);
   });
 });

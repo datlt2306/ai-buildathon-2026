@@ -89,3 +89,48 @@ export interface FormModalState {
   activeTab: 'student' | 'business' | 'education';
   defaultTrack?: ChallengeCategory;
 }
+
+/**
+ * Form 4: Phase 1 Submission Form Values (Vòng 1: Solution Proposal)
+ */
+export interface Phase1SubmissionFormValues {
+  studentId: string;
+  email: string;
+  teamName: string;
+  leaderName: string;
+  phone?: string;
+  mentor?: string;
+  registrationType?: 'team' | 'individual';
+  registrationId?: string;
+  projectTitle: string;
+  pitchDeckUrl: string;
+  videoUrl: string;
+  summaryDescription: string;
+  confirmedShareAccess: boolean;
+}
+
+export interface Phase1TeamVerificationResult {
+  valid: boolean;
+  message: string;
+  isLeader?: boolean;
+  teamData?: {
+    teamName: string;
+    leaderName: string;
+    leaderStudentId: string;
+    leaderEmail: string;
+    leaderPhone: string;
+    mentor: string;
+    registrationId: string;
+    registrationType: 'team' | 'individual';
+    majorClass?: string;
+  };
+  alreadySubmitted?: boolean;
+  existingSubmission?: {
+    projectTitle?: string;
+    pitchDeckUrl?: string;
+    videoUrl?: string;
+    summaryDescription?: string;
+    submittedAt?: string;
+    submissionCount?: number;
+  };
+}
