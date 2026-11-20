@@ -5,6 +5,7 @@ import {
   formatPhase1SubmissionForSheet,
   syncStudentRegistrationToGoogleSheets,
   syncPhase1SubmissionToGoogleSheets,
+  verifyTeamForPhase1,
   setGoogleSheetsWebhookUrl,
   getGoogleSheetsWebhookUrl,
   isGoogleSheetsConfigured
@@ -138,5 +139,41 @@ describe('Unit: Google Sheets & Drive Excel Integration', () => {
     assert.equal(payload.pitchDeckUrl, 'https://docs.google.com/presentation/d/sample');
     assert.equal(payload.videoUrl, 'https://youtu.be/sample123');
     assert.ok(payload.timestamp.length > 0);
+  });
+
+  it('verifies team identity with verifyTeamForPhase1', async () => {
+    // 1. Missing inputs -> should fail validation
+    const emptyResult = await verifyTeamForPhase1('', '');
+    assert.equal(emptyResult.valid, false);
+
+    // 2. Valid input format -> returns team data
+    const verifyResult = await verifyTeamForPhase1('PH12345', 'annvph12345@fpt.edu.vn');
+    assert.equal(verifyResult.valid, true);
+    assert.ok(verifyResult.teamData);
+    assert.equal(verifyResult.teamData.leaderStudentId, 'PH12345');
+    assert.equal(verifyResult.teamData.leaderEmail, 'annvph12345@fpt.edu.vn');
+  });
+
+  it('submits Phase 1 proposal successfully with syncPhase1SubmissionToGoogleSheets', async () => {
+    setGoogleSheetsWebhookUrl(''); // Test local offline fallback path
+    const phase1Payload: Phase1SubmissionFormValues = {
+      studentId: 'PH99999',
+      email: 'testleader@fpt.edu.vn',
+      teamName: 'Team Test Builders',
+      leaderName: 'Trần Văn Test',
+      phone: '0912345678',
+      mentor: 'Mentor Test',
+      registrationType: 'team',
+      registrationId: 'AIC-STU-PH99999',
+      projectTitle: 'AI HRM Test Project',
+      pitchDeckUrl: 'https://docs.google.com/presentation/d/test1234/edit',
+      videoUrl: 'https://youtu.be/testvideo123',
+      summaryDescription: 'Tóm tắt giải pháp ứng dụng AI thử nghiệm.',
+      confirmedShareAccess: true,
+    };
+
+    const result = await syncPhase1SubmissionToGoogleSheets(phase1Payload);
+    assert.equal(result.success, true);
+    assert.ok(result.submissionCount >= 1);
   });
 });
